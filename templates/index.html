@@ -1,30 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-<body>
-    <nav>
+<html lang="ko">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>르탄요리</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="wrap">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">르탄요리</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Recommend</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+
+      </div>
     </nav>
 
     <main>
-        <div>
+
+      <section class="section-main" id="favorite-main">
+        <h2>BEST MENU</h2>
+
+        <div class="favorite">
+          <img class="dishes">
+          <img class="dishes">
+          <img class="dishes">
+          <img class="dishes">
 
         </div>
 
-        <div>
+      </section>
 
+      <div class="input-group mb-3" id="search-item">
+        <input type="text" class="form-control" placeholder="찾으려는 재료를 입력해 주세요!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">검색</button>
+        </div>
+      </div>
+      
+      <section class="section-main" id="select-item">
+        <div id="select-before" style="width: 50%;">
+          
+          <h3>인기있는 재료 모음</h3>
+
+          <ul>
+            <li>첫번째 재료</li>
+            <li>두번째 재료</li>
+            <li>세번째 재료</li>
+            <li>네번째 재료</li>
+
+          </ul>
+        
         </div>
 
-        <footer>
-            
-        </footer>
+        <div id="selected-item" style="width: 50%;">
+
+          <h3>선택한 재료 모음</h3>
+
+          <ul>
+            <li>첫번째 재료</li>
+            <li>두번째 재료</li>
+            <li>세번째 재료</li>
+            <li>네번째 재료</li>
+
+          </ul>
+        </div>
+      
+      </section>
+      
+      <section class="section-main" id="make-dishes">
+        <button type="button" class="btn btn-primary">요리 추천</button>
+      </section>
+      
+
     </main>
 
+    <footer class="ft">
+      <div>
+        footer test
+      </div>
+    </footer>
+  </div>
 </body>
+
 </html>
