@@ -10,6 +10,14 @@ app = Flask(__name__)
 def init():
     return render_template('index.html')
 
+@app.route('/about')
+def about_page():
+    return render_template('about.html')
+
+@app.route('/recommend')
+def recommend_page():
+    return render_template('recommend.html')
+
 #요리 레시피 요청
 
 
