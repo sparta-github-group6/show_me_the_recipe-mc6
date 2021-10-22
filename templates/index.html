@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>르탄요리</title>
+  <title>르탄아, 냉장고를 부탁해</title>
   <link rel="stylesheet" href="../static/style.css">
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -14,12 +14,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-  <!-- fontawesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <!-- font awesome -->
   <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
 
-  <script>
-
-  </script>
+  <script src="../static/main.js" defer></script>
 </head>
 
 <body>
@@ -27,18 +27,28 @@
 
     <nav class="navbar">
       <div class="navbar__logo">
-        <i class="fas fa-utensils"></i>
-        <a href="">르탄아, 냉장고를 부탁해</a>
+        <a href="/"><i class="fas fa-utensils"></i></a>
       </div>
 
       <ul class="navbar__menu">
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/recommend">Recommend</a></li>
+        <li><a href="/about">About Us</a></li>
       </ul>
     </nav>
 
-    <main>
+    <a href="#" class="navbar__toggleBtn">
+      <i class="fas fa-bars"></i>
+    </a>
+
+    <div class="img" style="height: 200px;">
+      <div class="rtan">
+        <h1 class="rtan-title">르탄아, 냉장고를 부탁해!</h1>
+      </div>
+    </div>
+
+    <hr align="center" style="border: solid 1px lightgray; width: 60%;">
+
+    <main id="woong">
 
       <section class="section-main" id="favorite-main">
         <h2>BEST MENU</h2>
@@ -55,9 +65,9 @@
 
       <div class="input-group" id="search-item">
         <input type="text" class="input" placeholder="찾으려는 재료를 입력해 주세요!">
-        <div class="input-group-append">
-          <button class="button-search" type="button" onclick="search()">검색</button>
-        </div>
+
+        <button class="button-search" type="button" onclick="search()">검색</button>
+
       </div>
 
       <section class="section-main" id="select-item">
@@ -91,15 +101,16 @@
       </section>
 
       <section class="section-main" id="make-dishes">
-        <button type="button" class="button-recommend">요리 추천</button>
+        <button type="button" class="btn-main" id="recommend_btn" onclick="location.href='recommend.html'">요리
+          추천</button>
       </section>
-
 
     </main>
 
     <footer class="ft">
       <div>
-        footer test
+        copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조) <br>
+        Thanks to 스파르타 코딩 클럽
       </div>
     </footer>
   </div>
