@@ -1,17 +1,12 @@
-import requests
+import requests, re
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-data = requests.get('https://terms.naver.com/list.naver?cid=42701&categoryId=62872&so=st4.asc', headers=headers)
 
 client = MongoClient('localhost', 27017)
 db = client.dbmaking
 
-content = soup.find("li", {"class": "contents_sub active"})
-menus = content.findAll("a", {"class": None})
-
-
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 
 for i in range(1,15): # 1~14페이지까지 반복
     link = 'https://terms.naver.com/list.naver?cid=42701&categoryId=62872&so=st1.dsc&viewType=&categoryType=&page=' + str(i)
