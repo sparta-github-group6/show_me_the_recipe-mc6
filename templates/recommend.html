@@ -5,8 +5,194 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄요리</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            listing();
+        });
+
+        function listing() {
+            $('#cards-box').empty();
+            $.ajax({
+                type: "GET",
+                url: "database",
+                data: {},
+                success: function (response) {
+                    let rows = response['recipes']
+                    for (let i = 0; i < rows.length; i++) {
+                        let image = rows[i]['image']
+                        let title = rows[i]['title']
+                        let desc = rows[i]['desc']
+                        let time = rows[i]['time']
+                        let level = rows[i]['level']
+                        let like = rows[i]['like']
+
+                        let temp_html = `
+                                         <div class="row g-0" style="width: 900px; margin-top: 50px; border: 3px solid lightgray">
+                                           <div class="col-md-4">
+                                             <img src="${image}" alt="레시피1" class="recipes-img">
+                                           </div>
+                                           <div class="col-md-8">
+                                            <div class="recipes-desc-all">
+                                              <h5 class="recipes-title">${title}</h5>
+                                              <hr>
+                                              <p class="recipes-desc">${desc}</p>
+                                              <hr>
+                                              <p class="recipes-time"><small class="text-muted">조리시간: ${time}</small></p>
+                                              <p class="recipes-level"><small class="text-muted">요리난이도: ${level}</small></p>
+                                              <p class="recipes-like"><small class="text-muted">좋아요: ${like}</small></p>
+                                            </div>
+                                           </div>`
+
+                        $('#cards-box').append(temp_html);
+                    }
+                }
+            })
+        }
+    </script>
 </head>
+
 <body>
-    
+
+<div class="wrap">
+
+     <div class="wrap">
+
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <i class="fas fa-utensils"></i>
+        <a href="">르탄아, 냉장고를 부탁해</a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/recommend">Recommend</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <section class="section-main" id="ingredients-main">
+        <h2>선택한 재료</h2>
+
+        <div class="selected-ingredients">
+          <img class="ingredients" src="" alt="재료1">
+          <img class="ingredients" src="" alt="재료2">
+          <img class="ingredients" src="" alt="재료3">
+          <img class="ingredients" src="" alt="재료4">
+
+        </div>
+
+      </section>
+
+        <div class="card-box" id="matched-dishes">
+            <div class="row g-0"
+                 style="width: 900px; margin-top: 50px; border: 3px solid lightgray">
+                <div class="col-md-4">
+                    <img src="" alt="레시피1" class="recipes-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="recipes-desc-all">
+                        <h5 class="recipes-title">첫번째레시피</h5>
+                        <hr>
+                        <p class="recipes-desc">...이렇게 만듭니다</p>
+                        <hr>
+                        <p class="recipes-time"><small class="text-muted">조리시간: </small></p>
+                        <p class="recipes-level"><small class="text-muted">요리난이도: </small></p>
+                        <p class="recipes-like"><small class="text-muted">좋아요: </small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0" style="width: 900px; margin-top: 50px; border: 3px solid lightgray">
+                <div class="col-md-4">
+                    <img src="" alt="레시피2" class="recipes-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="recipes-desc-all">
+                        <h5 class="recipes-title">두번째레시피</h5>
+                        <hr>
+                        <p class="recipes-desc">...이렇게 만듭니다</p>
+                        <hr>
+                        <p class="recipes-time"><small class="text-muted">조리시간: </small></p>
+                        <p class="recipes-level"><small class="text-muted">요리난이도: </small></p>
+                        <p class="recipes-like"><small class="text-muted">좋아요: </small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0" style="width: 900px; margin-top: 50px; border: 3px solid lightgray">
+                <div class="col-md-4">
+                    <img src="" alt="레시피3" class="recipes-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="recipes-desc-all">
+                        <h5 class="recipes-title">세번째레시피</h5>
+                        <hr>
+                        <p class="recipes-desc">...이렇게 만듭니다</p>
+                        <hr>
+                        <p class="recipes-time"><small class="text-muted">조리시간: </small></p>
+                        <p class="recipes-level"><small class="text-muted">요리난이도: </small></p>
+                        <p class="recipes-like"><small class="text-muted">좋아요: </small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0"
+                 style="width: 900px; margin-top: 30px; border: 3px solid lightgray">
+                <div class="col-md-4">
+                    <img src="" alt="레시피4" class="recipes-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="recipes-desc-all">
+                        <h5 class="recipes-title">네번째레시피</h5>
+                        <hr>
+                        <p class="recipes-desc">...이렇게 만듭니다</p>
+                        <hr>
+                        <p class="recipes-time"><small class="text-muted">조리시간: </small></p>
+                        <p class="recipes-level"><small class="text-muted">요리난이도: </small></p>
+                        <p class="recipes-like"><small class="text-muted">좋아요: </small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0"
+                 style="width: 900px; margin-top: 30px; border: 3px solid lightgray">
+                <div class="col-md-4">
+                    <img src="" alt="레시피5" class="recipes-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="recipes-desc-all">
+                        <h5 class="recipes-title">다섯번째레시피</h5>
+                        <hr>
+                        <p class="recipes-desc">...이렇게 만듭니다</p>
+                        <hr>
+                        <p class="recipes-time"><small class="text-muted">조리시간: </small></p>
+                        <p class="recipes-level"><small class="text-muted">요리난이도: </small></p>
+                        <p class="recipes-like"><small class="text-muted">좋아요: </small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+        <footer class="ft">
+            <div>
+                footer test
+            </div>
+        </footer>
+
 </body>
+
 </html>
