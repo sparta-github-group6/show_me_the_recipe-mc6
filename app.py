@@ -2,8 +2,8 @@ from flask import Flask, render_template, jsonify, request
 from pymongo import MongoClient
 
 app = Flask(__name__)
-# client = MongoClient('', )
-# db = client.dbreceipe
+client = MongoClient('localhost', 27017)
+db = client.dbreceipe
 
 #HTML 화면 표시
 @app.route('/')
@@ -19,7 +19,17 @@ def recommend_page():
     return render_template('recommend.html')
 
 #요리 레시피 요청
+@app.route('/recipe')
+def recipe_page():
+    # aa = db.recipes.find_one({'name':"순대 [Sundae]"},{'_id':False})
+    # print(aa)
+    return render_template('recipe.html')
 
+@app.route('/recipe', methods=['GET'])
+def show_recipe():
+    sample_receive = request.args.get('sample_give')
+    print(sample_receive)
+    return jsonify({'msg': 'list 연결되었습니다!'})
 
 #추천 요리 표시
 

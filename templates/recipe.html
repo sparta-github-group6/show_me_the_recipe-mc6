@@ -20,64 +20,82 @@
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
 
     <script src="../static/main.js" defer></script>
+
+    <script>
+        $(document).ready(function () {
+            show_recipe();
+        });
+
+        function show_recipe() {
+            $.ajax({
+                type: 'GET',
+                url: '/api/list?sample_give=샘플데이터',
+                data: {},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
-    <div class="wrap">
+<div class="wrap">
 
-        <nav class="navbar">
-            <div class="navbar__logo">
-                <a href="/"><i class="fas fa-utensils"></i></a>
-            </div>
-
-            <ul class="navbar__menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-            </ul>
-        </nav>
-
-        <a href="#" class="navbar__toggleBtn">
-            <i class="fas fa-bars"></i>
-        </a>
-
-        <div class="img" style="height: 200px;">
-            <div class="rtan">
-                <h1 class="rtan-title">르탄아, 냉장고를 부탁해!</h1>
-            </div>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="/"><i class="fas fa-utensils"></i></a>
         </div>
 
-        <hr align="center" style="border: solid 1px lightgray; width: 60%;">
+        <ul class="navbar__menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+        </ul>
+    </nav>
 
-        <main id="jung">
-            <div class="cook-name">
-                <img class="cook-img" src="https://t1.daumcdn.net/cfile/tistory/99E3B54C5C1DEB9C38" align="middle"
-                    hspace="30">
-                [cook name] </img>
-            </div>
-            <div class="ingredient">
-                <h3>[ 필요한 재료 ]</h3>
-                <div>
-                    다정님 검토 바랍니다 ㅎㅎ<br>
-                    재료 소개
-                </div>
-            </div>
-            <div class="recipe">
-                <h3>[ 레시피 ]</h3>
-                <div>
-                    레시피 내용
-                </div>
-            </div>
-            <hr align="center" style="border: solid 1px lightgray;">
-        </main>
+    <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+    </a>
 
-
-        <footer class="ft">
-            <div>
-                copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조)<br>
-                Thanks to 스파르타 코딩 클럽
-            </div>
-        </footer>
+    <div class="img" style="height: 200px;">
+        <div class="rtan">
+            <h1 class="rtan-title">르탄아, 냉장고를 부탁해!</h1>
+        </div>
     </div>
+
+    <hr align="center" style="border: solid 1px lightgray; width: 60%;">
+
+    <main id="jung">
+        <div class="cook-name">
+            <img class="cook-img" src="https://t1.daumcdn.net/cfile/tistory/99E3B54C5C1DEB9C38" align="middle"
+                 hspace="30">
+            [cook name] </img>
+        </div>
+        <div class="ingredient">
+            <h3>[ 필요한 재료 ]</h3>
+            <div>
+                다정님 검토 바랍니다 ㅎㅎ
+                검토완료!<br>
+                재료 소개
+            </div>
+        </div>
+        <div class="recipe">
+            <h3>[ 레시피 ]</h3>
+            <div>
+                레시피 내용
+            </div>
+        </div>
+        <hr align="center" style="border: solid 1px lightgray;">
+    </main>
+
+
+    <footer class="ft">
+        <div>
+            copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조)<br>
+            Thanks to 스파르타 코딩 클럽
+        </div>
+    </footer>
+</div>
 </body>
 
 </html>
