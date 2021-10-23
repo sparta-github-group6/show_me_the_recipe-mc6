@@ -32,7 +32,7 @@ for i in range(1, 15):  # 1~14페이지까지 반복
             for i in range(len(list_for_search)):
                 list_for_search[i] = list_for_search[i].split(maxsplit=1)[0]
 
-            print(name, list_for_search, list_for_recipe, img)
+            # print(name, list_for_search, list_for_recipe, img)
 
         doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe, 'img': img}
         db.recipes.insert_one(doc)
