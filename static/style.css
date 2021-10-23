@@ -71,10 +71,10 @@ main {
 }
 
 .section-main {
-    text-align: center;
-    align-items: center;
-    margin: 10px;
-    display: block;
+  text-align: center;
+  align-items: center;
+  margin: 50px 0 10px;
+  display: block;
 }
 
 #favorite-main {
@@ -161,10 +161,11 @@ main {
 }
 
 .ft {
-    width: 60%;
-    margin: 0 auto;
-    background-color: black;
-    color: white;
+  width: 60%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  clear: both;
 }
 
 /* about */
@@ -323,7 +324,7 @@ main {
 .selected-ingredients {
     text-align: center;
     align-items: center;
-    margin: 11px 0 60px;
+    margin: 11px 0 70px;
     display: block;
 }
 
@@ -336,56 +337,35 @@ main {
     border-radius: 50%;
 }
 
-.recipes-img {
-    width: auto;
-    height: auto;
+.recipes_img {
+  float : left;
+  width : 300px;
+  height : 238px;
+  background-color: papayawhip;
+  margin-bottom: 30px;
+  position: absolute;
 }
 
-/*rank page*/
-
-.container-cook-card{
-    width: 1000px;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: row;
-}
-.card-cook{
-    height: 300px;
-    width: 250px;
-    border: 1px solid green;
-    border-radius: 5px;
-    display: block;
-    text-align: center;
-    margin: 10px 40px 10px 40px;
-
-}
-.card-cook-image{
-    width: 150px;
-    height: 150px;
-    border: 1px solid antiquewhite;
-    display: block;
-    margin: 10px auto;
-
-}
-.card-cook-title{
-    width: 200px;
-    height: 50px;
-    margin: 10px auto;
-
-}
-.card-cook-footer{
-    width: 200px;
-    height: 50px;
-    margin: 10px auto;
+.section {
+  height: 100px;
+  margin-bottom:30px;
+  text-align: left;
 }
 
-.btn-rank-recipe{
-    width: 90px;
-    height: 30px;
-    color: black;
-    border: 1px solid white;
-    background: #eed6ea;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
+.recipes_all_about_1{
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
+}
+
+.recipes_all_about_2, .recipes_all_about_3, .recipes_all_about_4 {
+  margin-top: 20px;
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
+}
+
+.recipes_all_about_5{
+  margin-top: 20px;
+  margin-bottom: 70px;
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
 }
