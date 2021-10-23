@@ -2,18 +2,19 @@ import requests, re
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 
 client = MongoClient('localhost', 27017)
 db = client.dbmaking
 
-
-for i in range(1,15): # 1~14페이지까지 반복
-    link = 'https://terms.naver.com/list.naver?cid=42701&categoryId=62872&so=st1.dsc&viewType=&categoryType=&page=' + str(i)
+for i in range(1, 15):  # 1~14페이지까지 반복
+    link = 'https://terms.naver.com/list.naver?cid=42701&categoryId=62872&so=st1.dsc&viewType=&categoryType=&page=' + str(
+        i)
     data = requests.get(link, headers=headers)
     soup = BeautifulSoup(data.text, 'html.parser')
 
-    recipes = soup.select('#content > div.list_wrap > ul > li') # 각 레시피별 list
+    recipes = soup.select('#content > div.list_wrap > ul > li')  # 각 레시피별 list
     for recipe in recipes:
         a_tag = recipe.select_one('div.info_area > div.subject > strong > a')
         name = a_tag.text
@@ -31,4 +32,7 @@ for i in range(1,15): # 1~14페이지까지 반복
             for i in range(len(list_for_search)):
                 list_for_search[i] = list_for_search[i].split(maxsplit=1)[0]
 
-            print(name,list_for_search,list_for_recipe,img)
+            print(name, list_for_search, list_for_recipe, img)
+
+        doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe, 'img': img}
+        db.recipes.insert_one(doc)
