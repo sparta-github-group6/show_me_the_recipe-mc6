@@ -7,7 +7,7 @@ toggleBtn.addEventListener("click", () => {
 
 /* 추천 검색 페이지 이동하고 싶은데 말이죠... 파라미터를 넣어야 하나요... */
 function onclick() {
-  var link ="recommend.html"
+    let link = "recommend.html";
     location.href = link;
 }
 

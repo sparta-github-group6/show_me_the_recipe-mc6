@@ -1,314 +1,321 @@
 * {
-  font-family: "Jua", sans-serif;
+    font-family: "Jua", sans-serif;
 }
 
 :root {
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-primary: #d8d8d8;
-  --color-pink: #ffd0e0;
-  --color-purple: #eed6ea;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #d8d8d8;
+    --color-pink: #ffd0e0;
+    --color-purple: #eed6ea;
 
-  --text-color: var(--color-primary);
-  --background-color: antiquewhite;
-  --accent-color: var(--color-pink);
+    --text-color: var(--color-primary);
+    --background-color: antiquewhite;
+    --accent-color: var(--color-pink);
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
+
 /* main */
 .wrap {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 main {
-  width: 60%;
-  margin: 0 auto;
+    width: 60%;
+    margin: 0 auto;
 }
+
 .navbar {
-  width: 60%;
-  height: 50px;
-  margin: 0 auto;
-  background-color: var(--background-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
+    width: 60%;
+    height: 50px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
 }
 
 .navbar__logo {
-  font-size: 24px;
-  color: black;
+    font-size: 24px;
+    color: black;
 }
 
 .navbar__menu {
-  display: flex;
-  list-style: none;
-  padding-left: 0;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
 }
 
 .navbar__menu li {
-  padding: 8px 12px;
+    padding: 8px 12px;
 }
 
 .navbar__menu li:hover {
-  background-color: #eed6ea;
-  border-radius: 4px;
+    background-color: #eed6ea;
+    border-radius: 4px;
 }
 
 .navbar__toggleBtn {
-  display: none;
-  position: absolute;
-  top: 16px;
-  right: 32px;
-  font-size: 24px;
-  color: black;
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 32px;
+    font-size: 24px;
+    color: black;
 }
+
 .section-main {
-  text-align: center;
-  align-items: center;
-  margin: 10px;
-  display: block;
+    text-align: center;
+    align-items: center;
+    margin: 10px;
+    display: block;
 }
 
 #favorite-main {
-  border: 5px solid antiquewhite;
-  border-radius: 5px;
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
 }
 
 .dishes {
-  background-image: url("../static/logo.png");
-  width: 150px;
-  height: 150px;
-  margin: 20px;
-  background-size: cover;
+    background-image: url("../static/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    background-size: cover;
 }
 
 #search-item {
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .input {
-  display: inline-block;
-  width: 300px;
-  height: 40px;
-  margin: 3px 0;
-  padding: 5px;
+    display: inline-block;
+    width: 300px;
+    height: 40px;
+    margin: 3px 0;
+    padding: 5px;
 }
 
 .button-search {
-  width: 80px;
-  background-color: #d8d8d8;
-  border: none;
-  border-radius: 5px;
-  color: #000000;
-  padding: 5px 0;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 10px;
-  cursor: pointer;
+    width: 80px;
+    background-color: #d8d8d8;
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
 }
+
 #select-item {
-  display: flex;
-  text-align: left;
-  margin: auto;
+    display: flex;
+    text-align: left;
+    margin: auto;
 }
 
 #select-item h3 {
-  font-size: 36px;
-  text-align: center;
-  margin: 30px 0 30px 0;
+    font-size: 36px;
+    text-align: center;
+    margin: 30px 0 30px 0;
 }
 
 #select-before {
-  background-color: var(--background-color);
-  min-height: 300px;
-  margin: 10px;
+    background-color: var(--background-color);
+    min-height: 300px;
+    margin: 10px;
+    width: 50%;
 }
 
 #selected-item {
-  background-color: var(--color-purple);
-  min-height: 300px;
-  margin: 10px;
+    background-color: var(--color-purple);
+    min-height: 300px;
+    margin: 10px;
+    width: 50%;
 }
 
 .btn-main {
-  width: 120px;
-  background-color: #d8d8d8;
-  border: none;
-  border-radius: 15px;
-  color: #000000;
-  padding: 15px 0;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px;
-  cursor: pointer;
+    width: 120px;
+    background-color: #d8d8d8;
+    border: none;
+    border-radius: 15px;
+    color: #000000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px;
+    cursor: pointer;
 }
 
 .ft {
-  width: 60%;
-  margin: 0 auto;
-  background-color: black;
-  color: white;
+    width: 60%;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
 }
 
 /* about */
 .section-about {
-  align-items: center;
-  margin: 11px 0 60px;
-  display: block;
+    align-items: center;
+    margin: 11px 0 60px;
+    display: block;
 }
 
 #members-front {
-  border: 3px solid #eed6ea;
-  padding: 10px 20px 10px 20px;
-  border-radius: 15px;
+    border: 3px solid #eed6ea;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
 }
 
 #members-back {
-  border: 3px solid #eed6ea;
-  padding: 10px 20px 10px 20px;
-  margin-top: 20px;
-  border-radius: 15px;
+    border: 3px solid #eed6ea;
+    padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
 }
 
 .members-about {
-  display: flex;
-  margin: 20px auto;
-  padding: 20px;
-  border: 3px solid #d8d8d8;
+    display: flex;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid #d8d8d8;
 }
 
 .member-image {
-  background-image: url("../static/logo.png");
-  width: 150px;
-  height: 150px;
-  margin: 20px;
-  background-size: cover;
+    background-image: url("../static/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    background-size: cover;
 }
 
 .section-thanks {
-  align-items: center;
-  margin: 11px 0 60px;
-  display: block;
-  border: 3px solid #ffd0e0;
-  border-radius: 15px;
+    align-items: center;
+    margin: 11px 0 60px;
+    display: block;
+    border: 3px solid #ffd0e0;
+    border-radius: 15px;
 }
+
 .thanks-image {
-  background-image: url("../static/logo.png");
-  width: 150px;
-  height: 150px;
-  margin: 20px;
-  background-size: cover;
+    background-image: url("../static/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    background-size: cover;
 }
 
 .thanks-about {
-  display: inline-block;
+    display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 24px;
-    width: 100%;
-    height: auto;
-  }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+        width: 100%;
+        height: auto;
+    }
 
-  .navbar__menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
 
-  .navbar__menu li {
-    width: 100%;
-    text-align: center;
-  }
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
 
-  .navbar__toggleBtn {
-    display: block;
-  }
+    .navbar__toggleBtn {
+        display: block;
+    }
 
-  .navbar__menu.active {
-    display: flex;
-  }
+    .navbar__menu.active {
+        display: flex;
+    }
 }
 
 .rtan {
-  width: 60%;
-  height: 200px;
-  margin: auto;
-  position: relative;
-  background-image: url("https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg");
+    width: 60%;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    background-image: url("https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg");
 }
 
 .rtan::before {
-  content: "";
-  background-size: cover;
-  position: absolute;
-  opacity: 0.5;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: #fff;
+    content: "";
+    background-size: cover;
+    position: absolute;
+    opacity: 0.5;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #fff;
 }
 
 .rtan-title {
-  font-family: "Black Han Sans", sans-serif;
-  font-size: 72px;
-  line-height: 200px;
-  margin: 10px 0px;
-  text-align: center;
-  font-weight: normal;
-  position: relative;
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 72px;
+    line-height: 200px;
+    margin: 10px 0px;
+    text-align: center;
+    font-weight: normal;
+    position: relative;
 }
 
 .cook-name {
-  font-size: 50px;
-  margin: auto;
+    font-size: 50px;
+    margin: auto;
 }
 
 .cook-img {
-  width: 400px;
-  height: 200px;
-  margin: 10px auto;
+    width: 400px;
+    height: 200px;
+    margin: 10px auto;
 }
 
 #jung h3 {
-  margin: 5px;
+    margin: 5px;
 }
 
 .ingredient {
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
-  height: 200px;
-  background-color: antiquewhite;
-  font-size: 40px;
-  margin: 20px auto;
-  padding: 10px;
-  text-align: start;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    height: 200px;
+    background-color: antiquewhite;
+    font-size: 40px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: start;
 }
 
 .recipe {
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
-  height: 700px;
-  background-color: lemonchiffon;
-  font-size: 40px;
-  margin: 20px auto;
-  text-align: start;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    height: 700px;
+    background-color: lemonchiffon;
+    font-size: 40px;
+    margin: 20px auto;
+    text-align: start;
 }
 
 
@@ -321,15 +328,15 @@ main {
 }
 
 .ingredients {
-  min-width: 150px;
-  min-height: 150px;
-  background-image: url("../static/default-image.jpg");
-  background-position: 50% 50%;
-  margin: 10px;
-  border-radius: 50%;
+    min-width: 150px;
+    min-height: 150px;
+    background-image: url("../static/default-image.jpg");
+    background-position: 50% 50%;
+    margin: 10px;
+    border-radius: 50%;
 }
 
 .recipes-img {
-  width: auto;
-  height: auto;
+    width: auto;
+    height: auto;
 }
