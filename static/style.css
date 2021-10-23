@@ -70,7 +70,7 @@ main {
 .section-main {
   text-align: center;
   align-items: center;
-  margin: 10px;
+  margin: 50px 0 10px;
   display: block;
 }
 
@@ -159,6 +159,7 @@ main {
   margin: 0 auto;
   background-color: black;
   color: white;
+  clear: both;
 }
 
 /* about */
@@ -316,7 +317,7 @@ main {
 .selected-ingredients {
     text-align: center;
     align-items: center;
-    margin: 11px 0 60px;
+    margin: 11px 0 70px;
     display: block;
 }
 
@@ -329,7 +330,35 @@ main {
   border-radius: 50%;
 }
 
-.recipes-img {
-  width: auto;
-  height: auto;
+.recipes_img {
+  float : left;
+  width : 300px;
+  height : 238px;
+  background-color: papayawhip;
+  margin-bottom: 30px;
+  position: absolute;
+}
+
+.section {
+  height: 100px;
+  margin-bottom:30px;
+  text-align: left;
+}
+
+.recipes_all_about_1{
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
+}
+
+.recipes_all_about_2, .recipes_all_about_3, .recipes_all_about_4 {
+  margin-top: 20px;
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
+}
+
+.recipes_all_about_5{
+  margin-top: 20px;
+  margin-bottom: 70px;
+  border: 3px solid palegoldenrod;
+  background-color: palegoldenrod;
 }

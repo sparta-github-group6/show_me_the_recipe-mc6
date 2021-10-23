@@ -5,8 +5,10 @@ toggleBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
-/* 추천 검색 페이지 이동하고 싶은데 말이죠... 파라미터를 넣어야 하나요... */
-function onclick() {
+
+/* related to recommend page function*/
+
+function to_recommend() {
   var link ="recommend.html"
     location.href = link;
 }
@@ -16,7 +18,7 @@ $(document).ready(function () {
 });
 
 function listing() {
-    $('#cards-box').empty();
+    $('#recipe-box').empty();
     $.ajax({
         type: "GET",
         url: "database",
@@ -32,23 +34,20 @@ function listing() {
                 let like = rows[i]['like']
 
                 let temp_html = `
-                                        <div class="row g-0" style="width: 100%; margin-top: 50px; border: 3px solid palegoldenrod; background-color: palegoldenrod">
-                                           <div class="col-md-4">
-                                             <img src="${image}" alt="레시피1" class="recipes-img">
-                                           </div>
-                                           <div class="col-md-8">
-                                            <div class="recipes-desc-all">
-                                              <h5 class="recipes-title">${title}</h5>
-                                              <hr>
-                                              <p class="recipes-desc">${desc}</p>
-                                              <hr>
-                                              <p class="recipes-time"><small class="text-muted">조리시간: ${time}</small></p>
-                                              <p class="recipes-level"><small class="text-muted">요리난이도: ${level}</small></p>
-                                              <p class="recipes-like"><small class="text-muted">좋아요: ${like}</small></p>
-                                            </div>
-                                           </div>`
+                                <div class="recipes_all_about_1">
+                                    <nav class="recipes_img"><img src="${image}"> 이미지 </img></nav>
+                                    <section class="recipes_information">
+                                        <p class="recipes_title"> ${title} </p>
+                                        <hr>
+                                        <p class="recipes_desc"> ${desc} </p>
+                                        <hr>
+                                        <p class="recipes_time"> 조리시간: ${time}</p>
+                                        <p class="recipes_level"> 난이도: ${level} </p>
+                                        <p class="recipes_like"> 좋아요: ${like}</p>
+                                    </section>
+                                </div>`
 
-                $('#cards-box').append(temp_html);
+                $('#recipe-box').append(temp_html);
             }
         }
     })
