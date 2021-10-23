@@ -5,14 +5,16 @@ app = Flask(__name__)
 client = MongoClient('localhost', 27017)
 db = client.dbreceipe
 
-#HTML 화면 표시
+# HTML 화면 표시
 @app.route('/')
 def init():
     return render_template('index.html')
 
+
 @app.route('/about')
 def about_page():
     return render_template('about.html')
+
 
 @app.route('/recommend')
 def recommend_page():
@@ -31,7 +33,7 @@ def show_recipe():
     print(sample_receive)
     return jsonify({'msg': 'list 연결되었습니다!'})
 
-#추천 요리 표시
+# 추천 요리 표시
 
 
 if __name__ == '__main__':
