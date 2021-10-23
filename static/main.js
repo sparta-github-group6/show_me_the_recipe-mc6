@@ -9,7 +9,7 @@ toggleBtn.addEventListener("click", () => {
 /* related to recommend page function*/
 
 function to_recommend() {
-  var link ="recommend.html"
+  var link ="/recommend"
     location.href = link;
 }
 
@@ -29,8 +29,6 @@ function listing() {
                 let image = rows[i]['image']
                 let title = rows[i]['title']
                 let desc = rows[i]['desc']
-                let time = rows[i]['time']
-                let level = rows[i]['level']
                 let like = rows[i]['like']
 
                 let temp_html = `
@@ -41,8 +39,6 @@ function listing() {
                                         <hr>
                                         <p class="recipes_desc"> ${desc} </p>
                                         <hr>
-                                        <p class="recipes_time"> 조리시간: ${time}</p>
-                                        <p class="recipes_level"> 난이도: ${level} </p>
                                         <p class="recipes_like"> 좋아요: ${like}</p>
                                     </section>
                                 </div>`
