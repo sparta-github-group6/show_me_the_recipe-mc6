@@ -1,12 +1,12 @@
 
 $(document).ready(() => {
-    showList();
+    showAllList();
 })
 
-function showList() {
+function showAllList() {
     $.ajax({
         type:'GET',
-        url: '',
+        url: '', //레시피 가져올 url  필요
         data:{},
         success: function (response){
             let recipeList = response['recipe_lists']
