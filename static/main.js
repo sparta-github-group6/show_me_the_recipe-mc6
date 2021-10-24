@@ -8,13 +8,34 @@ toggleBtn.addEventListener("click", () => {
 
 /* related to recommend page function*/
 
+let ing_list = [];
+
+function add_ing_list() {
+    let item = document.getElementById("ing_item").value
+    console.log(item)
+    ing_list.push(item)
+    print_item(item)
+}
+
+function print_item(item){
+    let item_list = document.getElementById("searched-item-list")
+    item_list.append(item)
+
+}
+
+function temp(item_list){
+    console.log(item_list)
+}
+
 function to_recommend() {
-  var link ="/recommend"
+    var link = "/recommend"
     location.href = link;
 }
 
 $(document).ready(function () {
     listing();
+    temp(ing_list)
+
 });
 
 function listing() {

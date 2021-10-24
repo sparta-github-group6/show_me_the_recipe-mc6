@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
-db = client.dbreceipe
+db = client.dbmaking
 
 
 # HTML 화면 표시
