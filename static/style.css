@@ -97,8 +97,7 @@ main {
 }
 
 .input {
-    display: inline-block;
-    width: 300px;
+    width: 500px;
     height: 40px;
     margin: 3px 0;
     padding: 5px;
@@ -196,11 +195,12 @@ main {
 }
 
 .member-image {
-    background-image: url("../static/logo.png");
-    width: 150px;
-    height: 150px;
+    /*background-image: url("../static/logo.png");*/
+    width: 200px;
+    height: 200px;
     margin: 20px;
-    background-size: cover;
+    /*background-size: cover;*/
+    object-fit: cover;
 }
 
 .section-thanks {
@@ -212,7 +212,7 @@ main {
 }
 
 .thanks-image {
-    background-image: url("../static/logo.png");
+    /*background-image: url("../static/logo.png");*/
     width: 150px;
     height: 150px;
     margin: 20px;
@@ -221,6 +221,8 @@ main {
 
 .thanks-about {
     display: inline-block;
+    margin: 20px auto;
+    padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
