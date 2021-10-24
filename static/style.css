@@ -19,6 +19,36 @@ a {
     color: black;
 }
 
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__toggleBtn {
+        display: block;
+    }
+
+    .navbar__menu.active {
+        display: flex;
+    }
+}
+
 /* main */
 .wrap {
     width: 100%;
@@ -71,10 +101,10 @@ main {
 }
 
 .section-main {
-  text-align: center;
-  align-items: center;
-  margin: 50px 0 10px;
-  display: block;
+    text-align: center;
+    align-items: center;
+    margin: 50px 0 10px;
+    display: block;
 }
 
 #favorite-main {
@@ -97,8 +127,7 @@ main {
 }
 
 .input {
-    display: inline-block;
-    width: 300px;
+    width: 500px;
     height: 40px;
     margin: 3px 0;
     padding: 5px;
@@ -161,11 +190,11 @@ main {
 }
 
 .ft {
-  width: 60%;
-  margin: 0 auto;
-  background-color: black;
-  color: white;
-  clear: both;
+    width: 60%;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+    clear: both;
 }
 
 /* about */
@@ -196,11 +225,12 @@ main {
 }
 
 .member-image {
-    background-image: url("../static/logo.png");
-    width: 150px;
-    height: 150px;
+    /*background-image: url("../static/logo.png");*/
+    width: 200px;
+    height: 200px;
     margin: 20px;
-    background-size: cover;
+    /*background-size: cover;*/
+    object-fit: cover;
 }
 
 .section-thanks {
@@ -212,7 +242,7 @@ main {
 }
 
 .thanks-image {
-    background-image: url("../static/logo.png");
+    /*background-image: url("../static/logo.png");*/
     width: 150px;
     height: 150px;
     margin: 20px;
@@ -221,37 +251,38 @@ main {
 
 .thanks-about {
     display: inline-block;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
-        width: 100%;
-        height: auto;
-    }
+/*rank*/
+.rank-container-cook-card {
+    width: 60%;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    margin: 20px;
 
-    .navbar__menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
 
-    .navbar__menu li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar__toggleBtn {
-        display: block;
-    }
-
-    .navbar__menu.active {
-        display: flex;
-    }
 }
+
+.rank-card-cook {
+    width: 200px;
+    height: 300px;
+    border: 1px solid palegoldenrod;
+    margin: 20px 40px 20px 40px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.rank-card-cook-image {
+    background-image: url("../static/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
 
 .rtan {
     width: 60%;
@@ -337,35 +368,80 @@ main {
     border-radius: 50%;
 }
 
+.recipes_all_about {
+    display: flex;
+    margin: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+
+}
+
 .recipes_img {
-  float : left;
-  width : 300px;
-  height : 238px;
-  background-color: papayawhip;
-  margin-bottom: 30px;
-  position: absolute;
+    float : left;
+    width: 25%;
+    background-color: papayawhip;
+    padding: 10px;
+    /*position: absolute;*/
 }
 
-.section {
-  height: 100px;
-  margin-bottom:30px;
-  text-align: left;
+.list-img-cook{
+    width: 80%;
 }
 
-.recipes_all_about_1{
-  border: 3px solid palegoldenrod;
-  background-color: palegoldenrod;
+
+
+.recipes_information {
+    width: 75%;
+    text-align: start;
+    background-color: palegoldenrod;
+
 }
 
-.recipes_all_about_2, .recipes_all_about_3, .recipes_all_about_4 {
-  margin-top: 20px;
-  border: 3px solid palegoldenrod;
-  background-color: palegoldenrod;
+.recipes_information h3{
+    margin: 0 0 0 15px;
+    font-size: 32px;
 }
 
-.recipes_all_about_5{
-  margin-top: 20px;
-  margin-bottom: 70px;
-  border: 3px solid palegoldenrod;
-  background-color: palegoldenrod;
+.recipes_title {
+    width: 100%;
+    margin-bottom: 0;
 }
+
+.recipes_desc {
+    height: 150px;
+}
+
+.recipes_desc h4{
+    font-size: 24px;
+    margin: 0 0 0 20px;
+    padding-top: 5px;
+
+}
+
+.recipes_like {
+    height: 20px;
+
+}
+/*.section {*/
+/*  height: 100px;*/
+/*  margin-bottom:30px;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.recipes_all_about_1{*/
+/*  border: 3px solid palegoldenrod;*/
+/*  background-color: palegoldenrod;*/
+/*}*/
+
+/*.recipes_all_about_2, .recipes_all_about_3, .recipes_all_about_4 {*/
+/*  margin-top: 20px;*/
+/*  border: 3px solid palegoldenrod;*/
+/*  background-color: palegoldenrod;*/
+/*}*/
+
+/*.recipes_all_about_5{*/
+/*  margin-top: 20px;*/
+/*  margin-bottom: 70px;*/
+/*  border: 3px solid palegoldenrod;*/
+/*  background-color: palegoldenrod;*/
+/*}*/
