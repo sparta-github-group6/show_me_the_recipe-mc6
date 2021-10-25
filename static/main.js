@@ -39,7 +39,7 @@ function recommend() {
                                     <div class="recipes_all_about">
                 
                                         <div class="recipes_img">
-                                            <img src="../static/images/${name}.png" class="list-img-cook" alt="요리 이미지">
+                                            <img src="../static/recipe-image/${name}.png" class="list-img-cook" alt="요리 이미지">
                                         </div>
                 
                                         <div class="recipes_information">
