@@ -35,7 +35,11 @@ for i in range(1, 15):  # 1~14페이지까지 반복
 
             print(name, list_for_search, list_for_recipe, img)
 
-        doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe, 'img': img}
-        doc2 = {'name':'검색','index':'물'}
+        doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe,'like':0,}
         db.recipes.insert_one(doc)
-        db.search.insert_one(doc2)
+
+doc2 = {'name': '검색', 'index': '물'}
+doc3 = {'name': '검색2', 'index': '계란찜'}
+db.search.insert_one(doc2)
+db.search.insert_one(doc3)
+

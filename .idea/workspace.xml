@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0d2880b1-202a-4075-8328-41a2a9a8caa7" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/static/scripts/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -27,6 +28,9 @@
       <change beforePath="$PROJECT_DIR$/templates/recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recommend.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="0d2880b1-202a-4075-8328-41a2a9a8caa7" name="Changes" comment="" />
+>>>>>>> 889f0039c51d99183f4a182fca8f2e8bef0751f3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +68,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="list.type.of.created.stylesheet" value="CSS" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+>>>>>>> 889f0039c51d99183f4a182fca8f2e8bef0751f3
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
   </component>
   <component name="RecentsManager">
@@ -167,10 +175,15 @@
       <workItem from="1634953628182" duration="2985000" />
       <workItem from="1634969602178" duration="6683000" />
       <workItem from="1634991441177" duration="2867000" />
+<<<<<<< HEAD
       <workItem from="1635067847463" duration="13680000" />
       <workItem from="1635091178803" duration="185000" />
       <workItem from="1635125431467" duration="77000" />
       <workItem from="1635125511969" duration="18597000" />
+=======
+      <workItem from="1635067847463" duration="7497000" />
+      <workItem from="1635161336123" duration="66000" />
+>>>>>>> 889f0039c51d99183f4a182fca8f2e8bef0751f3
     </task>
     <servers />
   </component>
@@ -201,9 +214,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rtancook$rtancook.coverage" NAME="rtancook Coverage Results" MODIFIED="1634823896773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/rtancook$app.coverage" NAME="app Coverage Results" MODIFIED="1635163954954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+=======
+    <SUITE FILE_PATH="coverage/rtancook$app.coverage" NAME="app Coverage Results" MODIFIED="1635070271347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/rtancook$crawling_menus.coverage" NAME="crawling_menus Coverage Results" MODIFIED="1634733240291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rtancook$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1634954733634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/rtancook$rtancook.coverage" NAME="rtancook Coverage Results" MODIFIED="1634823896773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/rtancook$app.coverage" NAME="app Coverage Results" MODIFIED="1635163954954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+>>>>>>> 889f0039c51d99183f4a182fca8f2e8bef0751f3
   </component>
 </project>
