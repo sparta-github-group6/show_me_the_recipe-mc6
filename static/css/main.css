@@ -1,0 +1,53 @@
+.section-main {
+    text-align: center;
+    align-items: center;
+    margin: 5px 0 5px 0;
+    display: block;
+}
+
+#favorite-main {
+    border: 1px solid antiquewhite;
+    border-radius: 5px;
+}
+
+.dishes {
+    background-image: url("../images/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    background-size: cover;
+}
+
+#select-list {
+    height: 100px;
+}
+
+#select-item {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#selected {
+    display: none;
+}
+
+.input {
+    width: 500px;
+    height: 40px;
+    margin: 3px 0;
+    padding: 5px;
+    font-size: 24px;
+}
+
+#selected-item-list {
+    list-style: none;
+}
+
+#btn-select {
+    width: 80px;
+    background-color: var(--color-primary);
+    padding: 5px 0;
+    margin: 10px;
+}
+

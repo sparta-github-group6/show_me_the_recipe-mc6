@@ -1,0 +1,27 @@
+/*rank*/
+.rank-container-cook-card {
+    width: 60%;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    margin: 20px;
+
+
+}
+
+.rank-card-cook {
+    width: 200px;
+    height: 300px;
+    border: 1px solid palegoldenrod;
+    margin: 20px 40px 20px 40px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.rank-card-cook-image {
+    background-image: url("../images/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}

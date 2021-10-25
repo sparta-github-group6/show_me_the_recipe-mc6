@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄아, 냉장고를 부탁해</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,93 +19,83 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
 
-    <script src="../static/main.js" defer></script>
-    <script>
-
-        function to_recommend() {
-            var ingredient = $('#ingredient').val();
-            $.ajax({
-                type: "POST",
-                url: "/recommend/search",
-                data: {ing_give: ingredient},
-                success: function (response) {
-                    console.log(response)
-                }
-            })
-            var link = "/recommend"
-            location.href = link;
-        }
-
-    </script>
 </head>
 
 <body>
-<div class="wrap">
-    <nav class="navbar">
-        <div class="navbar__logo">
-            <a href="/"><i class="fas fa-utensils"></i></a>
-        </div>
-
-        <ul class="navbar__menu">
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/rank">Rank</a></li>
-        </ul>
-    </nav>
-
-    <a href="#" class="navbar__toggleBtn">
-        <i class="fas fa-bars"></i>
-    </a>
-
-    <div class="img" style="height: 200px;">
-        <div class="rtan">
-            <h1 class="rtan-title">르탄아, 냉장고를 부탁해!</h1>
-        </div>
-    </div>
-
-    <hr align="center" style="border: solid 1px lightgray; width: 60%;">
-
-    <main id="woong">
-
-        <section class="section-main" id="favorite-main">
-            <h2>BEST MENU</h2>
-
-            <div class="favorite">
-                <img class="dishes">
-                <img class="dishes">
-                <img class="dishes">
-                <img class="dishes">
-
+    <div class="wrap">
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="/"><i class="fas fa-utensils"></i></a>
             </div>
 
-        </section>
+            <ul class="navbar__menu">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/rank">Rank</a></li>
+            </ul>
+        </nav>
 
-        <div class="input-group" id="search-item">
-            <label>
-                <input type="text" class="input" placeholder="찾으려는 재료를 입력해 주세요!" id="ingredient">
-            </label>
+        <a href="#" class="navbar__toggleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
 
-            {#
-            <button class="button-search" type="button" onclick="search()">선택</button>
-            #}
-
+        <div class="img" style="height: 200px;">
+            <div class="rtan">
+                <h1 class="rtan-title">르탄아, 냉장고를 부탁해!</h1>
+            </div>
         </div>
 
+        <main id="woong">
 
-        <section class="section-main" id="make-dishes">
-            <button type="button" class="btn-main" id="recommend_btn" onclick="to_recommend()">요리
-                추천
-            </button>
-        </section>
+            <section class="section-main" id="favorite-main">
+                <h2>BEST MENU</h2>
 
-    </main>
+                <div class="favorite">
+                    <img class="dishes" src="" alt="">
+                    <img class="dishes" src="" alt="">
+                    <img class="dishes" src="" alt="">
+                    <img class="dishes" src="" alt="">
 
-    <footer class="ft">
-        <div>
-            copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조) <br>
-            Thanks to 스파르타 코딩 클럽
-        </div>
-    </footer>
-</div>
+                </div>
+
+            </section>
+
+            <section class="section-main" id="select-list">
+
+                <div class="input-group" id="select-item">
+                    <label>
+                        <input type="text" class="input" placeholder="요리에 넣고 싶은 재료를 입력해 주세요!" id="ingredient">
+                    </label>
+                    <button type="button" class="btn-main" id="btn-select" onclick="add_ing_list()">선택</button>
+
+                </div>
+
+            </section>
+
+            <section class="section-main" id="selected-list">
+
+                <div id="selected">
+                    <h3>선택한 재료 모음</h3>
+                    <ul id="selected-item-list"></ul>
+                </div>
+            </section>
+
+            <section class="section-main" id="make-dishes">
+                <button type="button" class="btn-main" id="btn-recommend" onclick="to_recommend()">요리
+                    추천
+                </button>
+            </section>
+
+        </main>
+
+        <footer class="ft">
+            <div>
+                copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조) <br>
+                Thanks to 스파르타 코딩 클럽
+            </div>
+        </footer>
+    </div>
 </body>
+
+<script src="../static/scripts/main.js"></script>
 
 </html>
