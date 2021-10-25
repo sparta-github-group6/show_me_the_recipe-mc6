@@ -34,19 +34,23 @@ def recommend_page():
 def recipe_page():
     return render_template('recipe.html')
 
+@app.route('/recommend/search', methods=['POST'])
+def search_1to2():
+    ingredients = request.form['ing_give']
+    db.search.update_one({'name':'검색'},{'$set':{'index':ingredients}})
+    return jsonify({'msg': '저장'})
 
-@app.route('/api/recipes', methods=['POST'])
-def like_star():
-    name_receive = request.form['name_give']
 
-    target_star = db.recipes.find_one({'name': name_receive})
-    current_like = target_star['like']
+@app.route('/recommend/read', methods=['GET'])
+def search2():
+    search = db.search.find_one({'name':'검색'})
+    # recipes = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
+    # recipes = list(db.recipes.find({'search':ingredients},{'_id':False}))
+    recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
+    return jsonify({'recipes': recipes})
 
-    new_like = current_like + 1
 
-    db.recipes.update_one({'name': name_receive}, {'$set': {'like': new_like}})
 
-    return jsonify({'msg': '좋아요 완료!'})
 
 
 # 요리 레시피 요청
@@ -61,6 +65,12 @@ def recipe():
     name_receive = db.recipes.find_one({'name': "계란찜 [Gyeran-jjim]"})
     print(name_receive)
     return jsonify({'msg': 'list 연결되었습니다!'})
+
+#
+# ingredients = ['계란','물','소금']
+# test = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
+# print(test,len(test))
+
 
 
 # 추천 요리 표시

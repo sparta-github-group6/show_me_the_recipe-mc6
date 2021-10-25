@@ -17,13 +17,14 @@ for i in range(1, 15):  # 1~14페이지까지 반복
     recipes = soup.select('#content > div.list_wrap > ul > li')  # 각 레시피별 list
     for recipe in recipes:
         a_tag = recipe.select_one('div.info_area > div.subject > strong > a')
-        name = a_tag.text
+        name = a_tag.text.split('[', maxsplit=1)[0].strip()
         recipe_link = 'https://terms.naver.com/' + a_tag['href']
         recipe_data = requests.get(recipe_link)
         recipe_soup = BeautifulSoup(recipe_data.text, 'html.parser')
         lis = str(recipe_soup.findAll("p", {"class": 'txt'})).split('</p>', maxsplit=1)
         lis = lis[1].split('</p>', maxsplit=1)
         list_for_recipe = re.sub('<.+?>', '', lis[0], 0).strip()
+        list_for_recipe = list_for_recipe[2:len(list_for_recipe)]
         lis = re.sub('<.+?>', '', lis[0], 0).strip().split(',')
         list_for_search = list(filter(None, lis))
         chkimage = recipe.find(class_='thumb_area')
@@ -35,4 +36,6 @@ for i in range(1, 15):  # 1~14페이지까지 반복
             print(name, list_for_search, list_for_recipe, img)
 
         doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe, 'img': img}
+        doc2 = {'name':'검색','index':'물'}
         db.recipes.insert_one(doc)
+        db.search.insert_one(doc2)

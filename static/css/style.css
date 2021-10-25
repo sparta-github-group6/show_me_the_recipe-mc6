@@ -5,11 +5,11 @@
 :root {
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-primary: #d8d8d8;
+    --color-primary: #ffd0e0;
     --color-pink: #ffd0e0;
     --color-purple: #eed6ea;
 
-    --text-color: var(--color-primary);
+    --text-color: var(--color-black);
     --background-color: antiquewhite;
     --accent-color: var(--color-pink);
 }
@@ -19,35 +19,34 @@ a {
     color: black;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
-        width: 100%;
-        height: auto;
-    }
+/*@media screen and (max-width: 768px) {*/
+/*    .navbar {*/
+/*        flex-direction: column;*/
+/*        align-items: flex-start;*/
+/*        padding: 8px 24px;*/
+/*        width: 100%;*/
+/*    }*/
 
-    .navbar__menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
+/*    .navbar__menu {*/
+/*        display: none;*/
+/*        flex-direction: column;*/
+/*        width: 100%;*/
+/*        align-items: center;*/
+/*    }*/
 
-    .navbar__menu li {
-        width: 100%;
-        text-align: center;
-    }
+/*    .navbar__menu li {*/
+/*        width: 100%;*/
+/*        text-align: center;*/
+/*    }*/
 
-    .navbar__toggleBtn {
-        display: block;
-    }
+/*    .navbar__toggleBtn {*/
+/*        display: block;*/
+/*    }*/
 
-    .navbar__menu.active {
-        display: flex;
-    }
-}
+/*    .navbar__menu.active {*/
+/*        display: flex;*/
+/*    }*/
+/*}*/
 
 /* main */
 .wrap {
@@ -62,24 +61,24 @@ main {
 
 .navbar {
     width: 60%;
-    height: 50px;
     margin: 0 auto;
     background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
 }
 
 .navbar__logo {
-    font-size: 24px;
+    font-size: 32px;
     color: black;
+    padding: 12px;
 }
 
 .navbar__menu {
     display: flex;
     list-style: none;
-    padding-left: 0;
+    margin: 0;
+    padding:0 10px 0 0;
 }
 
 .navbar__menu li {
@@ -100,85 +99,13 @@ main {
     color: black;
 }
 
-.section-main {
-    text-align: center;
-    align-items: center;
-    margin: 50px 0 10px;
-    display: block;
-}
 
-#favorite-main {
-    border: 5px solid antiquewhite;
-    border-radius: 5px;
-}
-
-.dishes {
-    background-image: url("../static/logo.png");
-    width: 150px;
-    height: 150px;
-    margin: 20px;
-    background-size: cover;
-}
-
-#search-item {
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.input {
-    width: 500px;
-    height: 40px;
-    margin: 3px 0;
-    padding: 5px;
-}
-
-.button-search {
-    width: 80px;
-    background-color: #d8d8d8;
-    border: none;
-    border-radius: 5px;
-    color: #000000;
-    padding: 5px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-#select-item {
-    display: flex;
-    text-align: left;
-    margin: auto;
-}
-
-#select-item h3 {
-    font-size: 36px;
-    text-align: center;
-    margin: 30px 0 30px 0;
-}
-
-#select-before {
-    background-color: var(--background-color);
-    min-height: 300px;
-    margin: 10px;
-    width: 50%;
-}
-
-#selected-item {
-    background-color: var(--color-purple);
-    min-height: 300px;
-    margin: 10px;
-    width: 50%;
-}
-
+/*Button*/
 .btn-main {
     width: 120px;
     background-color: #d8d8d8;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     color: #000000;
     padding: 15px 0;
     text-align: center;
@@ -225,11 +152,9 @@ main {
 }
 
 .member-image {
-    /*background-image: url("../static/logo.png");*/
     width: 200px;
     height: 200px;
     margin: 20px;
-    /*background-size: cover;*/
     object-fit: cover;
 }
 
@@ -242,7 +167,6 @@ main {
 }
 
 .thanks-image {
-    /*background-image: url("../static/logo.png");*/
     width: 150px;
     height: 150px;
     margin: 20px;
@@ -255,35 +179,6 @@ main {
     padding: 20px;
 }
 
-/*rank*/
-.rank-container-cook-card {
-    width: 60%;
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    margin: 20px;
-
-
-}
-
-.rank-card-cook {
-    width: 200px;
-    height: 300px;
-    border: 1px solid palegoldenrod;
-    margin: 20px 40px 20px 40px;
-    padding: 10px;
-    border-radius: 5px;
-
-}
-
-.rank-card-cook-image {
-    background-image: url("../static/logo.png");
-    width: 150px;
-    height: 150px;
-    margin: 20px;
-}
-
-
 .rtan {
     width: 60%;
     height: 200px;
@@ -295,6 +190,7 @@ main {
 .rtan::before {
     content: "";
     background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     opacity: 0.5;
     top: 0;
@@ -362,7 +258,7 @@ main {
 .ingredients {
     min-width: 150px;
     min-height: 150px;
-    background-image: url("../static/default-image.jpg");
+    background-image: url("../images/default-image.jpg");
     background-position: 50% 50%;
     margin: 10px;
     border-radius: 50%;
@@ -377,17 +273,16 @@ main {
 }
 
 .recipes_img {
-    float : left;
+    float: left;
     width: 25%;
     background-color: papayawhip;
     padding: 10px;
     /*position: absolute;*/
 }
 
-.list-img-cook{
+.list-img-cook {
     width: 80%;
 }
-
 
 
 .recipes_information {
@@ -397,7 +292,7 @@ main {
 
 }
 
-.recipes_information h3{
+.recipes_information h3 {
     margin: 0 0 0 15px;
     font-size: 32px;
 }
@@ -411,7 +306,7 @@ main {
     height: 150px;
 }
 
-.recipes_desc h4{
+.recipes_desc h4 {
     font-size: 24px;
     margin: 0 0 0 20px;
     padding-top: 5px;
@@ -422,26 +317,4 @@ main {
     height: 20px;
 
 }
-/*.section {*/
-/*  height: 100px;*/
-/*  margin-bottom:30px;*/
-/*  text-align: left;*/
-/*}*/
 
-/*.recipes_all_about_1{*/
-/*  border: 3px solid palegoldenrod;*/
-/*  background-color: palegoldenrod;*/
-/*}*/
-
-/*.recipes_all_about_2, .recipes_all_about_3, .recipes_all_about_4 {*/
-/*  margin-top: 20px;*/
-/*  border: 3px solid palegoldenrod;*/
-/*  background-color: palegoldenrod;*/
-/*}*/
-
-/*.recipes_all_about_5{*/
-/*  margin-top: 20px;*/
-/*  margin-bottom: 70px;*/
-/*  border: 3px solid palegoldenrod;*/
-/*  background-color: palegoldenrod;*/
-/*}*/
