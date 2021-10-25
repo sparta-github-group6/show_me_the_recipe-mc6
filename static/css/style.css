@@ -274,7 +274,7 @@ main {
 
 .recipes_img {
     float: left;
-    width: 25%;
+    width: 100%;
     background-color: papayawhip;
     padding: 10px;
     /*position: absolute;*/
