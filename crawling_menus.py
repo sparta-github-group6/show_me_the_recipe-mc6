@@ -24,7 +24,7 @@ for i in range(1, 15):  # 1~14페이지까지 반복
         lis = str(recipe_soup.findAll("p", {"class": 'txt'})).split('</p>', maxsplit=1)
         lis = lis[1].split('</p>', maxsplit=1)
         list_for_recipe = re.sub('<.+?>', '', lis[0], 0).strip()
-        list_for_recipe = list_for_recipe[2:len(list_for_recipe)
+        list_for_recipe = list_for_recipe[2:len(list_for_recipe)]
         lis = re.sub('<.+?>', '', lis[0], 0).strip().split(',')
         list_for_search = list(filter(None, lis))
         chkimage = recipe.find(class_='thumb_area')
@@ -35,7 +35,11 @@ for i in range(1, 15):  # 1~14페이지까지 반복
 
             print(name, list_for_search, list_for_recipe, img)
 
-        doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe, 'img': img}
-        doc2 = {'name':'검색','index':'물'}
+        doc = {'name': name, 'search': list_for_search, 'ingredients': list_for_recipe,'like':0,}
         db.recipes.insert_one(doc)
-        db.search.insert_one(doc2)
+
+doc2 = {'name': '검색', 'index': '물'}
+doc3 = {'name': '검색2', 'index': '계란찜'}
+db.search.insert_one(doc2)
+db.search.insert_one(doc3)
+
