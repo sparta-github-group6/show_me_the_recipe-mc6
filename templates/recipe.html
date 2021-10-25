@@ -23,19 +23,9 @@
 
     <script>
         $(document).ready(function () {
-            show_recipe();
+            recipe();
         });
 
-        function show_recipe() {
-            $.ajax({
-                type: 'GET',
-                url: '/api/list?sample_give=샘플데이터',
-                data: {},
-                success: function (response) {
-                    alert(response['msg']);
-                }
-            });
-        }
     </script>
 </head>
 

@@ -32,15 +32,14 @@ function recommend() {
         success: function (response) {
             let recipes = response['recipes']
             for (let i = 0; i < recipes.length; i++) {
-                let img = recipes[i]['img']
                 let ing = recipes[i]['ingredients']
                 let name = recipes[i]['name']
 
-                let temp_html = `<a href="/recipe">
+                let temp_html = `<a href="/recipe" onclick="search_recipe('${name}')">
                                     <div class="recipes_all_about">
                 
                                         <div class="recipes_img">
-                                            <img src="${img}" class="list-img-cook" alt="요리 이미지">
+                                            <img src="../static/images/${name}.png" class="list-img-cook" alt="요리 이미지">
                                         </div>
                 
                                         <div class="recipes_information">
@@ -68,6 +67,28 @@ function recommend() {
     })
 }
 
+
+function search_recipe(name){
+    $.ajax({
+        type: "POST",
+        url: "/recommend/search2",
+        data: {name_give: name},
+        success: function (response) {
+            console.log(response)
+        }
+    })
+}
+
+function recipe() {
+    $.ajax({
+        type: "GET",
+        url: "/recipe/read",
+        data: {},
+        success: function (response) {
+             console.log(response)
+            }
+    })
+}
 
 
 
