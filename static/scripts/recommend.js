@@ -57,6 +57,23 @@ function recommend() {
 
                 $('.recipe-box').append(temp_html)
             }
+           ingredients()
+        }
+    })
+}
+
+function ingredients() {
+    $.ajax({
+        type: "GET",
+        url: "/recommend/ingredient",
+        data: {},
+        success: function (response) {
+            let ings = response['ing']['index']
+            for (let i = 0; i < ings.length; i++) {
+                let asd = ings[i]
+                let temp_html = `<li> ${asd} </li>`
+                $('.selected-ingredients').append(temp_html)
+            }
         }
     })
 }
@@ -91,7 +108,6 @@ function search_recipe(name){
         url: "/recommend/search2",
         data: {name_give: name},
         success: function (response) {
-            console.log(response)
-        }
+            }
     })
 }
