@@ -1,5 +1,6 @@
 //좋아요 상위 4개 요리 가져오기
-function get_Favorite(){
+function get_Favorite() {
+    console.log("favorite 함수 실행")
 
 }
 
@@ -16,10 +17,11 @@ function add_ing_list() {
     selected_box.show();
 
     let item_list = $("#selected-item-list");
-    item_list.append("<li>"+item+"</li>");
-    
-}
+    item_list.append("<li>" + item + "</li>");
 
+    return ing_list
+
+}
 
 
 function to_recommend() {
@@ -32,21 +34,10 @@ function to_recommend() {
         data: {ing_list},
         traditional: true,
         success: function (response) {
-            console.log(response);
         }
     })
-    // var link = "/recommend"
-    // location.href = link;
+    location.href = "/recommend";
 }
 
-function recipe() {
-    $.ajax({
-        type: "GET",
-        url: "/recipe/read",
-        data: {},
-        success: function (response) {
-             console.log(response)
-            }
-    })
-}
+
 

@@ -1,6 +1,6 @@
 // 재료 목록 가져오기
 function get_ingredients(){
-
+    console.log(ing_list)
     let item_list = $("#selected-ingredients-list");
     item_list.append("<li>"+ing_list+"</li>");
 
@@ -11,7 +11,7 @@ function recommend() {
     $.ajax({
         type: "GET",
         url: "/recommend/read",
-        data: {},
+        data: {ing_list},
         success: function (response) {
             let recipes = response['recipes']
             for (let i = 0; i < recipes.length; i++) {
