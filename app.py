@@ -90,8 +90,6 @@ def recipe():
 def like_star():
     name_receive = request.form['name_give']
 
-<<<<<<< HEAD
-=======
     target_star = db.recipes.find_one({'name': name_receive})
     current_like = target_star['like']
 
@@ -101,7 +99,6 @@ def like_star():
 
     return jsonify({'msg': '좋아요 완료!'})
 
->>>>>>> 056624fc4680599c177992039976158f263664cd
 # 추천 요리 표시
 
 

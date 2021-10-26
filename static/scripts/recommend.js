@@ -1,10 +1,16 @@
+// 재료 목록 가져오기
 function get_ingredients(){
+    let ing_item = location.href.substr(
+        location.href.lastIndexOf('=') + 1
+    );
+    console.log('item : ' + ing_item.valueOf());
+
+    let item_list = $("#selected-ingredients-list");
+    item_list.append("<li>"+ing_item+"</li>");
+
 
 }
-
-
-
-
+// 레시피 추천
 function recommend() {
     $.ajax({
         type: "GET",

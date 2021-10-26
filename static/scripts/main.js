@@ -10,38 +10,33 @@ let ing_list = [];
 function add_ing_list() {
     let item = document.getElementById("ingredient").value;
     console.log(item)
-    ing_list.push(item+"_");
+    ing_list.push(item);
 
     let selected_box = $("#selected");
     selected_box.show();
 
     let item_list = $("#selected-item-list");
     item_list.append("<li>"+item+"</li>");
-    temp(item_list);
 
     return ing_list
 }
 
-
-function temp(item_list) {
-    console.log(item_list);
-}
-
 function to_recommend() {
     // var ingredient = $('#ingredient').val();
-    var ing_list = ing_list
-    console.log(ing_list)
+    // console.log(ing_list)
+    window.location.href= "/recommend?index=" + ing_list;
+
     $.ajax({
         type: "POST",
         url: "/recommend/search",
         // data: {ing_give: ingredient},
         data: {ing_give: ing_list},
         success: function (response) {
-            console.log(response)
+            console.log(response);
         }
     })
-    var link = "/recommend"
-    location.href = link;
+    // var link = "/recommend"
+    // location.href = link;
 }
 
 function recipe() {
