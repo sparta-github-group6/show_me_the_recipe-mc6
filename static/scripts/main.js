@@ -43,3 +43,15 @@ function to_recommend() {
     var link = "/recommend"
     location.href = link;
 }
+
+function recipe() {
+    $.ajax({
+        type: "GET",
+        url: "/recipe/read",
+        data: {},
+        success: function (response) {
+             console.log(response)
+            }
+    })
+}
+

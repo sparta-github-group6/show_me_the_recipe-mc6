@@ -86,7 +86,22 @@ def recipe():
 # test = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
 # print(test,len(test))
 
+@app.route('/recipe/like', methods=['POST'])
+def like_star():
+    name_receive = request.form['name_give']
 
+<<<<<<< HEAD
+=======
+    target_star = db.recipes.find_one({'name': name_receive})
+    current_like = target_star['like']
+
+    new_like = current_like + 1
+
+    db.recipes.update_one({'name': name_receive}, {'$set': {'like': new_like}})
+
+    return jsonify({'msg': '좋아요 완료!'})
+
+>>>>>>> 056624fc4680599c177992039976158f263664cd
 # 추천 요리 표시
 
 
