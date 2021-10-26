@@ -23,6 +23,10 @@ def about_page():
 def rank_page():
     return render_template('rank.html')
 
+@app.route('/rank/list', methods=['GET'])
+def showAllList():
+    recipeList = list(db.recipes.find({}, {'_id': False}).sort('like', -1))
+    return jsonify({'recipe_Lists': recipeList})
 
 # 요리 레시피 리스트 요청
 @app.route('/recommend')
