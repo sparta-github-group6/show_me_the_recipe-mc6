@@ -4,8 +4,6 @@ function recipe() {
         url: "/recipe/read",
         data: {},
         success: function (response) {
-
-
         }
     })
 }
