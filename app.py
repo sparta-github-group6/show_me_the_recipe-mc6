@@ -37,17 +37,19 @@ def recipe_page():
 
 @app.route('/recommend/search', methods=['POST'])
 def search_1to2():
-    ingredients = request.form['ing_give']
-    db.search.update_one({'name': '검색'}, {'$set': {'index': ingredients}})
+    ingredients = request.form
+    ingredients = ingredients.getlist('ing_list')
+    print(ingredients)
+    db.search.update_one({'name':'검색'},{'$set':{'index':ingredients}})
     return jsonify({'msg': '저장'})
 
 
 @app.route('/recommend/read', methods=['GET'])
 def search():
-    search = db.search.find_one({'name': '검색'})
-    # recipes = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
+    search = db.search.find_one({'name':'검색'})
+    recipes = list(db.recipes.find({'search': {'$all':search['index']}},{'_id':False}))
     # recipes = list(db.recipes.find({'search':ingredients},{'_id':False}))
-    recipes = list(db.recipes.find({'search': search['index']}, {'_id': False}))
+    # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({'recipes': recipes})
 
 
