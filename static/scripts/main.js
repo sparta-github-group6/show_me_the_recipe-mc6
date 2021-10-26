@@ -1,11 +1,40 @@
 //좋아요 상위 4개 요리 가져오기
 function get_Favorite() {
-    console.log("favorite 함수 실행")
+    $.ajax({
+        type:'GET',
+        url: '/rank/favorite?sample_give=샘플데이터', //레시피 가져올 url  필요
+        data:{},
+        success: function (response){
+            let favorite_list = response['favorite_Lists']
+            for (let i = 0; i < favorite_list.length; i++ ) {
+                let name = favorite_list[i]['name']
+                let like = favorite_list[i]['like']
+
+                let temp_html = `<div class="favorite-card-cook">
+                                    <div>
+                                        <img src="../static/recipe-image/${name}.png" class="favorite-dishes" alt="인기 메뉴">
+                                    </div>
+                                    <div class="rank-card-cook-title">
+                                        <h3>${name}</h3>
+                                    </div>
+                                    
+                                    <div class="favorite-card-cook-like">
+                                        <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
+                                        
+                                    </div>
+                    
+                                </div>`
+
+                $('#favorite-dishes').append(temp_html)
+            }
+
+        }
+    })
 
 }
 
 // 재료 담을 리스트 생성
-var ing_list = [];
+let ing_list = [];
 
 // 선택 버튼 누르면 동작하는 함수
 function add_ing_list() {
@@ -19,14 +48,14 @@ function add_ing_list() {
     let item_list = $("#selected-item-list");
     item_list.append("<li>" + item + "</li>");
 
-    return ing_list
+
 
 }
 
 
 function to_recommend() {
 
-    console.log(ing_list)
+    // console.log(ing_list)
 
     $.ajax({
         type: "POST",
