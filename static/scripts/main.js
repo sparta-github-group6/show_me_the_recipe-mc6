@@ -42,7 +42,26 @@ function recipe() {
         url: "/recipe/read",
         data: {},
         success: function (response) {
-             console.log(response)
+            console.log(response)
+            let recipes = response['recipes']
+            let ing = recipes['ingredient']
+            let name = recipes['name']
+            let desc = recipes['desc']
+            let making = recipes['making']
+            let precook = recipes['precook']
+            let temp_html =`<img class="cook-img" src="../static/recipe-image/${name}.png" align="middle" hspace="30">
+            [${name}] </img>`
+            let temp2_html = `${ing}`
+            for (let i = 0; i < making.length; i++) {
+                let making2 = recipes['making'][i]
+                let temp_html = `${making2}`
+                $('.recipe').append(temp_html)
+            }
+
+
+            $('.cook-name').append(temp_html)
+            $('.ing').append(temp2_html)
+
             }
     })
 }

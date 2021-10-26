@@ -54,6 +54,12 @@ def search():
     # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({'recipes': recipes})
 
+@app.route('/recommend/ingredient', methods=['GET'])
+def search_ing():
+    search = db.search.find_one({'name': '검색'},{'_id':False})
+    return jsonify({'ing': search})
+
+
 @app.route('/recommend/search2', methods=['POST'])
 def search_2to3():
     name = request.form['name_give']
@@ -117,7 +123,6 @@ def hate_star():
     return jsonify({'msg': '싫어요!'})
 
 # 추천 요리 표시
-
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

@@ -52,6 +52,8 @@ for i in range(1, 15):  # 1~14페이지까지 반복
                     making = making.split('.')
                     making = list(filter(None, making))
                     precook = list(filter(None, precook))
+                    precook2 = []
+                    making2 = []
 
                     search = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
                     for word in precook:
@@ -61,7 +63,15 @@ for i in range(1, 15):  # 1~14페이지까지 반복
                         if word in search:
                             making.remove(word)
 
-                    print(name, list_for_search, list_for_recipe, desc, ingredient, precook, making)
+                    for f in precook:
+                        precook2.append(f.strip())
+                    for f in making:
+                        making2.append(f.strip())
+
+
+
+
+                    print(name, list_for_search, list_for_recipe, desc, ingredient, precook2, making2)
 
                     doc = {
                         'name': name,
@@ -69,8 +79,8 @@ for i in range(1, 15):  # 1~14페이지까지 반복
                         'ingredients': list_for_recipe,
                         'desc': desc,
                         'ingredient':ingredient,
-                        'precook':precook,
-                        'making':making,
+                        'precook':precook2,
+                        'making':making2,
                         'like':0
                     }
                     db.recipes.insert_one(doc)
