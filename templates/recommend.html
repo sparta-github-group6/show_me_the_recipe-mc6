@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄아, 냉장고를 부탁해</title>
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/recommend.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,11 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-
-
     <script src="../static/scripts/recommend.js"></script>
     <script>
         $(document).ready(function () {
+            {#재료 가져오기#}
+            get_ingredients();
+            {#레시피 추천#}
             recommend();
         });
 
@@ -64,7 +66,6 @@
                         <li>1</li>
                         <li>2</li>
                         <li>3</li>
-                        <li>4</li>
                     </ul>
                 </div>
             </section>

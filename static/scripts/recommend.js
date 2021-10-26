@@ -1,3 +1,9 @@
+function get_ingredients(){
+
+}
+
+
+
 
 function recommend() {
     $.ajax({

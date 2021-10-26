@@ -18,6 +18,8 @@ function add_ing_list() {
     let item_list = $("#selected-item-list");
     item_list.append("<li>"+item+"</li>");
     temp(item_list);
+
+    return ing_list
 }
 
 
@@ -26,11 +28,14 @@ function temp(item_list) {
 }
 
 function to_recommend() {
-    var ingredient = $('#ingredient').val();
+    // var ingredient = $('#ingredient').val();
+    var ing_list = ing_list
+    console.log(ing_list)
     $.ajax({
         type: "POST",
         url: "/recommend/search",
-        data: {ing_give: ingredient},
+        // data: {ing_give: ingredient},
+        data: {ing_give: ing_list},
         success: function (response) {
             console.log(response)
         }
