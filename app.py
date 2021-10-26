@@ -23,6 +23,10 @@ def about_page():
 def rank_page():
     return render_template('rank.html')
 
+@app.route('/rank/list', methods=['GET'])
+def showAllList():
+    recipeList = list(db.recipes.find({}, {'_id': False}).sort('like', -1))
+    return jsonify({'recipe_Lists': recipeList})
 
 # 요리 레시피 리스트 요청
 @app.route('/recommend')
@@ -45,7 +49,7 @@ def search_1to2():
 @app.route('/recommend/read', methods=['GET'])
 def search():
     search = db.search.find_one({'name':'검색'})
-    recipes = list(db.recipes.find({'search': {'$all':search['index']}},{'_id':False}))
+    recipes = list(db.recipes.find({'search': {'$all':search['index']}},{'_id':False}).sort('like', -1))
     # recipes = list(db.recipes.find({'search':ingredients},{'_id':False}))
     # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({'recipes': recipes})
@@ -85,6 +89,7 @@ def recipe():
 # test = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
 # print(test,len(test))
 
+# 좋아요 싫어요
 @app.route('/recipe/like', methods=['POST'])
 def like_star():
     name_receive = request.form['name_give']
@@ -96,7 +101,20 @@ def like_star():
 
     db.recipes.update_one({'name': name_receive}, {'$set': {'like': new_like}})
 
-    return jsonify({'msg': '좋아요 완료!'})
+    return jsonify({'msg': '좋아요!'})
+
+@app.route('/recipe/hate', methods=['POST'])
+def hate_star():
+    name_receive = request.form['name_give']
+
+    target_star = db.recipes.find_one({'name': name_receive})
+    current_like = target_star['like']
+
+    hate_like = current_like - 1
+
+    db.recipes.update_one({'name': name_receive}, {'$set': {'like': hate_like}})
+
+    return jsonify({'msg': '싫어요!'})
 
 # 추천 요리 표시
 

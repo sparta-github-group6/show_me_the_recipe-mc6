@@ -35,7 +35,14 @@ function recommend() {
                                                     ${like}
                                                         <span class="icon">
                                               <i class="fas fa-thumbs-up"></i>
+                                                        </span>
                                                     </a>
+                                                    <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
+                                                        <span class="icon">
+                                              <i class="fas fa-thumbs-down"></i>
+                                            </span>
+                                                     </a>
+                                             </footer>
                                         </div>
                                     </div>
                                 </a>`
@@ -58,6 +65,17 @@ function likeStar(name) {
                 });
             }
 
+function hateStar(name) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/recipe/hate',
+                    data: {name_give:name},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            }
 
 function search_recipe(name){
     $.ajax({
