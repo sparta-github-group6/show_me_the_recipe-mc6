@@ -1,12 +1,8 @@
 // 재료 목록 가져오기
 function get_ingredients(){
-    let ing_item = location.href.substr(
-        location.href.lastIndexOf('=') + 1
-    );
-    console.log('item : ' + ing_item.valueOf());
 
     let item_list = $("#selected-ingredients-list");
-    item_list.append("<li>"+ing_item+"</li>");
+    item_list.append("<li>"+ing_list+"</li>");
 
 
 }
@@ -46,7 +42,7 @@ function recommend() {
                                                     <a href="#" onclick="likeStar('${name}')" class="card-footer-item has-text-info">
                                                     ${like}
                                                         <span class="icon">
-                                              <i class="fas fa-thumbs-up"></i>
+                                            <i class="fas fa-thumbs-up"></i>
                                                     </a>
                                         </div>
                                     </div>
