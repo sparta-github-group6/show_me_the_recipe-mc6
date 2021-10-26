@@ -9,11 +9,12 @@
     border: 1px solid antiquewhite;
     border-radius: 5px;
 }
-#favorite-main h2{
+
+#favorite-main h2 {
     margin: 10px;
 }
 
-.favorite{
+.favorite {
     margin: 5px;
     display: flex;
     justify-content: center;
@@ -26,7 +27,7 @@
     border-radius: 5px;
 }
 
-.favorite-card-cook h3{
+.favorite-card-cook h3 {
     margin: 0;
     font-size: 24px;
     font-weight: normal;
@@ -40,12 +41,10 @@
     background-size: cover;
 }
 
-.favorite-card-cook-like{
+.favorite-card-cook-like {
     display: flex;
     justify-content: center;
 }
-
-
 
 
 #select-list {
@@ -72,7 +71,10 @@
 
 #selected-item-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 
 #btn-select {
     width: 80px;

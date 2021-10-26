@@ -328,3 +328,8 @@ main {
 
 }
 
+.list-style{
+    width: 300px;
+    display: inline;
+    float: left;
+}

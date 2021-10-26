@@ -48,6 +48,8 @@ function add_ing_list() {
     let item_list = $("#selected-item-list");
     item_list.append("<li>" + item + "</li>");
 
+    $("#ingredient").val("")
+
 
 
 }

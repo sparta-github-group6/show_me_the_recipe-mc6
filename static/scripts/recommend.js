@@ -68,10 +68,10 @@ function ingredients() {
         url: "/recommend/ingredient",
         data: {},
         success: function (response) {
-            let ings = response['ing']['index']
-            for (let i = 0; i < ings.length; i++) {
-                let asd = ings[i]
-                let temp_html = `<li> ${asd} </li>`
+            let ingredients = response['ing']['index']
+            for (let i = 0; i < ingredients.length; i++) {
+                let item = ingredients[i]
+                let temp_html = `<li class="list-style"> ${item} </li>`
                 $('.selected-ingredients').append(temp_html)
             }
         }

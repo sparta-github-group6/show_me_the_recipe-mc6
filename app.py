@@ -65,9 +65,10 @@ def search():
     # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({'recipes': recipes})
 
+
 @app.route('/recommend/ingredient', methods=['GET'])
 def search_ing():
-    search = db.search.find_one({'name': '검색'},{'_id':False})
+    search = db.search.find_one({'name': '검색'}, {'_id': False})
     return jsonify({'ing': search})
 
 
