@@ -49,6 +49,18 @@ function recommend() {
 
                 $('.recipe-box').append(temp_html)
             }
+           ingredients()
+        }
+    })
+}
+
+function ingredients() {
+    $.ajax({
+        type: "GET",
+        url: "/recommend/ingredient",
+        data: {},
+        success: function (response) {
+            console.log(response)
         }
     })
 }
@@ -83,7 +95,10 @@ function search_recipe(name){
         url: "/recommend/search2",
         data: {name_give: name},
         success: function (response) {
-            console.log(response)
+            let ings = response['index']
+            for (let i = 0; i < ings.length; i++){
+                $()
+            }
         }
     })
 }
