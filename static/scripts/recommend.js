@@ -1,9 +1,17 @@
+// 재료 목록 가져오기
+function get_ingredients(){
+    console.log(ing_list)
+    let item_list = $("#selected-ingredients-list");
+    item_list.append("<li>"+ing_list+"</li>");
 
+
+}
+// 레시피 추천
 function recommend() {
     $.ajax({
         type: "GET",
         url: "/recommend/read",
-        data: {},
+        data: {ing_list},
         success: function (response) {
             let recipes = response['recipes']
             for (let i = 0; i < recipes.length; i++) {
@@ -60,10 +68,10 @@ function ingredients() {
         url: "/recommend/ingredient",
         data: {},
         success: function (response) {
-            let ings = response['ing']['index']
-            for (let i = 0; i < ings.length; i++) {
-                let asd = ings[i]
-                let temp_html = `<li> ${asd} </li>`
+            let ingredients = response['ing']['index']
+            for (let i = 0; i < ingredients.length; i++) {
+                let item = ingredients[i]
+                let temp_html = `<li class="list-style"> ${item} </li>`
                 $('.selected-ingredients').append(temp_html)
             }
         }

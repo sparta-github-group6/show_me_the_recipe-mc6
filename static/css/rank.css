@@ -1,11 +1,10 @@
 /*rank*/
 .rank-container-cook-card {
-    width: 60%;
     display: flex;
-    text-align: center;
     flex-direction: row;
-    margin: 20px;
-
+    flex-wrap: wrap;
+    margin: 10px auto;
+    justify-content: center;
 
 }
 
@@ -24,4 +23,20 @@
     width: 150px;
     height: 150px;
     margin: 20px;
+}
+
+.to_top {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+
+}
+.btn-up{
+   font-size: 32px;
+}
+
+/*filter*/
+.filter-menu{
+    text-align: right;
+    margin: 10px;
 }

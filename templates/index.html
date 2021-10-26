@@ -18,7 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            {#추천 메뉴 가져오기#}
+            get_Favorite();
+        });
 
+    </script>
 </head>
 
 <body>
@@ -49,12 +55,7 @@
             <section class="section-main" id="favorite-main">
                 <h2>BEST MENU</h2>
 
-                <div class="favorite">
-                    <img class="dishes" src="" alt="">
-                    <img class="dishes" src="" alt="">
-                    <img class="dishes" src="" alt="">
-                    <img class="dishes" src="" alt="">
-
+                <div class="favorite" id="favorite-dishes">
                 </div>
 
             </section>

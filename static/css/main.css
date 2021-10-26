@@ -10,13 +10,42 @@
     border-radius: 5px;
 }
 
-.dishes {
+#favorite-main h2 {
+    margin: 10px;
+}
+
+.favorite {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.favorite-card-cook {
+    border: 1px solid palegoldenrod;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.favorite-card-cook h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.favorite-dishes {
     background-image: url("../images/logo.png");
     width: 150px;
     height: 150px;
-    margin: 20px;
+    margin: auto;
     background-size: cover;
 }
+
+.favorite-card-cook-like {
+    display: flex;
+    justify-content: center;
+}
+
 
 #select-list {
     height: 100px;
@@ -42,7 +71,10 @@
 
 #selected-item-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 
 #btn-select {
     width: 80px;
