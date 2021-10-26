@@ -228,20 +228,30 @@ main {
 .ingredient {
     border: 1px solid lightgray;
     border-radius: 10px;
-    height: 200px;
+    height: 300px;
     background-color: antiquewhite;
-    font-size: 40px;
+    font-size: 30px;
     margin: 20px auto;
     padding: 10px;
     text-align: start;
 }
 
-.recipe {
+.ready {
     border: 1px solid lightgray;
     border-radius: 10px;
-    height: 700px;
+    height: 400px;
     background-color: lemonchiffon;
-    font-size: 40px;
+    font-size: 30px;
+    margin: 20px auto;
+    text-align: start;
+}
+
+.making {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 400px;
+    background-color: #f8ffcc;
+    font-size: 30px;
     margin: 20px auto;
     text-align: start;
 }
