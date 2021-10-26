@@ -83,3 +83,8 @@
     margin: 10px;
 }
 
+#btn-recommend{
+    width: 100px;
+    background-color: var(--color-purple);
+}
+

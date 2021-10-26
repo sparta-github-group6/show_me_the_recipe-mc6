@@ -86,7 +86,7 @@ main {
 }
 
 .navbar__menu li:hover {
-    background-color: #eed6ea;
+    background-color: rgb(238, 214, 234);
     border-radius: 4px;
 }
 
@@ -98,7 +98,9 @@ main {
     font-size: 24px;
     color: black;
 }
-
+.img{
+    height: 200px;
+}
 
 /*Button*/
 .btn-main {

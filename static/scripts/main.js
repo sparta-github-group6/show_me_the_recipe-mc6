@@ -10,20 +10,23 @@ function get_Favorite() {
                 let name = favorite_list[i]['name']
                 let like = favorite_list[i]['like']
 
-                let temp_html = `<div class="favorite-card-cook">
+                let temp_html = `
                                     <div>
-                                        <img src="../static/recipe-image/${name}.png" class="favorite-dishes" alt="인기 메뉴">
-                                    </div>
-                                    <div class="rank-card-cook-title">
-                                        <h3>${name}</h3>
-                                    </div>
+                                        <div class="favorite-card-cook">
+                                            <div>
+                                                <img src="../static/recipe-image/${name}.png" class="favorite-dishes" alt="인기 메뉴">
+                                            </div>
+                                        <div class="rank-card-cook-title">
+                                            <h3>${name}</h3>
+                                        </div>
                                     
-                                    <div class="favorite-card-cook-like">
-                                        <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
+                                        <div class="favorite-card-cook-like">
+                                            <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
                                         
-                                    </div>
+                                        </div>
                     
-                                </div>`
+                                    </div>
+                                `
 
                 $('#favorite-dishes').append(temp_html)
             }
@@ -70,33 +73,5 @@ function to_recommend() {
     location.href = "/recommend";
 }
 
-function recipe() {
-    $.ajax({
-        type: "GET",
-        url: "/recipe/read",
-        data: {},
-        success: function (response) {
-            console.log(response)
-            let recipes = response['recipes']
-            let ing = recipes['ingredient']
-            let name = recipes['name']
-            let desc = recipes['desc']
-            let making = recipes['making']
-            let precook = recipes['precook']
-            let temp_html =`<img class="cook-img" src="../static/recipe-image/${name}.png" align="middle" hspace="30">
-            [${name}] </img>`
-            let temp2_html = `${ing}`
-            for (let i = 0; i < making.length; i++) {
-                let making2 = recipes['making'][i]
-                let temp_html = `${making2}`
-                $('.recipe').append(temp_html)
-            }
 
-
-            $('.cook-name').append(temp_html)
-            $('.ing').append(temp2_html)
-
-            }
-    })
-}
 
