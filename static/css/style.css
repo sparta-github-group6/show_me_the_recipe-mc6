@@ -231,7 +231,7 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 300px;
-    background-color: antiquewhite;
+    background-color: #fff3e7;
     font-size: 30px;
     margin: 20px auto;
     padding: 10px;
@@ -242,7 +242,7 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 400px;
-    background-color: lemonchiffon;
+    background-color: #ffffec;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
@@ -252,11 +252,13 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 400px;
-    background-color: #f8ffcc;
+    background-color: #fff2f4;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
+
 }
+
 
 
 /* recommend */
