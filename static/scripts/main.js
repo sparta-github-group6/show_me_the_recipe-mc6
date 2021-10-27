@@ -71,7 +71,7 @@ function delete_list(){
 
 function delete_item(){
    const item = document.getElementById('sel_item');
-    item.remove();
+    item.remove();fg
     ing_list.pop();
 }
 
