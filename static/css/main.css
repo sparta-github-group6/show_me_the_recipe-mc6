@@ -89,3 +89,6 @@
     background-color: var(--color-purple);
 }
 
+.selected_title {
+    font-size: 36px;
+}

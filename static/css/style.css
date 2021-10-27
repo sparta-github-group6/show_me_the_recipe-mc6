@@ -2,6 +2,7 @@
   font-family: "Jua", sans-serif;
   color:#000000;
   font-size:20px;
+    font-weight: normal;
 }
 
 :root {
@@ -139,8 +140,6 @@ footer {
 }
 
 .cook-img {
-  width: 400px;
-  height: 200px;
   margin: 10px auto;
 }
 
@@ -177,69 +176,7 @@ footer {
 }
 
 
-/* recommend */
-.selected-ingredients {
-  text-align: center;
-  align-items: center;
-  margin: 11px 0 70px;
-  display: block;
-}
 
-.ingredients {
-  min-width: 150px;
-  min-height: 150px;
-  background-image: url("../images/default-image.jpg");
-  background-position: 50% 50%;
-  margin: 10px;
-  border-radius: 50%;
-}
-
-.recipes_all_about {
-  display: flex;
-  margin: 10px;
-  border: 1px solid #d8d8d8;
-  border-radius: 5px;
-}
-
-.recipes_img {
-  float: left;
-  width: 100%;
-  background-color: papayawhip;
-}
-
-.list-img-cook {
-  width: 80%;
-}
-
-.recipes_information {
-  width: 75%;
-  text-align: start;
-  background-color: palegoldenrod;
-}
-
-.recipes_information h3 {
-  margin: 0 0 0 15px;
-  font-size: 32px;
-}
-
-.recipes_title {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.recipes_desc {
-  height: 150px;
-}
-
-.recipes_desc h4 {
-  font-size: 24px;
-  margin: 0 0 0 20px;
-  padding-top: 5px;
-}
-
-.recipes_like {
-  height: 30px;
-}
 
 .list-style {
   width: 300px;
@@ -247,4 +184,14 @@ footer {
 }
 .rtan-title-mobile{
     display:none;
+}
+#sel_item{
+  font-size: 24px;
+}
+
+.del_item{
+  width: 32px;
+  background: 0;
+  font-size: 24px;
+  padding: 0;
 }

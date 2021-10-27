@@ -44,6 +44,7 @@ let ing_list = [];
 
 // 선택 버튼 누르면 동작하는 함수
 function add_ing_list() {
+
     let item = document.getElementById("ingredient").value;
     console.log(item)
     ing_list.push(item);
@@ -52,12 +53,26 @@ function add_ing_list() {
     selected_box.show();
 
     let item_list = $("#selected-item-list");
-    item_list.append("<li>" + item + "</li>");
+
+
+    // item_list.append("<li class='sel_item'>" + item + "</li>");
+
+    let temp_html = `<li id="sel_item">${item}<button class="btn-main del_item" onclick="delete_item()"><i class="fas fa-times del_item"></i></button></li>`
+    item_list.append(temp_html)
 
     $("#ingredient").val("")
 
+}
 
+function delete_list(){
+    $("#selected-item-list").empty();
+    ing_list.clear();
+}
 
+function delete_item(){
+   const item = document.getElementById('sel_item');
+    item.remove();fg
+    ing_list.pop();
 }
 
 
