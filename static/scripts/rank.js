@@ -12,6 +12,7 @@ function show_rank() {
             let recipeList = response['recipe_Lists']
             for (let i = 0; i < recipeList.length; i++ ) {
                 let name = recipeList[i]['name']
+                let like = recipeList[i]['like']
 
                 let temp_html = `<div class="rank-card-cook">
                                     <div>
@@ -27,8 +28,17 @@ function show_rank() {
                                             레시피 보기
                                         </a>
                                     </div>
-                    
+
+                                    <div class="favorite-card-cook-like"> 
+                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
+                                    </div>
+
+                                    <div class="favorite-card-cook-like">
+                                            <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
+                                        
+                                        </div>  
                                 </div>`
+
 
                 $('#cook-list').append(temp_html)
             }
