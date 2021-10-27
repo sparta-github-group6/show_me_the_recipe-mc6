@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄아, 냉장고를 부탁해</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/rank.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,7 +20,7 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
 
-    <script src="../static/rank.js" defer></script>
+    <script src="../static/scripts/rank.js" defer></script>
 </head>
 
 <body>
@@ -46,60 +47,41 @@
         </div>
     </div>
 
-    <hr style="border: solid 1px lightgray; width: 60%;">
-
     <main id="woong">
 
+        <div class="filter-menu">
+            <a href="#">
+                좋아요 순
+            </a>
+            /
+            <a href="#">
+                가나다 순
+            </a>
+        </div>
+
         <div class="rank-container-cook-card" id="cook-list">
-            <div class="rank-card-cook">
-                <div>
-                    <img src="../static/logo.png" alt="" class="rank-card-cook-image">
-                </div>
+<!--            <div class="rank-card-cook">-->
+<!--                <div>-->
+<!--                    <img src="../static/logo.png" alt="" class="rank-card-cook-image">-->
+<!--                </div>-->
 
-                <div class="rank-card-cook-title">
-                    <h3>[요리 제목]</h3>
-                </div>
+<!--                <div class="rank-card-cook-title">-->
+<!--                    <h3>[요리 제목]</h3>-->
+<!--                </div>-->
 
-                <div class="rank-card-cook-footer">
-                    <a class="btn-rank-recipe" href="/recipe">
-                        레시피 보기
-                    </a>
-                </div>
+<!--                <div class="rank-card-cook-footer">-->
+<!--                    <a class="btn-rank-recipe" href="/recipe">-->
+<!--                        레시피 보기-->
+<!--                    </a>-->
+<!--                </div>-->
 
-            </div>
-            <div class="rank-card-cook">
-                <div>
-                    <img src="../static/logo.png" alt="" class="rank-card-cook-image">
-                </div>
+<!--            </div>-->
+        </div>
 
-                <div class="rank-card-cook-title">
-                    <h3>[요리 제목]</h3>
-                </div>
-
-                <div class="rank-card-cook-footer">
-                    <a class="btn-rank-recipe" href="/recipe">
-                        레시피 보기
-                    </a>
-                </div>
-
-            </div>
-            <div class="rank-card-cook">
-                <div>
-                    <img src="../static/logo.png" alt="" class="rank-card-cook-image">
-                </div>
-
-                <div class="rank-card-cook-title">
-                    <h3>[요리 제목]</h3>
-                </div>
-
-                <div class="rank-card-cook-footer">
-                    <a class="btn-rank-recipe" href="/recipe">
-                        레시피 보기
-                    </a>
-                </div>
-
-            </div>
-
+        <div class="to_top">
+            <a href="/rank">
+                <i class="fas fa-chevron-circle-up btn-up" title="위로"></i>
+            </a>
         </div>
 
 

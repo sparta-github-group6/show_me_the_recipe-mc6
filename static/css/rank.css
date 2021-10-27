@@ -1,0 +1,42 @@
+/*rank*/
+.rank-container-cook-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    justify-content: center;
+
+}
+
+.rank-card-cook {
+    width: 200px;
+    height: 300px;
+    border: 1px solid palegoldenrod;
+    margin: 20px 40px 20px 40px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.rank-card-cook-image {
+    background-image: url("../images/logo.png");
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
+.to_top {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+
+}
+.btn-up{
+   font-size: 32px;
+}
+
+/*filter*/
+.filter-menu{
+    text-align: right;
+    margin: 10px;
+}

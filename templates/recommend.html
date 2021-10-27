@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄아, 냉장고를 부탁해</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/recommend.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,9 +20,11 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
 
-    <script src="../static/main.js" defer></script>
     <script>
         $(document).ready(function () {
+            {#재료 가져오기#}
+            get_ingredients();
+            {#레시피 추천#}
             recommend();
         });
 
@@ -56,43 +59,13 @@
         <main id="soo">
 
             <section class="section-main" id="ingredients-main">
-                <h2>선택한 재료 는 [재료] 입니다.</h2>
+                <h2>선택한 재료</h2>
 
-                {#                <div class="selected-ingredients">#}
-                {#                    <img class="ingredients" src="" alt="재료1">#}
-                {#                    <img class="ingredients" src="" alt="재료2">#}
-                {#                    <img class="ingredients" src="" alt="재료3">#}
-                {#                    <img class="ingredients" src="" alt="재료4">#}
-                {#                </div>#}
+                <div class="selected-ingredients">
+                </div>
             </section>
 
             <div class="recipe-box" id="matched-dishes">
-
-<!--?                <a href="/recipe">-->
-<!--?                    <div class="recipes_all_about">-->
-
-<!--?                        <div class="recipes_img">-->
-<!--?                            <img src="../static/logo.png" class="list-img-cook" alt="요리 이미지">-->
-<!--?                        </div>-->
-
-<!--?                        <div class="recipes_information">-->
-<!--?                            <div class="recipes_title">-->
-<!--?                                <h3>레시피 제목: 계란찜 </h3>-->
-<!--?                            </div>-->
-
-<!--?                            <div class="recipes_desc">-->
-<!--?                                <h4>레시피 내용</h4>-->
-<!--?                                <p>-->
-
-<!--?                                </p>-->
-<!--?                            </div>-->
-
-<!--?                            <div class="recipes_like"><i class="far fa-thumbs-up"></i> 10 </div>-->
-<!--?                        </div>-->
-
-<!--?                    </div>-->
-<!--?                </a>-->
-
             </div>
         </main>
 
@@ -104,5 +77,6 @@
         </footer>
     </div>
 </body>
-
+    <script src="../static/scripts/main.js"></script>
+    <script src="../static/scripts/recommend.js"></script>
 </html>
