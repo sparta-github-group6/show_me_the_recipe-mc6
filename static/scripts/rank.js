@@ -28,11 +28,15 @@ function show_rank() {
                                             레시피 보기
                                         </a>
                                     </div>
-                                    
+
                                     <div class="favorite-card-cook-like"> 
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>
-                    
+
+                                    <div class="favorite-card-cook-like">
+                                            <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
+                                        
+                                        </div>  
                                 </div>`
 
 
