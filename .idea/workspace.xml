@@ -148,15 +148,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.Flask (app.py)" />
-      <item itemvalue="JavaScript Debug.index.html" />
       <item itemvalue="Python.app" />
       <item itemvalue="Python.crawling_menus" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Flask server.Flask (app.py)" />
-        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Python.crawling_menus" />
       </list>
     </recent_temporary>
