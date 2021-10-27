@@ -1,9 +1,14 @@
+        $(document).ready(function () {
+            get_ingredients();
+        });
+
 // 재료 목록 가져오기
 function get_ingredients(){
     console.log(ing_list)
     let item_list = $("#selected-ingredients-list");
     item_list.append("<li>"+ing_list+"</li>");
 
+    recommend();
 
 }
 // 레시피 추천

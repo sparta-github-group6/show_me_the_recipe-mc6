@@ -25,6 +25,11 @@
     margin: 20px;
 }
 
+.rank-card-cook-title {
+    font-size:24px;
+    font-weight:normal;
+    margin: 0;
+}
 .to_top {
     position: fixed;
     bottom: 16px;
