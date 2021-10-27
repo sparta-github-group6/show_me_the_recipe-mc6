@@ -57,8 +57,10 @@ function add_ing_list() {
 
     $("#ingredient").val("")
 
+}
 
-
+function delete_list(){
+    $("#selected-item-list").empty()
 }
 
 
