@@ -32,7 +32,6 @@ function show_rank() {
                                     <div class="favorite-card-cook-like"> 
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>
- 
                                 </div>`
 
 
@@ -66,15 +65,16 @@ function show_sort() {
                                     </div>
 
                                     <div class="rank-card-cook-footer">
-                                        <a class="btn-rank-recipe" href="/recipe" onclick="sort_search_recipe('${name}')">
+                                        <a href="/recipe" onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
+                                    
                                     <div class="favorite-card-cook-like"> 
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>
-                                </div></a>`
-
+                                    
+                                </a>`
                 $('#cook-list').append(temp_html)
             }
         }
@@ -82,16 +82,6 @@ function show_sort() {
 }
 
 function rank_search_recipe(name) {
-    $.ajax({
-        type: "POST",
-        url: "/recommend/search2",
-        data: {name_give: name},
-        success: function (response) {
-        }
-    })
-}
-
-function sort_search_recipe(name) {
     $.ajax({
         type: "POST",
         url: "/recommend/search2",
