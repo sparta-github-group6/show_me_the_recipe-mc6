@@ -231,7 +231,7 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 300px;
-    background-color: rgba(248, 221, 221, 0.55);
+    background-color: #fff2f2;
     font-size: 30px;
     margin: 20px auto;
     padding: 10px;
@@ -242,19 +242,21 @@ main {
     border: 1px solid lightgray;
     border-radius: 10px;
     height: 400px;
-    background-color: #fff2f4;
+    background-color: white;
     font-size: 30px;
     margin: 20px auto;
+    padding: 10px;
     text-align: start;
 }
 
 .making {
     border: 1px solid lightgray;
     border-radius: 10px;
-    height: 400px;
-    background-color: #fff3e7;
+    height: 550px;
+    background-color: white;
     font-size: 30px;
     margin: 20px auto;
+    padding: 10px;
     text-align: start;
 
 }
