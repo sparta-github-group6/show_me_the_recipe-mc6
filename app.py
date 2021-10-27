@@ -142,6 +142,7 @@ def hate_star():
     return jsonify({'msg': '싫어요!'})
 
 
+
 # 추천 요리 표시
 
 if __name__ == '__main__':
