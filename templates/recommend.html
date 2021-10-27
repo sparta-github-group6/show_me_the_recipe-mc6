@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>르탄아, 냉장고를 부탁해</title>
+        <link rel="stylesheet" href="/static/css/default.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/recommend.css">
+    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,36 +22,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-
-    <script>
-        $(document).ready(function () {
-            {#재료 가져오기#}
-            get_ingredients();
-            {#레시피 추천#}
-            recommend();
-        });
-
-    </script>
-
+    <!-- navigation toggle -->
+    <script src="/static/scripts/toggle.js"></script>
 </head>
 
 <body>
     <div class="wrap">
 
-        <nav class="navbar">
-            <div class="navbar__logo">
-                <a href="/"><i class="fas fa-utensils"></i></a>
+    <header>
+            <a href="/"><h1><i class="fas fa-utensils logo"></i>
+                <span class="rtan-title-mobile">르탄아, 냉장고를 부탁해!</span>
+            </h1>
+            </a>
+            <button class="btn_menu">
+            </button>
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/rank">Rank</a></li>
+                    </ul>
+                </nav>
             </div>
-
-            <ul class="navbar__menu">
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/rank">Rank</a></li>
-            </ul>
-        </nav>
-
-        <a href="#" class="navbar__toggleBtn">
-            <i class="fas fa-bars"></i>
-        </a>
+        </header>
 
         <div class="img" style="height: 200px;">
             <div class="rtan">
@@ -69,11 +65,9 @@
             </div>
         </main>
 
-        <footer class="ft">
-            <div>
+        <footer>
                 copyright by 내일배움단 6조 (내 이름은 르탄, 냉장고 킬러조)<br>
                 Thanks to 스파르타 코딩 클럽
-            </div>
         </footer>
     </div>
 </body>

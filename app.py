@@ -32,9 +32,15 @@ def rank_page():
 
 
 @app.route('/rank/list', methods=['GET'])
-def showAllList():
-    recipeList = list(db.recipes.find({}, {'_id': False}).sort('like', -1))
-    return jsonify({'recipe_Lists': recipeList})
+def show_rank():
+    recipe_list = list(db.recipes.find({}, {'_id': False}).sort('like', -1))
+    return jsonify({'recipe_Lists': recipe_list})
+
+
+@app.route('/rank/sort', methods=['GET'])
+def show_sort():
+    sort_list = list(db.recipes.find({}, {'_id': False}).sort('name', 1))
+    return jsonify({'sort_lists': sort_list})
 
 
 # 요리 레시피 리스트 요청

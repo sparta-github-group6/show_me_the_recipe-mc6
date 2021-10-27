@@ -1,3 +1,7 @@
+       $(document).ready(function () {
+            get_Favorite();
+        });
+
 //좋아요 상위 4개 요리 가져오기
 function get_Favorite() {
     $.ajax({
@@ -10,23 +14,22 @@ function get_Favorite() {
                 let name = favorite_list[i]['name']
                 let like = favorite_list[i]['like']
 
-                let temp_html = `
+                let temp_html = `<a href="/recipe" onclick="index_search_recipe('${name}')">
                                     <div>
                                         <div class="favorite-card-cook">
                                             <div>
                                                 <img src="../static/recipe-image/${name}.png" class="favorite-dishes" alt="인기 메뉴">
                                             </div>
-                                        <div class="rank-card-cook-title">
-                                            <h3>${name}</h3>
-                                        </div>
+                                            <div class="rank-card-cook-title">
+                                                <h3>${name}</h3>
+                                            </div>
                                     
-                                        <div class="favorite-card-cook-like">
-                                            <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
-                                        
+                                            <div class="favorite-card-cook-like">
+                                                <h3><i class="fas fa-thumbs-up"></i>  ${like}</h3>
+                                            </div>
                                         </div>
-                    
                                     </div>
-                                `
+                                </a>`
 
                 $('#favorite-dishes').append(temp_html)
             }
@@ -73,5 +76,13 @@ function to_recommend() {
     location.href = "/recommend";
 }
 
-
+function index_search_recipe(name){
+    $.ajax({
+        type: "POST",
+        url: "/recommend/search2",
+        data: {name_give: name},
+        success: function (response) {
+            }
+    })
+}
 
