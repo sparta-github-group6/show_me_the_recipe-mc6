@@ -149,6 +149,7 @@ footer {
 }
 
 .ingredient {
+
   border: 1px solid lightgray;
   border-radius: 10px;
   height: 300px;
@@ -177,6 +178,7 @@ footer {
   font-size: 30px;
   margin: 20px auto;
   text-align: start;
+
 }
 
 /* recommend */
