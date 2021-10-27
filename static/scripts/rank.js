@@ -21,9 +21,9 @@ function show_rank() {
                                     <div class="rank-card-cook-title">
                                         <h3>${name}</h3>
                                     </div>
-                    
+                                    
                                     <div class="rank-card-cook-footer">
-                                        <a class="btn-rank-recipe" href="/recipe">
+                                        <a href="/recipe" onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
@@ -72,4 +72,12 @@ function show_sort() {
     })
 }
 
-
+function rank_search_recipe(name){
+    $.ajax({
+        type: "POST",
+        url: "/recommend/search2",
+        data: {name_give: name},
+        success: function (response) {
+            }
+    })
+}
