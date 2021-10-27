@@ -252,3 +252,13 @@ footer {
 .rtan-title-mobile{
     display:none;
 }
+#sel_item{
+  font-size: 24px;
+}
+
+.del_item{
+  width: 32px;
+  background: 0;
+  font-size: 24px;
+  padding: 0;
+}
