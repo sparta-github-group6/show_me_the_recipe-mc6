@@ -149,10 +149,9 @@ footer {
 }
 
 .ingredient {
-    border: 1px solid lightgray;
     border-radius: 10px;
     height: 300px;
-    background-color: white;
+    background-color: floralwhite;
     font-size: 30px;
     margin: 20px auto;
     padding: 10px;
@@ -160,20 +159,18 @@ footer {
 }
 
 .ready {
-    border: 1px solid lightgray;
     border-radius: 10px;
     height: 400px;
-    background-color: white;
+    background-color: antiquewhite;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
 }
 
 .making {
-    border: 1px solid lightgray;
     border-radius: 10px;
     height: 550px;
-    background-color: white;
+    background-color: blanchedalmond;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
