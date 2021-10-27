@@ -5,3 +5,11 @@
 .card-footer{
     background:0;
 }
+
+#ingredients-main h2{
+    font-size: 40px;
+    font-weight: normal;
+}
+.selected-ingredients li{
+    font-size: 28px;
+}

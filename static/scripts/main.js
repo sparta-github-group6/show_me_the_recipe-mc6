@@ -65,12 +65,14 @@ function add_ing_list() {
 }
 
 function delete_list(){
-    $("#selected-item-list").empty()
+    $("#selected-item-list").empty();
+    ing_list.clear();
 }
 
 function delete_item(){
    const item = document.getElementById('sel_item');
     item.remove();
+    ing_list.pop();
 }
 
 
