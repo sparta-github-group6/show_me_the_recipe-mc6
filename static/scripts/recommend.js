@@ -24,8 +24,7 @@ function recommend() {
                 let name = recipes[i]['name']
                 let like = recipes[i]['like']
 
-                let temp_html = `
-                                <a href="/recipe" onclick="search_recipe('${name}')">
+                let temp_html = `<a href="/recipe" onclick="search_recipe('${name}')">
                                     <div class="recipes_all_about">
                                         <div class="recipes_img">
                                             <img src="../static/recipe-image/${name}.png" class="list-img-cook" alt="요리 이미지">

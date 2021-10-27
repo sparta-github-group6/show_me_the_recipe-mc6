@@ -1,3 +1,7 @@
 .selected-ingredients ul{
     list-style: none;
 }
+
+.card-footer{
+    background:0;
+}
