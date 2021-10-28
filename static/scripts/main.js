@@ -41,7 +41,7 @@ function get_Favorite() {
 
 // 재료 담을 리스트 생성
 let ing_list = [];
-
+let count = 1;
 // 선택 버튼 누르면 동작하는 함수
 function add_ing_list() {
 
@@ -56,23 +56,26 @@ function add_ing_list() {
 
 
     // item_list.append("<li class='sel_item'>" + item + "</li>");
+    let index = ing_list.indexOf(item)
 
-    let temp_html = `<li id="sel_item">${item}<button class="btn-main del_item" onclick="delete_item()"><i class="fas fa-times del_item"></i></button></li>`
+    let temp_html = `<li class="sel_item" id="li_${count}">${item}<button class="btn-main del_item" onclick="delete_item()"><i class="fas fa-times del_item"></i></button></li>`
     item_list.append(temp_html)
 
     $("#ingredient").val("")
-
+    console.log(ing_list);
+    count += 1;
 }
 
 function delete_list(){
     $("#selected-item-list").empty();
-    ing_list.clear();
+    ing_list = [];
 }
 
 function delete_item(){
-   const item = document.getElementById('sel_item');
-    item.remove();fg
-    ing_list.pop();
+
+    var item_remove =$("#ingredient").val();
+    $("#"+item_remove).remove();
+    console.log(ing_list);
 }
 
 

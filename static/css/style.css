@@ -149,7 +149,7 @@ footer {
 
 .ingredient {
     border-radius: 10px;
-    height: 300px;
+    height: auto;
     background-color: floralwhite;
     font-size: 30px;
     margin: 20px auto;

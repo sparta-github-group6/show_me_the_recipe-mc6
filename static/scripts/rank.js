@@ -2,6 +2,7 @@ $(document).ready(() => {
     show_rank();
 })
 
+
 function show_rank() {
     $('#cook-list').empty();
     $.ajax({
@@ -80,6 +81,9 @@ function show_sort() {
         }
     })
 }
+
+
+
 
 function rank_search_recipe(name) {
     $.ajax({
