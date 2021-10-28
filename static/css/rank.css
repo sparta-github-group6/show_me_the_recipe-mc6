@@ -60,3 +60,7 @@
     text-align: right;
     margin: 10px;
 }
+
+.to_recipe{
+    cursor: pointer;
+}
