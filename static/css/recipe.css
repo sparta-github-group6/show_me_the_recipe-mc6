@@ -1,10 +1,39 @@
 h3{
     font-weight: normal;
-
 }
 
-.ready, .making{
+#jung h3 {
+    margin: 5px;
+}
+
+.ingredient {
+    border-radius: 10px;
     height: auto;
+    background-color: floralwhite;
+    /*font-size: 2vw;*/
+    margin: 20px auto;
+    padding: 20px;
+    text-align: start;
+}
+
+.ready {
+    border-radius: 10px;
+    height: auto;
+    background-color: antiquewhite;
+    font-size: 2vw;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: start;
+}
+
+.making {
+    border-radius: 10px;
+    height: auto;
+    background-color: blanchedalmond;
+    font-size: 2vw;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: start;
 }
 
 .ready_detail, .making_detail{
