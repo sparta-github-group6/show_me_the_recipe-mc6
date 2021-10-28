@@ -2,7 +2,6 @@ $(document).ready(() => {
     show_rank();
 })
 
-
 function show_rank() {
     $('#cook-list').empty();
     $.ajax({
@@ -29,7 +28,7 @@ function show_rank() {
                                     </div>
                                     
                                     <div class="rank-card-cook-footer">
-                                        <a onclick="rank_search_recipe('${name}')">
+                                        <a class="to_recipe" onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
@@ -78,7 +77,6 @@ function show_sort() {
         }
     })
 }
-
 
 function rank_search_recipe(name) {
     $.ajax({
