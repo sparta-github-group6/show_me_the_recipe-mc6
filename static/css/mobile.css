@@ -51,11 +51,10 @@ header .navigation.active {
 header h1 {
     width: 100%;
     display: flex;
-    text-align: center;
     align-items: center;
     font-weight: normal;
     height: 48px;
-    left: 30%;
+    left: 10%;
 
 }
 
@@ -108,4 +107,13 @@ main {
 
 footer {
     width: 100%;
+}
+
+.members-detail{
+    display: block;
+    margin: auto;
+}
+
+header nav ul{
+    float: none;
 }

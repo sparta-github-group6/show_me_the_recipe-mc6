@@ -42,7 +42,6 @@ function get_Favorite() {
 // 재료 담을 리스트 생성
 let ing_list = [];
 let count = 1;
-
 // 선택 버튼 누르면 동작하는 함수
 function add_ing_list() {
     let name = $('#ingredient').val();
@@ -75,14 +74,12 @@ function delete_list() {
 
 function delete_item(count) {
     let del = '#sel_item' + String(count)
-    // const ul = document.getElementById('selected-item-list');
-    // const item = document.getElementById('sel_item');
-    // const items = ul.getElementsByTagName('li');
     let del2 = $(del).text();
     $(del).remove();
     const idx = ing_list.indexOf(del2)
     ing_list.splice(idx, 1)
 }
+
 
 
 function to_recommend() {

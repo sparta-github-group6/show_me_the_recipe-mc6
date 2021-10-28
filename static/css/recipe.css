@@ -3,8 +3,13 @@ h3{
 
 }
 
+.ready, .making{
+    height: auto;
+}
+
 .ready_detail, .making_detail{
-    padding-left: 20px;
+    padding-left: 50px;
+    height: auto;
 }
 
 .ready_detail li{

@@ -2,6 +2,7 @@ $(document).ready(() => {
     show_rank();
 })
 
+
 function show_rank() {
     $('#cook-list').empty();
     $.ajax({
@@ -23,15 +24,16 @@ function show_rank() {
                                         <h3>${name}</h3>
                                     </div>
 
+                                    <div class="favorite-card-cook-like">
+                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
+                                    </div>
+                                    
                                     <div class="rank-card-cook-footer">
                                         <a onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
 
-                                    <div class="favorite-card-cook-like">
-                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
-                                    </div>
                                 </div>`
                 $('#cook-list').append(temp_html)
             }
@@ -61,15 +63,14 @@ function show_sort() {
                                     <div class="rank-card-cook-title">
                                         <h3>${name}</h3>
                                     </div>
-
+                                 
+                                    <div class="favorite-card-cook-like">
+                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
+                                    </div>
                                     <div class="rank-card-cook-footer">
                                         <a onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
-                                    </div>
-
-                                    <div class="favorite-card-cook-like">
-                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>`
 
                 $('#cook-list').append(temp_html)
@@ -77,6 +78,7 @@ function show_sort() {
         }
     })
 }
+
 
 function rank_search_recipe(name) {
     $.ajax({
@@ -86,5 +88,5 @@ function rank_search_recipe(name) {
         success: function (response) {
         }
     })
-    window.location.href='/recipe';
+    window.location.href = '/recipe';
 }
