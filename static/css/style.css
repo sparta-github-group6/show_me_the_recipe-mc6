@@ -125,7 +125,7 @@ footer {
 .rtan-title {
   font-family: "Black Han Sans", sans-serif;
   width:100%;
-  font-size: 72px;
+  font-size: 3.5vw;
   left:0;
   line-height: 200px;
   margin: 10px 0;
@@ -135,7 +135,7 @@ footer {
 }
 
 .cook-name {
-  font-size: 50px;
+  font-size: 2vw;
   margin: auto;
 }
 
@@ -151,7 +151,7 @@ footer {
     border-radius: 10px;
     height: auto;
     background-color: floralwhite;
-    font-size: 30px;
+    font-size: 1.5vw;
     margin: 20px auto;
     padding: 20px;
     text-align: start;
@@ -161,8 +161,9 @@ footer {
     border-radius: 10px;
     height: auto;
     background-color: antiquewhite;
-    font-size: 30px;
+    font-size: 1.5vw;
     margin: 20px auto;
+    padding: 20px;
     text-align: start;
     padding: 20px;
 }
@@ -171,8 +172,9 @@ footer {
     border-radius: 10px;
     height: auto;
     background-color: blanchedalmond;
-    font-size: 30px;
+    font-size: 1.5vw;
     margin: 20px auto;
+    padding: 20px;
     text-align: start;
     padding: 20px;
 }
