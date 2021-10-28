@@ -70,6 +70,7 @@
 .recipes_desc {
     height: 150px;
     padding: 5px 30px;
+    overflow: auto;
 }
 
 .recipes_desc h4 {
