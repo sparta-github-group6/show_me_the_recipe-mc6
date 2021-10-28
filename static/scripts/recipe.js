@@ -1,10 +1,14 @@
+$(document).ready(() => {
+    recipe()
+})
+
 function recipe() {
     $.ajax({
         type: "GET",
         url: "/recipe/read",
         data: {},
         success: function (response) {
-            console.log(response)
+            // console.log(response)
             let recipes = response['recipes']
             let ing = recipes['ingredient']
             let name = recipes['name']
