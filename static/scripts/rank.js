@@ -19,23 +19,21 @@ function show_rank() {
                                     <div>
                                         <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook image">
                                     </div>
-                    
+
                                     <div class="rank-card-cook-title">
                                         <h3>${name}</h3>
                                     </div>
-                                    
+
                                     <div class="rank-card-cook-footer">
-                                        <a href="/recipe" onclick="rank_search_recipe('${name}')">
+                                        <a onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
 
-                                    <div class="favorite-card-cook-like"> 
+                                    <div class="favorite-card-cook-like">
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>
                                 </div>`
-
-
                 $('#cook-list').append(temp_html)
             }
 
@@ -56,7 +54,7 @@ function show_sort() {
             for (let i = 0; i < recipeList.length; i++) {
                 let name = recipeList[i]['name']
                 let like = recipeList[i]['like']
-                let temp_html = `<a href="/recipe"><div class="rank-card-cook">
+                let temp_html = `<div class="rank-card-cook">
                                     <div>
                                         <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook_image">
                                     </div>
@@ -66,16 +64,15 @@ function show_sort() {
                                     </div>
 
                                     <div class="rank-card-cook-footer">
-                                        <a href="/recipe" onclick="rank_search_recipe('${name}')">
+                                        <a onclick="rank_search_recipe('${name}')">
                                             레시피 보기
                                         </a>
                                     </div>
-                                    
-                                    <div class="favorite-card-cook-like"> 
+
+                                    <div class="favorite-card-cook-like">
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
-                                    </div>
-                                    
-                                </a>`
+                                    </div>`
+
                 $('#cook-list').append(temp_html)
             }
         }
@@ -93,4 +90,5 @@ function rank_search_recipe(name) {
         success: function (response) {
         }
     })
+    window.location.href='/recipe';
 }
