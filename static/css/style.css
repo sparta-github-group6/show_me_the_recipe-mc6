@@ -149,30 +149,32 @@ footer {
 
 .ingredient {
     border-radius: 10px;
-    height: 300px;
+    height: auto;
     background-color: floralwhite;
     font-size: 30px;
     margin: 20px auto;
-    padding: 10px;
+    padding: 20px;
     text-align: start;
 }
 
 .ready {
     border-radius: 10px;
-    height: 400px;
+    height: auto;
     background-color: antiquewhite;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
+    padding: 20px;
 }
 
 .making {
     border-radius: 10px;
-    height: 550px;
+    height: auto;
     background-color: blanchedalmond;
     font-size: 30px;
     margin: 20px auto;
     text-align: start;
+    padding: 20px;
 }
 
 
