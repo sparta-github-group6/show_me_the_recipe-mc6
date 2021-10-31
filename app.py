@@ -14,6 +14,16 @@ def init():
     return render_template('index.html')
 
 
+@app.route('/register')
+def sign_in():
+    return render_template('sign_in.html')
+
+
+@app.route('/login')
+def sign_up():
+    return render_template('sign_up.html')
+
+
 # 멤버 소개 페이지
 @app.route('/about')
 def about_page():

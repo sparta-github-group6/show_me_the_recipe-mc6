@@ -6,7 +6,7 @@ $(document).ready(function () {
 function get_Favorite() {
     $.ajax({
         type: 'GET',
-        url: '/rank/favorite?sample_give=샘플데이터', //레시피 가져올 url  필요
+        url: '/rank/favorite', //레시피 가져올 url  필요
         data: {},
         success: function (response) {
             let favorite_list = response['favorite_Lists']
