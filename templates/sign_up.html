@@ -65,40 +65,34 @@
 
         <main id="woong">
 
-            <section class="section-main" id="favorite-main">
-                <h2>BEST MENU</h2>
-
-                <div class="favorite" id="favorite-dishes">
-                </div>
-
-            </section>
-
-            <section class="section-main" id="select-list">
-
-                <div class="input-group" id="select-item">
+            <form>
+                <div class="input-group" id="user-id">
                     <label>
-                        <input type="text" style="width:60%" placeholder="재료를 입력해 주세요!" id="ingredient">
+                        <input type="text" style="width:60%" placeholder="ID를 입력해 주세요!" id="username">
                     </label>
-                    <button type="button" class="btn-main" id="btn-select" onclick="add_ing_list()">선택</button>
-
-                    <button type="button" class="btn-main" id="btn-reset" onclick="delete_list()">
-                        <i class="fas fa-redo"></i>
-                    </button>
                 </div>
 
-            </section>
-
-            <section class="section-main" id="selected-list">
-
-                <div id="selected">
-                    <h3 class="selected_title">선택한 재료 모음</h3>
-                    <ul id="selected-item-list"></ul>
+                <div class="input-group" id="user-email">
+                    <label>
+                        <input type="text" style="width:60%" placeholder="이메일을 입력해 주세요!" id="email">
+                    </label>
                 </div>
-            </section>
 
-            <section class="section-main" id="make-dishes">
-                <button type="button" class="btn-main" id="btn-recommend" onclick="to_recommend()">요리 추천</button>
-            </section>
+                <div class="input-group" id="user-pw">
+                    <label>
+                        <input type="password" style="width:60%" placeholder="비밀번호를 입력해 주세요!" id="password">
+                    </label>
+                </div>
+
+                <div class="input-group" id="user-pw-check">
+                    <label>
+                        <input type="password" style="width:60%" placeholder="비밀번호를 한 번 더 입력해 주세요!" id="repassword">
+                    </label>
+                </div>
+
+                <button type="button" class="btn-main" id="btn-register" onclick=register()>가입하기</button>
+
+            </form>
 
         </main>
 
