@@ -32,7 +32,7 @@
     <!-- navigation toggle -->
     <script src="/static/scripts/toggle.js"></script>
     <!-- custom javascript-->
-    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/login.js"></script>
 
 </head>
 
@@ -60,23 +60,19 @@
                     <label>
                         <input type="text" style="width:60%" placeholder="ID를 입력해 주세요!" id="user">
                     </label>
-
-
-
                 </div>
+
                 <div class="input-group" id="user-pw">
                     <label>
                         <input type="text" style="width:60%" placeholder="비밀번호를 입력해 주세요!" id="password">
                     </label>
-
-
-
                 </div>
-                <button type="button" class="btn-main" id="btn-skip">비로그인</button>
+                
+                <button type="button" class="btn-main" id="btn-skip" onclick="guest_login()">게스트</button>
 
-                <button type="button" class="btn-main" id="btn-register">회원가입</button>
+                <button type="button" class="btn-main" id="btn-register" onclick="location.href='/register'">회원가입</button>
 
-                <button type="button" class="btn-main" id="btn-login">로그인</button>
+                <button type="button" class="btn-main" id="btn-login" onclick="login()">로그인</button>
 
             </section>
 
