@@ -3,8 +3,8 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://test:test@localhost', 27017)
-# client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://test:test@localhost', 27017)
+client = MongoClient('localhost', 27017)
 db = client.dbmaking
 
 
@@ -12,6 +12,16 @@ db = client.dbmaking
 @app.route('/')
 def init():
     return render_template('index.html')
+
+
+@app.route('/register')
+def sign_in():
+    return render_template('sign_in.html')
+
+
+@app.route('/login')
+def sign_up():
+    return render_template('sign_up.html')
 
 
 # 멤버 소개 페이지

@@ -6,12 +6,14 @@
 }
 
 #favorite-main {
-    border: 1px solid antiquewhite;
+    border: 1px solid hotpink;
     border-radius: 5px;
+    
 }
 
 #favorite-main h2 {
     margin: 10px;
+    font-size: 32px;
 }
 
 .favorite {

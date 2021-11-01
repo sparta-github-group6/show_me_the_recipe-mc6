@@ -65,9 +65,8 @@ header nav ul li {
 h1 {
     position: absolute;
     top: 10px;
-    width: 6rem;
-    height: 4rem;
-    left: 18%;
+    left: 20%;
+    font-size: 32px;
 
 }
 
@@ -83,7 +82,7 @@ h1 {
 }
 
 main {
-    font-family: "Jua", sans-serif;
+    font-family: "Jua", monospace;
 }
 
 .img {
@@ -157,41 +156,7 @@ footer {
     margin: 10px auto;
 }
 
-#jung h3 {
-    margin: 5px;
-}
 
-.ingredient {
-    border-radius: 10px;
-    height: auto;
-    background-color: floralwhite;
-    font-size: 1.5vw;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
-}
-
-.ready {
-    border-radius: 10px;
-    height: auto;
-    background-color: antiquewhite;
-    font-size: 1.5vw;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
-    padding: 20px;
-}
-
-.making {
-    border-radius: 10px;
-    height: auto;
-    background-color: blanchedalmond;
-    font-size: 1.5vw;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
-    padding: 20px;
-}
 
 
 .list-style {
