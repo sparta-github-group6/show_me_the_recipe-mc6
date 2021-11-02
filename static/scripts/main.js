@@ -41,6 +41,21 @@ function get_Favorite() {
 }
 
 function get_userId() {
+    // {% if session['user_id'] == "" %}
+    //     // render here
+    // {% endif %}
+    console.log(` hello >> {{session['user_id']}}`, )
+    if ("{{session['user_id']}}" == "") {
+        let temp_html = `<li><a href="/rank">랭킹</a></li>
+        <li><a href="/login">로그인</a></li>`
+
+        $('#nav_login').append(temp_html);
+    } else {
+        let temp_html = `<li><a href="/rank">랭킹</a></li>
+        <li><a href="/logout">{{session['user_id']}} 님 (로그아웃)</a></li>`
+
+        $('#nav_login').append(temp_html);
+    }
 }
 
 // 재료 담을 리스트 생성

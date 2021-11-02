@@ -172,7 +172,8 @@ def login():
     )
     if target is not None:
         session["user_id"] = target["user_id"]
-    return jsonify({"user_data": target})
+        # g.user = target.query.get(target)
+    return {"user_data": target}, 200
 
 
 @app.route("/logout")
