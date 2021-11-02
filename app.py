@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, session, escape
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -7,16 +7,19 @@ app = Flask(__name__)
 client = MongoClient("localhost", 27017)
 db = client.dbmaking
 
+app.secret_key = "ABCDEFG"
 
 # HTML 화면 표시
 @app.route("/")
 def init():
     return render_template("index.html")
 
+
 # 회원가입 페이지
 @app.route("/register")
 def sign_up():
     return render_template("register.html")
+
 
 # 로그인 페이지
 @app.route("/login")
@@ -167,8 +170,15 @@ def login():
     target = db.users.find_one(
         {"user_id": userid_receive, "user_pw": userpw_receive}, {"_id": False}
     )
-    print(target)
+    if target is not None:
+        session["user_id"] = target["user_id"]
     return jsonify({"user_data": target})
+
+
+@app.route("/logout")
+def logout():
+    session.pop("user_id", None)
+    return jsonify({"msg": "로그아웃 완료"})
 
 
 @app.route("/register/add", methods=["POST"])
