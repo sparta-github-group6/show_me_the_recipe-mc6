@@ -1,0 +1,103 @@
+.popup-container {
+  /* width: 100%; */
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-width: 50vw;
+  min-height: 95vh;
+}
+
+.login-layout {
+  padding: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: pink;
+}
+
+.register-layout {
+  margin: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: pink;
+}
+
+.popup {
+  display: block;
+  text-align: center;
+}
+
+h1 {
+  position: relative;
+  text-align: center;
+  left: auto;
+  top: auto;
+}
+
+.btn-container {
+  display: block;
+}
+
+.btn-container a {
+  cursor: pointer;
+}
+
+.btn-item {
+  margin: 20px auto;
+}
+
+#btn-login {
+  background: hotpink;
+  border: 1px solid hotpink;
+  border-radius: 20px;
+  color: white;
+  font-size: 28px;
+}
+
+#btn-idCheck {
+  cursor: pointer;
+  background: 0;
+  color: white;
+  font-size: 20px;
+}
+
+#btn-addUser {
+  background: pink;
+  color: white;
+  font-size: 28px;
+}
+.logo {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-form {
+  margin: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.login-input {
+  margin: 10px auto;
+  padding: 5px;
+}
+
+#join-form {
+  text-align: start;
+}
+
+.register-input {
+  margin: 20px auto;
+  padding: 5px;
+}
+
+.pw-input {
+  width: 90%;
+  margin: 0;
+}
+
+.input-group {
+  text-align: start;
+}
