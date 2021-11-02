@@ -11,7 +11,7 @@ function login() {
         alert("아이디/비밀번호를 확인하세요");
       } else {
         // console.log(user_id, user_pw);
-        // window.location.href = "/";
+        window.location.href = "/";
       }
     },
   });

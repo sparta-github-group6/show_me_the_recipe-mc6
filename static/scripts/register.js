@@ -1,3 +1,7 @@
+
+//init
+let id ="";
+let email = "";
 //입력한 내용 유효성 검사사
 function form_check() {
   var uid = document.getElementById("username");
@@ -37,8 +41,12 @@ function form_check() {
 }
 
 //DB에 동일한 id 있는지 확인
-function id_check() {
+function id_check(id) {
+
+  id =  $("#username").val()
+
   console.log("중복 확인");
+
   window.open("", "", "width=600, height=200, left=100, top=100");
 }
 
@@ -54,7 +62,7 @@ function change_email() {
   email_add.value = val;
 }
 
-let email = "";
+
 
 function makeEmail() {
   var email_id = $("#email_id").val();
