@@ -48,11 +48,15 @@
                 <div class="navigation">
                     <ul id="nav_login">
                         <li><a href="/rank">랭킹</a></li>
-                        <li><a href="/logout">{{session['user_id']}}(로그아웃)</a></li>
-                    </ul>                
-                </div>
-            </nav>
-            
+                        
+                        {% if session['user_id'] %}
+                            <li><a href="/logout">로그아웃</a></li>
+                        {% else %}
+                            <li><a href="/login">로그인</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
         </header>
 
         <!-- <div class="img">
