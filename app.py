@@ -159,6 +159,35 @@ def hate_star():
     return jsonify({"msg": "싫어요!"})
 
 
+@app.route("/login/check", methods=["POST"])
+def login():
+    userid_receive = request.form["userid_give"]
+    userpw_receive = request.form["userpw_give"]
+
+    target = db.users.find_one(
+        {"user_id": userid_receive, "user_pw": userpw_receive}, {"_id": False}
+    )
+    print(target)
+    return jsonify({"user_data": target})
+
+
+@app.route("/register/add", methods=["POST"])
+def register():
+    userid_receive = request.form["userid_give"]
+    userpw_receive = request.form["userpw_give"]
+    usermail_receive = request.form["usermail_give"]
+
+    doc = {
+        "user_id": userid_receive,
+        "user_pw": userpw_receive,
+        "user_mail": usermail_receive,
+    }
+
+    db.users.insert_one(doc)
+
+    return jsonify({"msg": "가입완료"})
+
+
 # 추천 요리 표시
 
 if __name__ == "__main__":
