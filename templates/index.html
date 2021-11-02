@@ -48,7 +48,11 @@
                     <ul>
                         <!-- <li><a href="/about">About Us</a></li> -->
                         <li><a href="/rank">랭킹</a></li>
-                        <li><a href="/login">로그인</a></li>
+                        {% if session['user_id'] %}
+                            <li><a href="/logout">로그아웃</a></li>
+                        {% else %}
+                            <li><a href="/login">로그인</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
