@@ -15,7 +15,7 @@
     <!--    공용 css 코드-->
     <link rel="stylesheet" href="/static/css/style.css">
     <!--    main 에서만 쓰이는 css-->
-    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/popup.css">
     <!--    모바일용 css-->
     <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
 
@@ -32,62 +32,64 @@
     <!-- navigation toggle -->
     <script src="/static/scripts/toggle.js"></script>
     <!-- custom javascript-->
-    <script src="/static/scripts/main.js"></script>
+    <script src="/static/scripts/login.js"></script>
 
 </head>
 
 <body>
     <div class="wrap">
 
-        <header>
-            <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
-            <button class="btn_menu">
-            </button>
-            <div class="navigation">
-                <nav>
-                    <ul>
-                        <li><a href="/rank">랭킹</a></li>
-                        <li><a href="/login">로그인</a></li>
-                    </ul>
-                </nav>
+        <main id="woong" class="popup-container">
+
+            <div class="login-layout">
+
+                <div class="popup">
+                    <a href="/">
+                        <h1 class="logo"><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1>
+                    </a>
+
+                </div>
+
+                <div class="login-form">
+                    <div class="input-group" id="user-id">
+                        <label>
+                            <input class="login-input" type="text" placeholder="아이디" id="user">
+                        </label>
+
+                    </div>
+                    <div class="input-group" id="user-pw">
+                        <label>
+                            <input class="login-input" type="password" placeholder="비밀번호" id="password">
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="btn-container">
+
+                    <div class="btn-item">
+                        <a type="button" class="btn-main" id="btn-login" onclick="login()">로그인</a>
+
+                    </div>
+
+                    <div class="btn-item">
+                        아직 계정이 없으신가요? <a id="btn-register" onclick="toRegister()">회원가입</a>
+
+                    </div>
+
+                    <div class="btn-item">
+                        <a id="btn-skip" onclick="skipToMain()">게스트 로그인</a>
+                    </div>
+
+
+
+
+                </div>
+
             </div>
-        </header>
-
-        <main id="woong">
-
-            <section class="section-main" id="login">
-                <div class="input-group" id="user-id">
-                    <label>
-                        <input type="text" style="width:60%" placeholder="ID를 입력해 주세요!" id="user">
-                    </label>
-
-
-
-                </div>
-                <div class="input-group" id="user-pw">
-                    <label>
-                        <input type="password" style="width:60%" placeholder="비밀번호를 입력해 주세요!" id="password">
-                    </label>
-
-
-
-                </div>
-                <button type="button" class="btn-main" id="btn-skip">비로그인</button>
-
-                <button type="button" class="btn-main" id="btn-register" onclick="location.href='/register'">회원가입</button>
-
-                <button type="button" class="btn-main" id="btn-login" onclick="login()">로그인</button>
-
-            </section>
 
         </main>
 
-        <footer>
-            <div class="cp">
-                copyright by 내일배움단 6조 <br>
-                Thanks to 스파르타 코딩 클럽
-            </div>
-        </footer>
     </div>
 </body>
 

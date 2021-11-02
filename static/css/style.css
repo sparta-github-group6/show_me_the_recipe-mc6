@@ -1,180 +1,183 @@
 * {
+  color: #000000;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
 
-    color: #000000;
-    font-size: 20px;
-    font-weight: normal;
+body {
+  margin: 0;
+  height: 100%;
 }
 
 :root {
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-primary: #ffd0e0;
-    --color-pink: #ffd0e0;
-    --color-purple: #eed6ea;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #ffd0e0;
+  --color-pink: #ffd0e0;
+  --color-purple: #eed6ea;
 
-    --text-color: var(--color-black);
-    --background-color: antiquewhite;
-    --accent-color: var(--color-pink);
+  --text-color: var(--color-black);
+  --background-color: antiquewhite;
+  --accent-color: var(--color-pink);
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 /* main */
 .wrap {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 main {
-    width: 60%;
-    margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 
 header {
-    margin: 0 auto;
-    padding: 10px 0 0;
-    width: 60%;
-    display: flex;
-    /*flex-direction: row;*/
-    justify-content: space-between;
-
+  margin: 0 auto;
+  padding: 10px 0 0;
+  width: 60%;
+  display: flex;
+  /*flex-direction: row;*/
+  justify-content: space-between;
 }
 
 header nav {
-    height: 50px;
-    text-align: center;
-    margin: 0 auto;
-
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 header nav ul {
-    display: flex;
-    float: right;
+  display: flex;
+  float: right;
 }
 
 header nav ul li {
-    margin: 10px;
-    padding: 0 3rem 0 0;
-    text-align: center;
-
+  margin: 10px;
+  padding: 0 3rem 0 0;
+  text-align: center;
 }
 
 h1 {
-    position: absolute;
-    top: 10px;
-    left: 20%;
-    font-size: 32px;
-
+  position: absolute;
+  top: 10px;
+  left: 20%;
+  font-size: 32px;
 }
 
 .logo {
-    font-size: 32px;
-    padding-top: 8px;
-    padding-left: 1.3vw;
+  font-size: 32px;
+  padding-top: 8px;
+  padding-left: 1.3vw;
 }
 
 .navigation {
-    text-align: center;
-    font-family: "맑은 고딕", monospace;
+  text-align: center;
+  font-family: "맑은 고딕", monospace;
 }
 
 main {
-    font-family: "Jua", monospace;
+  font-family: "Jua", monospace;
 }
 
 .img {
-    height: 200px;
+  height: 200px;
 }
 
 /*Button*/
 .btn-main {
-    font-family: "Jua", sans-serif;
-    width: 120px;
-    background-color: #d8d8d8;
-    border: none;
-    border-radius: 10px;
-    color: #000000;
-    padding: 15px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px;
-    cursor: pointer;
+  font-family: "Jua", sans-serif;
+  width: 120px;
+  background-color: #d8d8d8;
+  border: none;
+  border-radius: 10px;
+  color: #000000;
+  padding: 15px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px;
+  cursor: pointer;
 }
 
 footer {
-    width: 100%;
-    background: #FFFFFF;
-    clear: both;
-    margin: 0 auto;
-
+  width: 100%;
+  background: #ffffff;
+  clear: both;
+  margin: 0 auto;
 }
 
 .rtan {
-    width: 60%;
-    height: 200px;
-    margin: auto;
-    position: relative;
-    background-image: url("https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg");
+  width: 60%;
+  height: 200px;
+  margin: auto;
+  position: relative;
+  background-image: url("https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg");
 }
 
 .rtan::before {
-    content: "";
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
+  content: "";
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
 }
 
 .rtan-title {
-    font-family: "Black Han Sans", sans-serif;
-    width: 100%;
-    font-size: 3.5vw;
-    left: 0;
-    line-height: 200px;
-    margin: 10px 0;
-    text-align: center;
-    font-weight: normal;
-    position: relative;
+  font-family: "Black Han Sans", sans-serif;
+  width: 100%;
+  font-size: 3.5vw;
+  left: 0;
+  line-height: 200px;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: normal;
+  position: relative;
 }
 
 .cook-name {
-    font-size: 25px;
-    margin: auto;
+  font-size: 25px;
+  margin: auto;
 }
 
 .cook-img {
-    margin: 10px auto;
+  margin: 10px auto;
 }
 
-
-
-
 .list-style {
-    width: 300px;
-    display: inline;
+  width: 300px;
+  display: inline;
 }
 
 .rtan-title-mobile {
-    display: none;
+  display: none;
 }
 
 #sel_item {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .del_item {
-    width: 32px;
-    background: 0;
-    font-size: 24px;
-    padding: 0;
+  width: 32px;
+  background: 0;
+  font-size: 24px;
+  padding: 0;
+}
+
+.input-group {
+  margin: 0 auto;
+  text-align: center;
 }

@@ -110,42 +110,6 @@ function index_search_recipe(name) {
 }
 
 
-function login(){
-    let user_id = $('#user').val();
-    let user_pw = $('#password').val();
-
-    $.ajax({
-        type: "POST",
-        url: "/login/check",
-        data: {userid_give: user_id,userpw_give: user_pw},
-        success: function (response) {
-            if (response == null) {
-                alert('아이디/비밀번호를 확인하세요')
-            } else {
-                alert('축하합니다');
-                window.location.href='/'
-            }
-        }
-    })
-
-}
-
-function register(){
-    let user_id = $('#username').val();
-    let user_pw = $('#password').val();
-    let user_mail = $('#email').val();
 
 
-    $.ajax({
-        type: "POST",
-        url: "/register/add",
-        data: {userid_give: user_id,userpw_give: user_pw,usermail_give : user_mail},
-        success: function (response) {
-            console.log(response)
-            alert(response)
-        }
-    })
-    window.location.href='/login'
-
-}
 

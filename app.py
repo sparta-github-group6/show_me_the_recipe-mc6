@@ -13,15 +13,15 @@ db = client.dbmaking
 def init():
     return render_template("index.html")
 
-
+# 회원가입 페이지
 @app.route("/register")
 def sign_up():
-    return render_template("sign_up.html")
+    return render_template("register.html")
 
-
+# 로그인 페이지
 @app.route("/login")
 def sign_in():
-    return render_template("sign_in.html")
+    return render_template("login.html")
 
 
 # 멤버 소개 페이지
