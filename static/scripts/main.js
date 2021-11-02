@@ -1,5 +1,6 @@
 $(document).ready(function () {
     get_Favorite();
+    // get_userId();
 });
 
 //좋아요 상위 4개 요리 가져오기
@@ -37,6 +38,9 @@ function get_Favorite() {
         }
     })
 
+}
+
+function get_userId() {
 }
 
 // 재료 담을 리스트 생성
