@@ -1,3 +1,4 @@
+
 function login() {
   let user_id = $("#user").val();
   let user_pw = $("#password").val();
@@ -7,10 +8,9 @@ function login() {
     url: "/login/check",
     data: { userid_give: user_id, userpw_give: user_pw },
     success: function (response) {
-      if (response == null) {
+      if (response['user_data'] == null) {
         alert("아이디/비밀번호를 확인하세요");
       } else {
-        // console.log(user_id, user_pw);
         window.location.href = "/";
       }
     },
