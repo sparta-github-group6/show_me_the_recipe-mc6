@@ -48,22 +48,17 @@
                 <div class="navigation">
                     <ul id="nav_login">
                         <li><a href="/rank">랭킹</a></li>
-                        
                         {% if session['user_id'] %}
                             <li><a href="/logout">로그아웃</a></li>
+                            <li><a href="/my">마이페이지</a></li>
                         {% else %}
                             <li><a href="/login">로그인</a></li>
                         {% endif %}
                     </ul>
-                </nav>
-            </div>
+                </div>
+            </nav>
+            
         </header>
-
-        <!-- <div class="img">
-            <div class="rtan">
-                <h1 class="rtan-title">쇼미더레시피!!</h1>
-            </div>
-        </div> -->
 
         <main id="woong">
 
@@ -105,10 +100,10 @@
         </main>
 
         <footer>
-            <div class="cp">
+            
             copyright by 내일배움단 6조 <br>
             Thanks to 스파르타 코딩 클럽
-            </div>
+       
         </footer>
     </div>
 </body>

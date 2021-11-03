@@ -211,6 +211,11 @@ def register():
     return jsonify({"msg": "가입완료"})
 
 
+@app.route("/my")
+def my_page():
+    return render_template("mypage.html")
+
+
 # 추천 요리 표시
 
 if __name__ == "__main__":

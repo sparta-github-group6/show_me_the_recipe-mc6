@@ -46,22 +46,29 @@ function recommend() {
                                                     <a href="#" onclick="likeStar('${name}')" class="card-footer-item has-text-info">
                                                     ${like}
                                                         <span class="icon">
-                                              <i class="fas fa-thumbs-up"></i>
+                                                            <i class="fas fa-thumbs-up"></i>
                                                         </span>
                                                     </a>
                                                     <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
                                                         <span class="icon">
-                                              <i class="fas fa-thumbs-down"></i>
-                                            </span>
-                                                     </a>
-                                             </footer>
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
+                                                        <span class="icon">
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                    </a>
+
+
+                                            </footer>
                                         </div>
                                     </div>
                                 </a>`
 
                 $('.recipe-box').append(temp_html)
             }
-           ingredients()
+        ingredients()
         }
     })
 }
@@ -114,4 +121,17 @@ function search_recipe(name){
         success: function (response) {
             }
     })
+}
+
+
+function add_favorite(name){
+    $.ajax({
+        type: "POST",
+        url: "/favorite",
+        data: {recipe_give: name},
+        success: function (response) {
+            alert(response["msg"]);
+        }
+    })
+
 }
