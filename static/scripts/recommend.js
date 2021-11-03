@@ -51,17 +51,18 @@ function recommend() {
                                                     </a>
                                                     <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
                                                         <span class="icon">
-                                                            <i class="fas fa-thumbs-down"></i>
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
-                                                        <span class="icon">
-                                                            <i class="fas fa-thumbs-down"></i>
-                                                        </span>
-                                                    </a>
+                                              <i class="fas fa-thumbs-down"></i>
+                                            </span>
+                                                     </a>
+
+                                                     <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
+                                                        <span class="icon">            
+                                                        <i class="far fa-star"></i>
+                                                    </span>
+                                                     </a>
 
 
-                                            </footer>
+                                             </footer>
                                         </div>
                                     </div>
                                 </a>`

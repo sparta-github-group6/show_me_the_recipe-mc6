@@ -50,7 +50,7 @@ function id_check(id) {
   window.open("", "", "width=600, height=200, left=100, top=100");
 }
 
-//이메일 입력력
+//이메일 입력
 function change_email() {
   var email_add = document.getElementById("email_add");
   var email_sel = document.getElementById("email_sel");

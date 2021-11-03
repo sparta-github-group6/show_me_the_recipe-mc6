@@ -42,30 +42,10 @@ def about_page():
     return render_template("about.html")
 
 
-# 상위 레시피 표시
-@app.route("/rank/favorite", methods=["GET"])
-def show_favorite():
-    favorite_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1).limit(4))
-    return jsonify({"favorite_Lists": favorite_list})
-
-
 # 전체 요리 레시피 순위 페이지
 @app.route("/rank")
 def rank_page():
     return render_template("rank.html")
-
-
-@app.route("/rank/list", methods=["GET"])
-def show_rank():
-    recipe_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1))
-    return jsonify({"recipe_Lists": recipe_list})
-
-
-@app.route("/rank/sort", methods=["GET"])
-def show_sort():
-    sort_list = list(db.recipes.find({}, {"_id": False}).sort("name", 1))
-    return jsonify({"sort_lists": sort_list})
-
 
 # 요리 레시피 리스트 요청
 @app.route("/recommend")
@@ -73,20 +53,38 @@ def recommend_page():
     return render_template("recommend.html")
 
 
+# 상세페이지 
 @app.route("/recipe")
 def recipe_page():
     return render_template("recipe.html")
 
+# 상위 레시피 표시 API
+@app.route("/rank/favorite", methods=["GET"])
+def show_favorite():
+    favorite_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1).limit(4))
+    return jsonify({"favorite_Lists": favorite_list})
 
+# 랭크 페이지 좋아요순 정렬 API
+@app.route("/rank/list", methods=["GET"])
+def show_rank():
+    recipe_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1))
+    return jsonify({"recipe_Lists": recipe_list})
+
+# 랭크 페이지 가나다순 정렬 API
+@app.route("/rank/sort", methods=["GET"])
+def show_sort():
+    sort_list = list(db.recipes.find({}, {"_id": False}).sort("name", 1))
+    return jsonify({"sort_lists": sort_list})
+
+# 검색 재료 선택 도우미 API
 @app.route("/recommend/search", methods=["POST"])
 def search_1to2():
     ingredients = request.form
     ingredients = ingredients.getlist("ing_list")
-    print(ingredients)
     db.search.update_one({"name": "검색"}, {"$set": {"index": ingredients}})
     return jsonify({"msg": "저장"})
 
-
+# 재료로 레시피 검색 API
 @app.route("/recommend/read", methods=["GET"])
 def search():
     search = db.search.find_one({"name": "검색"})
@@ -209,6 +207,17 @@ def register():
     db.users.insert_one(doc)
 
     return jsonify({"msg": "가입완료"})
+
+# 즐겨찾기
+@app.route("/favorite", methods=["POST"])
+def favorite():
+    recipe_receive = request.form["recipe_give"]
+    # userid_receive = request.form["userid_give"]
+    
+    db.users.update_one({"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}})
+
+    return jsonify({"msg": "추가 완료"})
+
 
 
 @app.route("/my")
