@@ -54,6 +54,14 @@ function recommend() {
                                               <i class="fas fa-thumbs-down"></i>
                                             </span>
                                                      </a>
+
+                                                     <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
+                                                        <span class="icon">            
+                                                        <i class="far fa-star"></i>
+                                                    </span>
+                                                     </a>
+
+
                                              </footer>
                                         </div>
                                     </div>
@@ -114,4 +122,17 @@ function search_recipe(name){
         success: function (response) {
             }
     })
+}
+
+
+function add_favorite(name){
+    $.ajax({
+        type: "POST",
+        url: "/favorite",
+        data: {recipe_give: name},
+        success: function (response) {
+            alert(response["msg"]);
+        }
+    })
+
 }
