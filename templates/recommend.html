@@ -57,8 +57,15 @@
                 </div>
             </section>
 
+
+            {% if session['user_id'] %}
+            <div class="recipe-box" id="matched-dishes-login">
+            </div>
+            {% else %}
             <div class="recipe-box" id="matched-dishes">
             </div>
+            {% endif %}
+
         </main>
 
         <footer>

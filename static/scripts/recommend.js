@@ -56,7 +56,7 @@ function recommend() {
                                                     </a>
                                                     <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
                                                         <span class="icon">            
-                                                        <i class="far fa-star i_favorite"></i>
+                                                        <i class="far fa-star" id="i_favorite"></i>
                                                     </span>
                                                     </a>
 
@@ -113,17 +113,6 @@ function hateStar(name) {
                 });
             }
 
-function search_recipe(name){
-    $.ajax({
-        type: "POST",
-        url: "/recommend/search2",
-        data: {name_give: name},
-        success: function (response) {
-            }
-    })
-}
-
-
 function add_favorite(name){
     $.ajax({
         type: "POST",
@@ -132,16 +121,12 @@ function add_favorite(name){
         success: function (response) {
 
             alert(response["msg"]);
-            show_star();
+            $('#i_favorite').on('click', function(){
+                $(this).toggleClass('active');
+            })
+            window.location.reload()
             
         }
     })
-}
-
-function show_star(){
-    $('.i_favorite').on('click', function(){
-        $(this).toggleClass('active');
-    })
-    window.location.reload()
 }
 

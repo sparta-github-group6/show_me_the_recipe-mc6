@@ -47,16 +47,23 @@ def about_page():
 def rank_page():
     return render_template("rank.html")
 
+
 # 요리 레시피 리스트 요청
 @app.route("/recommend")
 def recommend_page():
     return render_template("recommend.html")
 
 
-# 상세페이지 
+# 상세페이지
 @app.route("/recipe")
 def recipe_page():
     return render_template("recipe.html")
+
+
+@app.route("/my")
+def my_page():
+    return render_template("mypage.html")
+
 
 # 상위 레시피 표시 API
 @app.route("/rank/favorite", methods=["GET"])
@@ -64,17 +71,20 @@ def show_favorite():
     favorite_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1).limit(4))
     return jsonify({"favorite_Lists": favorite_list})
 
+
 # 랭크 페이지 좋아요순 정렬 API
 @app.route("/rank/list", methods=["GET"])
 def show_rank():
     recipe_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1))
     return jsonify({"recipe_Lists": recipe_list})
 
+
 # 랭크 페이지 가나다순 정렬 API
 @app.route("/rank/sort", methods=["GET"])
 def show_sort():
     sort_list = list(db.recipes.find({}, {"_id": False}).sort("name", 1))
     return jsonify({"sort_lists": sort_list})
+
 
 # 검색 재료 선택 도우미 API
 @app.route("/recommend/search", methods=["POST"])
@@ -84,15 +94,26 @@ def search_1to2():
     db.search.update_one({"name": "검색"}, {"$set": {"index": ingredients}})
     return jsonify({"msg": "저장"})
 
+
 # 재료로 레시피 검색 API
 @app.route("/recommend/read", methods=["GET"])
 def search():
-    search = db.search.find_one({"name": "검색"})
-    recipes = list(
-        db.recipes.find({"search": {"$all": search["index"]}}, {"_id": False}).sort(
-            "like", -1
+    try:
+        search = db.search.find_one({"name": "검색"})
+        # 좋아요 있는 경우
+        # if :
+        # 좋아요 없는 경우
+        # else:
+        recipes = list(
+            db.recipes.find({"search": {"$all": search["index"]}}, {"_id": False}).sort(
+                "like", -1
+            )
         )
-    )
+    except Exception:
+        return jsonify({"msg": "없는 재료 입니다."})
+
+    if search is None:
+        return jsonify({"msg": "없는 재료 입니다."})
     # recipes = list(db.recipes.find({'search':ingredients},{'_id':False}))
     # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({"recipes": recipes})
@@ -127,7 +148,7 @@ def search2():
 #     print(sample_receive)
 #     return jsonify({'msg': 'list 연결되었습니다!'})
 
-
+# 레시피 가져오기
 @app.route("/recipe", methods=["GET"])
 def recipe():
     name_receive = db.recipes.find_one({"name": "계란찜 [Gyeran-jjim]"})
@@ -140,7 +161,7 @@ def recipe():
 # test = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
 # print(test,len(test))
 
-# 좋아요 싫어요
+# 좋아요
 @app.route("/recipe/like", methods=["POST"])
 def like_star():
     name_receive = request.form["name_give"]
@@ -155,6 +176,7 @@ def like_star():
     return jsonify({"msg": "좋아요!"})
 
 
+# 싫어요
 @app.route("/recipe/hate", methods=["POST"])
 def hate_star():
     name_receive = request.form["name_give"]
@@ -169,6 +191,7 @@ def hate_star():
     return jsonify({"msg": "싫어요!"})
 
 
+# 로그인
 @app.route("/login/check", methods=["POST"])
 def login():
     userid_receive = request.form["userid_give"]
@@ -186,12 +209,14 @@ def login():
     return {"user_data": target}, 200
 
 
+# 로그아웃
 @app.route("/logout", methods=["GET"])
 def logout():
     session.pop("user_id", None)
     return redirect(url_for("init"))
 
 
+# 회원가입
 @app.route("/register/add", methods=["POST"])
 def register():
     userid_receive = request.form["userid_give"]
@@ -208,21 +233,39 @@ def register():
 
     return jsonify({"msg": "가입완료"})
 
+
 # 즐겨찾기
 @app.route("/favorite", methods=["POST"])
 def favorite():
-    recipe_receive = request.form["recipe_give"]
-    # userid_receive = request.form["userid_give"]
-    
-    db.users.update_one({"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}})
+
+    try:
+        recipe_receive = request.form["recipe_give"]
+
+        db.users.update_one(
+            {"user_id": session["user_id"]}, {"$pull": {"favorite": recipe_receive}}
+        )
+        db.users.update_one(
+            {"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}}
+        )
+
+    except Exception:
+        return jsonify({"msg": "로그인이 필요합니다."})
 
     return jsonify({"msg": "추가 완료"})
 
 
+# 마이페이지
+@app.route("/my/user", methods=["GET"])
+def call_user():
 
-@app.route("/my")
-def my_page():
-    return render_template("mypage.html")
+    try:
+        target = db.users.find_one({"user_id": session["user_id"]}, {"_id": False})
+    except Exception as e:
+        return {"message": "failed to search"}, 401
+
+    # if target is not None:
+    # session["user_id"] = target.get("user_id")
+    return {"user_data": target}, 200
 
 
 # 추천 요리 표시
