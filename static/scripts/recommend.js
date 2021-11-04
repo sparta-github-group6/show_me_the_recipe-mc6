@@ -43,20 +43,25 @@ function recommend() {
                 
                                             <div class="recipes_like">
                                             <footer class="card-footer">
-                                                    <a href="#" onclick="likeStar('${name}')" class="card-footer-item has-text-info">
+                                                    <a onclick="likeStar('${name}')" class="card-footer-item has-text-info">
                                                     ${like}
                                                         <span class="icon">
                                                             <i class="fas fa-thumbs-up"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
+                                                    <a onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
                                                         <span class="icon">
                                                             <i class="fas fa-thumbs-down"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
+                                                    <a onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
                                                         <span class="icon">            
+<<<<<<< HEAD
                                                         <i class="far fa-star" id="i_favorite"></i>
+=======
+                                                        <i class="far fa-star"></i>
+                                                        <i class="fas fa-star" ></i>    
+>>>>>>> 9965c427a30efb22f0682c51d4ef2d767b971a0a
                                                     </span>
                                                     </a>
 

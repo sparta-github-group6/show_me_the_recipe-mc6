@@ -234,6 +234,19 @@ def register():
     return jsonify({"msg": "가입완료"})
 
 
+@app.route("/my/user", methods=["GET"])
+def call_user():
+
+    try:
+        target = db.users.find_one({"user_id": session["user_id"]}, {"_id": False})
+    except Exception as e:
+        return {"message": "failed to search"}, 401
+
+    # if target is not None:
+    # session["user_id"] = target.get("user_id")
+    return {"user_data": target}, 200
+
+
 # 즐겨찾기
 @app.route("/favorite", methods=["POST"])
 def favorite():

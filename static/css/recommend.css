@@ -93,6 +93,6 @@
     float: left;
 }
 
-.fa-star.after{
+#i_favorite.active{
     color: pink;
 }
