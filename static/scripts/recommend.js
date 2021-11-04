@@ -51,18 +51,17 @@ function recommend() {
                                                     </a>
                                                     <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
                                                         <span class="icon">
-                                              <i class="fas fa-thumbs-down"></i>
-                                            </span>
-                                                     </a>
-
-                                                     <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
                                                         <span class="icon">            
-                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star i_favorite"></i>
                                                     </span>
-                                                     </a>
+                                                    </a>
 
 
-                                             </footer>
+                                            </footer>
                                         </div>
                                     </div>
                                 </a>`
@@ -131,8 +130,18 @@ function add_favorite(name){
         url: "/favorite",
         data: {recipe_give: name},
         success: function (response) {
+
             alert(response["msg"]);
+            show_star();
+            
         }
     })
-
 }
+
+function show_star(){
+    $('.i_favorite').on('click', function(){
+        $(this).toggleClass('active');
+    })
+    window.location.reload()
+}
+

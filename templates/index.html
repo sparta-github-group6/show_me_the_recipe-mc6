@@ -49,8 +49,8 @@
                     <ul id="nav_login">
                         <li><a href="/rank">랭킹</a></li>
                         {% if session['user_id'] %}
-                            <li><a href="/logout">로그아웃</a></li>
                             <li><a href="/my">마이페이지</a></li>
+                            <li><a href="/logout">로그아웃</a></li>    
                         {% else %}
                             <li><a href="/login">로그인</a></li>
                         {% endif %}
