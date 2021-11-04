@@ -27,7 +27,7 @@ function show_user(){
                 for (let i = 0; i < fav.length; i++) {
                     let temp_html2 = `<div class="rank-card-cook">
                                         <div>
-                                            <img src="../static/recipe-image/${fav[i]}.png" class="rank-card-cook-image" alt="cook image" onclick="search_recipe('${fav[i]}')">
+                                            <img src="../static/recipe-image/${fav[i]}.png" class="rank-card-cook-image" alt="cook image" onclick="search_recipe('${fav[i]}')" style="cursor: pointer">
                                         </div>
     
                                         <div class="rank-card-cook-title">
@@ -39,17 +39,6 @@ function show_user(){
                 }
             }
         })    
-}
-
-function search_recipe(name) {
-    $.ajax({
-        type: "POST",
-        url: "/recommend/search2",
-        data: {name_give: name},
-        success: function (response) {
-        }
-    })
-    window.location.href = '/recipe';
 }
 
 // function show_favorite(){

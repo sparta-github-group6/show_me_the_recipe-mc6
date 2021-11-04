@@ -58,7 +58,7 @@ function recommend() {
                                                         <span class="icon">            
                                                         <i class="far fa-star"></i>
                                                         <i class="fas fa-star" ></i>    
-                                                    </span>
+                                                        </span>
                                                     </a>
 
 
@@ -114,17 +114,6 @@ function hateStar(name) {
                 });
             }
 
-function search_recipe(name){
-    $.ajax({
-        type: "POST",
-        url: "/recommend/search2",
-        data: {name_give: name},
-        success: function (response) {
-            }
-    })
-}
-
-
 function add_favorite(name){
     $.ajax({
         type: "POST",
@@ -133,18 +122,12 @@ function add_favorite(name){
         success: function (response) {
 
             alert(response["msg"]);
-            show_star();
+            $('#i_favorite').on('click', function(){
+                $(this).toggleClass('active');
+            })
+            window.location.reload()
             
         }
     })
-}
-
-function show_star(){
-    console.log("active star");
-
-    $('#i_favorite').on('click', function(){
-        $(this).toggleClass('active');
-    })
-    // window.location.reload()
 }
 
