@@ -43,20 +43,21 @@ function recommend() {
                 
                                             <div class="recipes_like">
                                             <footer class="card-footer">
-                                                    <a href="#" onclick="likeStar('${name}')" class="card-footer-item has-text-info">
+                                                    <a onclick="likeStar('${name}')" class="card-footer-item has-text-info">
                                                     ${like}
                                                         <span class="icon">
                                                             <i class="fas fa-thumbs-up"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="#" onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
+                                                    <a onclick="hateStar('${name}')" class="card-footer-item has-text-danger">
                                                         <span class="icon">
                                                             <i class="fas fa-thumbs-down"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="#" onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
+                                                    <a onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
                                                         <span class="icon">            
-                                                        <i class="far fa-star i_favorite"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="fas fa-star" ></i>    
                                                     </span>
                                                     </a>
 
@@ -139,9 +140,11 @@ function add_favorite(name){
 }
 
 function show_star(){
-    $('.i_favorite').on('click', function(){
+    console.log("active star");
+
+    $('#i_favorite').on('click', function(){
         $(this).toggleClass('active');
     })
-    window.location.reload()
+    // window.location.reload()
 }
 

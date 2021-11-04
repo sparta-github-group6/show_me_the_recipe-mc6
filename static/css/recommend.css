@@ -93,6 +93,6 @@
     float: left;
 }
 
-.i_favorite.active{
+#i_favorite.active{
     color: pink;
 }
