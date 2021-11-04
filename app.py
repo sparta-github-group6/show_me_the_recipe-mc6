@@ -23,24 +23,20 @@ app.secret_key = "ABCDEFG"
 def init():
     return render_template("index.html")
 
-
 # 회원가입 페이지
 @app.route("/register")
 def sign_up():
     return render_template("register.html")
-
 
 # 로그인 페이지
 @app.route("/login")
 def sign_in():
     return render_template("login.html")
 
-
 # 멤버 소개 페이지
 @app.route("/about")
 def about_page():
     return render_template("about.html")
-
 
 # 전체 요리 레시피 순위 페이지
 @app.route("/rank")
@@ -52,11 +48,15 @@ def rank_page():
 def recommend_page():
     return render_template("recommend.html")
 
-
 # 상세페이지 
 @app.route("/recipe")
 def recipe_page():
     return render_template("recipe.html")
+
+# 마이페이지
+@app.route("/my")
+def my_page():
+    return render_template("mypage.html")
 
 # 상위 레시피 표시 API
 @app.route("/rank/favorite", methods=["GET"])
@@ -97,19 +97,16 @@ def search():
     # recipes = list(db.recipes.find({'search':search['index']},{'_id':False}))
     return jsonify({"recipes": recipes})
 
-
 @app.route("/recommend/ingredient", methods=["GET"])
 def search_ing():
     search = db.search.find_one({"name": "검색"}, {"_id": False})
     return jsonify({"ing": search})
-
 
 @app.route("/recommend/search2", methods=["POST"])
 def search_2to3():
     name = request.form["name_give"]
     db.search.update_one({"name": "검색2"}, {"$set": {"index": name}})
     return jsonify({"msg": "저장"})
-
 
 @app.route("/recipe/read", methods=["GET"])
 def search2():
@@ -207,22 +204,39 @@ def register():
     db.users.insert_one(doc)
 
     return jsonify({"msg": "가입완료"})
+    
+@app.route("/my/user", methods=["GET"])
+def call_user():
+    
+    try:
+        target = db.users.find_one(
+            {"user_id": session["user_id"]}, {"_id": False}
+        )
+    except Exception as e:
+        return {"message": "failed to search"}, 401
 
+    # if target is not None:
+        # session["user_id"] = target.get("user_id")
+    return {"user_data": target}, 200
+
+
+    
 # 즐겨찾기
 @app.route("/favorite", methods=["POST"])
 def favorite():
-    recipe_receive = request.form["recipe_give"]
+
+    try:
+        recipe_receive = request.form["recipe_give"]
     # userid_receive = request.form["userid_give"]
     
-    db.users.update_one({"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}})
+        db.users.update_one({"user_id": session["user_id"]}, {"$pull": {"favorite": recipe_receive}})
+        db.users.update_one({"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}})
+
+    except Exception as e:
+        return jsonify({"msg": "로그인이 필요합니다."})
 
     return jsonify({"msg": "추가 완료"})
 
-
-
-@app.route("/my")
-def my_page():
-    return render_template("mypage.html")
 
 
 # 추천 요리 표시
