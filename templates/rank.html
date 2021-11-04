@@ -31,28 +31,30 @@
     <div class="wrap">
 
         <header>
-            <a href="/">
-                <h1><i class="fas fa-utensils logo"></i>
-                    <span class="rtan-title-mobile">쇼미더레시피!!</span>
-                </h1>
-            </a>
+            <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
             <button class="btn_menu">
             </button>
-            <div class="navigation">
-                <nav>
-                    <ul>
+
+            <nav>
+                <div class="navigation">
+                    <ul id="nav_login">
                         <li><a href="/rank">랭킹</a></li>
-                        <li><a href="/login">로그인</a></li>
+                        {% if session['user_id'] %}    
+                            <li><a href="/my">마이페이지</a></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        {% else %}
+                            <li><a href="/login">로그인</a></li>
+                        {% endif %}
                     </ul>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
 
-        <div class="img" style="height: 200px;">
+        {# <div class="img" style="height: 200px;">
             <div class="rtan">
                 <h1 class="rtan-title">레시피 랭킹</h1>
             </div>
-        </div>
+        </div> #}
 
         <main id="woong">
 

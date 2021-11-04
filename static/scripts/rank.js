@@ -62,7 +62,7 @@ function show_sort() {
                                     <div class="rank-card-cook-title">
                                         <h3>${name}</h3>
                                     </div>
-                                 
+                                
                                     <div class="favorite-card-cook-like">
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
                                     </div>

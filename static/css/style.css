@@ -51,7 +51,7 @@ header {
 header nav {
   height: 50px;
   text-align: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 header nav ul {
@@ -113,6 +113,7 @@ footer {
   background: #ffffff;
   clear: both;
   margin: 0 auto;
+  text-align: center;
 }
 
 .rtan {
