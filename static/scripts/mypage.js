@@ -30,6 +30,10 @@ function show_user(){
     
                                         <div class="rank-card-cook-title">
                                             <h3>${fav[i]}</h3>
+
+                                            <a  onclick="favorite_delete('${fav[i]}')">
+                                            <i class="fas fa-trash-alt"></i>
+                                            </a>
                                         </div>
     
                                     </div>`
@@ -37,4 +41,16 @@ function show_user(){
                 }
             }
         })    
+}
+
+function favorite_delete(name) {
+    $.ajax({
+        type: "POST",
+        url: "/favorite/delete",
+        data: {recipe_give: name},
+        success: function (response) {
+            alert(response['msg']);
+            window.location.reload();
+        }
+    })
 }

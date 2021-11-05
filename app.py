@@ -254,6 +254,22 @@ def favorite():
     return jsonify({"msg": "추가 완료"})
 
 
+@app.route("/favorite/delete", methods=["POST"])
+def delete():
+
+    try:
+        recipe_receive = request.form["recipe_give"]
+
+        db.users.update_one(
+            {"user_id": session["user_id"]}, {"$pull": {"favorite": recipe_receive}}
+        )
+
+    except Exception:
+        return jsonify({"msg": "로그인이 필요합니다."})
+
+    return jsonify({"msg": "삭제 완료"})
+
+
 # 마이페이지
 @app.route("/my/user", methods=["GET"])
 def call_user():
