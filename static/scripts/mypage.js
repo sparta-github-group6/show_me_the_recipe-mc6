@@ -32,6 +32,10 @@ function show_user(){
     
                                         <div class="rank-card-cook-title">
                                             <h3>${fav[i]}</h3>
+
+                                            <a  onclick="favorite_delete('${fav[i]}')">
+                                            <i class="fas fa-trash-alt"></i>
+                                            </a>
                                         </div>
     
                                     </div>`
@@ -41,32 +45,14 @@ function show_user(){
         })    
 }
 
-// function show_favorite(){
-
-//     $('#star-list').empty();
-//         $.ajax({
-//             type: 'GET',
-//             url: '', //즐겨찾기 가져올 url  필요
-//             data: {},
-//             success: function (response) {
-//                 let recipeList = response['recipe_Lists']
-//                 for (let i = 0; i < recipeList.length; i++) {
-//                     let name = recipeList[i]['name']
-//                     let like = recipeList[i]['like']
-    
-//                     let temp_html = `<div class="rank-card-cook">
-//                                         <div>
-//                                             <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook image">
-//                                         </div>
-    
-//                                         <div class="rank-card-cook-title">
-//                                             <h3>${name}</h3>
-//                                         </div>
-    
-//                                     </div>`
-//                     $('#star-list').append(temp_html)
-//                 }
-    
-//             }
-//         })    
-//     }
+function favorite_delete(name) {
+    $.ajax({
+        type: "POST",
+        url: "/favorite/delete",
+        data: {recipe_give: name},
+        success: function (response) {
+            alert(response['msg']);
+            window.location.reload();
+        }
+    })
+}
