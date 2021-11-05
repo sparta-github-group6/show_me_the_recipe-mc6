@@ -56,12 +56,8 @@ function recommend() {
                                                     </a>
                                                     <a onclick="add_favorite('${name}')" class="card-footer-item has-text-info">
                                                         <span class="icon">            
-<<<<<<< HEAD
-                                                        <i class="far fa-star" id="i_favorite"></i>
-=======
                                                         <i class="far fa-star"></i>
                                                         <i class="fas fa-star" ></i>    
->>>>>>> 9965c427a30efb22f0682c51d4ef2d767b971a0a
                                                     </span>
                                                     </a>
 
