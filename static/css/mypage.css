@@ -15,13 +15,12 @@
 
 .star-list{
     width: 100%; 
-    height: 500px; 
+    height: auto; 
     margin: 20px;
     border: 1px solid pink;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
 }
 
 h3{

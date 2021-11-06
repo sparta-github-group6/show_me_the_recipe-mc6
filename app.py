@@ -126,6 +126,14 @@ def search():
     return jsonify({"recipes": recipes})
 
 
+@app.route("/recommend/user", methods=["GET"])
+def user_favorite():
+    search = db.users.find_one({"user_id": session["user_id"]})
+    search = search["favorite"]
+
+    return jsonify({"favorite": search})
+
+
 @app.route("/recommend/ingredient", methods=["GET"])
 def search_ing():
     search = db.search.find_one({"name": "검색"}, {"_id": False})
@@ -155,15 +163,7 @@ def search2():
 #     print(sample_receive)
 #     return jsonify({'msg': 'list 연결되었습니다!'})
 
-# 레시피 가져오기
-@app.route("/recipe", methods=["GET"])
-def recipe():
-    name_receive = db.recipes.find_one({"name": "계란찜 [Gyeran-jjim]"})
-    print(name_receive)
-    return jsonify({"msg": "list 연결되었습니다!"})
 
-
-#
 # ingredients = ['계란','물','소금']
 # test = list(db.recipes.find({'search': {'$all':ingredients}},{'_id':False}))
 # print(test,len(test))
@@ -247,21 +247,24 @@ def favorite():
 
     try:
         recipe_receive = request.form["recipe_give"]
-
-        db.users.update_one(
-            {"user_id": session["user_id"]}, {"$pull": {"favorite": recipe_receive}}
-        )
-        db.users.update_one(
-            {"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}}
-        )
-
+        favorite = db.users.find_one({"user_id": session["user_id"]}, {"_id": False})[
+            "favorite"
+        ]
+        if recipe_receive in favorite:
+            db.users.update_one(
+                {"user_id": session["user_id"]}, {"$pull": {"favorite": recipe_receive}}
+            )
+            return jsonify({"msg": "삭제 완료"})
+        else:
+            db.users.update_one(
+                {"user_id": session["user_id"]}, {"$push": {"favorite": recipe_receive}}
+            )
+            return jsonify({"msg": "추가 완료"})
     except Exception:
         return jsonify({"msg": "로그인이 필요합니다."})
 
-    return jsonify({"msg": "추가 완료"})
 
-
-# 즐겨찾기 삭제
+# 마이페이지에서 즐겨찾기 삭제
 @app.route("/favorite/delete", methods=["POST"])
 def delete():
 
@@ -278,7 +281,7 @@ def delete():
     return jsonify({"msg": "삭제 완료"})
 
 
-# 마이페이지 정보 요청
+# 마이페이지
 @app.route("/my/user", methods=["GET"])
 def call_user():
 
