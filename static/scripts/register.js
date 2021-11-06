@@ -47,7 +47,7 @@ function id_check(id) {
 
   console.log("중복 확인");
 
-  window.open("", "", "width=600, height=200, left=100, top=100");
+  // window.open("", "", "width=600, height=200, left=100, top=100");
 }
 
 //이메일 입력
