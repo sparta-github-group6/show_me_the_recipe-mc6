@@ -46,7 +46,7 @@ function id_check() {
 
   $('#username').change(function () {
     $('#id_check_sucess').hide();
-    $('.id_check_button').show();
+    $('#id_check_button').show();
     $('#username').attr("check_result", "fail");
   })
 
