@@ -5,19 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:title" content="쇼미더레시피" />
-    <meta property="og:description" content="레시피봐" />
-    <meta property="og:image" content="{{ url_for('static', filename='images/ogimg.jpg') }}" />
     <title>쇼미더레시피</title>
-    <!--    css 초기화 코드-->
-    <link rel="stylesheet" href="/static/css/default.css">
-    <!--    공용 css 코드-->
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/mypage.css">
-    <!--    모바일용 css-->
+        <link rel="stylesheet" href="/static/css/default.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/recipe.css">
     <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,23 +21,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
     <!-- navigation toggle -->
     <script src="/static/scripts/toggle.js"></script>
-    <script src="/static/scripts/mypage.js"></script>
-    <script src="/static/scripts/search_recipe.js"></script>
+    <script src="../static/scripts/recipe.js" defer></script>
+
 </head>
 
 <body>
-    <div class="wrap">
+<div class="wrap">
 
-        <header>
-            <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
-            <button class="btn_menu">
-            </button>
-
+    <header>
+        <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
+        <button class="btn_menu">
+        </button>
             <nav>
                 <div class="navigation">
                     <ul id="nav_login">
@@ -55,42 +49,47 @@
                     </ul>
                 </div>
             </nav>
-
         </header>
 
-        <main id="woong">
+    <main id="woong">
 
-            <section class="section-main" id="star-main">
-
-                <div class="user">
-                    <!-- 유저 정보 -->
+        <div id="recipe-new">
+            <div class="cook-name-add" id="jemok" style="border: 1px solid pink;">
+                <div>
+                    <!-- 이미지 클릭 시 파일 추가 -->
+                    <a><img src="../static/images/logo.png" style="width: 200px;">이미지 추가</a>
                 </div>
+            </div>
+            <div class="ingredient-add">
+                <h3>[ 필요한 재료 ]</h3>
 
-                <div class="star-list">
+                <div class="ing-new">
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="recipe-add" id="pre-recipe">
+
+                <div class="ready">
+                    <h3>[ 준비하기 ]</h3>
+
+                    
+                </div>
+                <div class="making">
+                    <h3>[ 만들기 ]</h3>
                     
                 </div>
 
+            </div>
+        </div>
 
-                <div class="add-recipe">
+    </main>
 
-                    <button class="btn-main" id="btn-add-recipe" onclick="add_recipe()">
-                        레시피 추가
-                    </button>
 
-                
-                </div>
-
-            </section>
-
-        </main>
-
-        <footer>
-
-            copyright by 내일배움단 6조 <br>
+    <footer>
+            copyright by 내일배움단 6조<br>
             Thanks to 스파르타 코딩 클럽
-
-        </footer>
-    </div>
+    </footer>
+</div>
 </body>
 
 </html>

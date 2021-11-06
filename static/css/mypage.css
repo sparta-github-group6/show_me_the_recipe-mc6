@@ -25,6 +25,27 @@
 }
 
 h3{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
+}
+
+.fav-image{
+    margin:10px;
+}
+
+.fav-title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.add-recipe{
+    width: 100%; 
+    height: 100px; 
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

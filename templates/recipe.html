@@ -41,8 +41,8 @@
                     <ul id="nav_login">
                         <li><a href="/rank">랭킹</a></li>
                         {% if session['user_id'] %}
-                            <li><a href="/logout">로그아웃</a></li>
                             <li><a href="/my">마이페이지</a></li>
+                            <li><a href="/logout">로그아웃</a></li>
                         {% else %}
                             <li><a href="/login">로그인</a></li>
                         {% endif %}
@@ -52,29 +52,31 @@
         </header>
 
     <main id="jung">
-        <div class="cook-name" id="jemok" style="border: 1px solid pink;">
 
-        </div>
-        <div class="ingredient">
-            <h3>[ 필요한 재료 ]</h3>
-
-            <div class="ing">
+        <div id="recipe-db">
+            <div class="cook-name" id="jemok" style="border: 1px solid pink;">
             </div>
-        </div>
-        <div class="recipe" id="pre-recipe">
+            <div class="ingredient">
+                <h3>[ 필요한 재료 ]</h3>
 
-            <div class="ready">
-                <h3>[ 준비하기 ]</h3>
-
-                <ol class="ready_detail">
-                </ol>
+                <div class="ing">
+                </div>
             </div>
-            <div class="making">
-                <h3>[ 만들기 ]</h3>
-                <ol class="making_detail">
-                </ol>
-            </div>
+            <div class="recipe" id="pre-recipe">
 
+                <div class="ready">
+                    <h3>[ 준비하기 ]</h3>
+
+                    <ol class="ready_detail">
+                    </ol>
+                </div>
+                <div class="making">
+                    <h3>[ 만들기 ]</h3>
+                    <ol class="making_detail">
+                    </ol>
+                </div>
+
+            </div>
         </div>
 
     </main>

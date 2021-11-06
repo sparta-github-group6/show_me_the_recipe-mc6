@@ -54,12 +54,19 @@ def recommend_page():
     return render_template("recommend.html")
 
 
-# 상세페이지
+# 요리 레시피 상세페이지
 @app.route("/recipe")
 def recipe_page():
     return render_template("recipe.html")
 
 
+# 요리 레시피 추가
+@app.route("/recipe/new")
+def recipe_add_page():
+    return render_template("add_recipe.html")
+
+
+# 마이페이지
 @app.route("/my")
 def my_page():
     return render_template("mypage.html")
@@ -254,6 +261,7 @@ def favorite():
     return jsonify({"msg": "추가 완료"})
 
 
+# 즐겨찾기 삭제
 @app.route("/favorite/delete", methods=["POST"])
 def delete():
 
@@ -270,7 +278,7 @@ def delete():
     return jsonify({"msg": "삭제 완료"})
 
 
-# 마이페이지
+# 마이페이지 정보 요청
 @app.route("/my/user", methods=["GET"])
 def call_user():
 

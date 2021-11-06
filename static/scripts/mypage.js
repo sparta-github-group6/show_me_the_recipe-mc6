@@ -23,16 +23,17 @@ function show_user(){
                 $('.user').append(temp_html)
 
                 for (let i = 0; i < fav.length; i++) {
-                    let temp_html2 = `<div class="rank-card-cook">
+                    let temp_html2 = `<div class="fav-image">
                                         <div>
                                             <img src="../static/recipe-image/${fav[i]}.png" class="rank-card-cook-image" alt="cook image" onclick="search_recipe('${fav[i]}')" style="cursor: pointer">
                                         </div>
     
-                                        <div class="rank-card-cook-title">
+                                        <div class="fav-title">
                                             <h3>${fav[i]}</h3>
 
-                                            <a  onclick="favorite_delete('${fav[i]}')">
-                                            <i class="fas fa-trash-alt"></i>
+                                            <a onclick="favorite_delete('${fav[i]}')">
+                                                <i class="fas fa-trash-alt"></i> 
+                                                <i class="fas fa-times"></i>
                                             </a>
                                         </div>
     
@@ -54,3 +55,10 @@ function favorite_delete(name) {
         }
     })
 }
+
+
+function add_recipe(){
+    console.log("레시피 추가");
+    location.href="/recipe/new";
+}
+
