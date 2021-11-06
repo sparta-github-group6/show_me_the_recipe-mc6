@@ -11,6 +11,7 @@ function login() {
       if (response['user_data'] == null) {
         alert("아이디/비밀번호를 확인하세요");
       } else {
+        console.log(response['user_data'], window.sessionStorage.getItem("user_data"))
         window.location.href = "/";
       }
     },
