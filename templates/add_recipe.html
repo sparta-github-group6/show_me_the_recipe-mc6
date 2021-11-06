@@ -57,26 +57,34 @@
             <div class="cook-name-add" id="jemok" style="border: 1px solid pink;">
                 <div>
                     <!-- 이미지 클릭 시 파일 추가 -->
-                    <a><img src="../static/images/logo.png" style="width: 200px;">이미지 추가</a>
+                    <a onclick="add_image()"><img src="../static/images/logo.png" style="width: 200px;">요리 이미지 추가</a>
                 </div>
             </div>
-            <div class="ingredient-add">
+            <div class="ingredient">
                 <h3>[ 필요한 재료 ]</h3>
 
                 <div class="ing-new">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="ing" id="add-ing" cols="30" rows="10"></textarea>
                 </div>
             </div>
             <div class="recipe-add" id="pre-recipe">
 
                 <div class="ready">
                     <h3>[ 준비하기 ]</h3>
-
+                    <textarea name="ready" id="add-ready" cols="30" rows="10"></textarea>
                     
                 </div>
                 <div class="making">
                     <h3>[ 만들기 ]</h3>
-                    
+                    <textarea name="making" id="add-making" cols="30" rows="10"></textarea>
+                </div>
+
+            </div>
+
+            <div class="btn-container">
+
+                <div class="btn-item">
+                    <button  class="btn-main" id="btn-skip" onclick="askAddRecipe()">레시피 등록</button>
                 </div>
 
             </div>

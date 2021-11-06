@@ -51,14 +51,17 @@
                 </div>
 
                 <form name="join_form" id="join-form">
-                    <div class="input-group" id="user-id">
+                    <div class="input-group" id="user-id" style="display:flex flex-wrap:wrap align-items:center">
                         <label>
                             <input class="register-input" type="text" placeholder="아이디" id="username"
-                                style="width: 50%;">
+                                style="width:50%" check_result="fail" required">
                         </label>
 
-                        <button type="button" id="btn-idCheck" onclick="id_check()">중복 체크</button>
-
+                        <button type="button" class="btn-main" id="id_check_button" onclick="id_check()">중복검사</button>
+                        
+                        <i id="id_check_sucess" class="fas fa-check"></i>
+                        
+                        
                     </div>
 
                     <div class="input-group" id="user-email">

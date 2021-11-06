@@ -30,8 +30,3 @@ function skipToMain() {
   }
 }
 
-function toRegister() {
-  // console.log("회원가입 함수 실행");
-  location.href = "/register";
-  // window.open("/register", "/", "width=300, height=300");
-}

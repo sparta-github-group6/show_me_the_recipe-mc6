@@ -241,6 +241,23 @@ def register():
     return jsonify({"msg": "가입완료"})
 
 
+# ID 중복 검사
+@app.route("/register/id_check", methods=["POST"])
+def id_check():
+    userid_receive = request.form["userid_give"]
+    try:
+        target = db.users.find_one({"user_id": userid_receive}, {"_id": False})
+    except Exception as e:
+        return {"message": "failed to find"}, 401
+
+    if target is None:
+        msg = "pass"
+    else:
+        msg = "fail"
+
+    return jsonify({"result": msg})
+
+
 # 즐겨찾기
 @app.route("/favorite", methods=["POST"])
 def favorite():

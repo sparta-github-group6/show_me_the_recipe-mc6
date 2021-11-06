@@ -1,60 +1,84 @@
-h3{
-    font-weight: normal;
-}
-
-#jung h3 {
+h3 {
+	font-weight:normal;
     margin: 5px;
 }
-
+h4 {
+    font-size: 25px;
+	margin: 20px;
+    text-align: start;
+}
 .ingredient {
-    border-radius: 10px;
-    height: auto;
-    background-color: floralwhite;
-    /*font-size: 2vw;*/
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
+	border-radius:10px;
+	height:auto;
+	background-color:floralwhite;
+	/*font-size:2vw;*/
+	margin:20px auto;
+	padding:20px;
+	text-align:start;
 }
-
 .ready {
-    border-radius: 10px;
-    height: auto;
-    background-color: antiquewhite;
-    font-size: 2vw;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
+	border-radius:10px;
+	height:auto;
+	background-color:antiquewhite;
+	font-size:2vw;
+	margin:20px auto;
+	padding:20px;
+	text-align:start;
 }
-
 .making {
-    border-radius: 10px;
-    height: auto;
-    background-color: blanchedalmond;
-    font-size: 2vw;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: start;
+	border-radius:10px;
+	height:auto;
+	background-color:blanchedalmond;
+	font-size:2vw;
+	margin:20px auto;
+	padding:20px;
+	text-align:start;
 }
-
-.ready_detail, .making_detail{
-    padding-left: 50px;
-    height: auto;
+.ready_detail,.making_detail {
+	padding-left:50px;
+	height:auto;
 }
-
-.ready_detail li{
-    font-weight: normal;
-    list-style: decimal;
-    margin: 5px 10px;
-    padding: 5px;
+.ready_detail li {
+	font-weight:normal;
+	list-style:decimal;
+	margin:5px 10px;
+	padding:5px;
 }
-
 .making_detail li {
-    font-weight: normal;
-    list-style: decimal;
-    margin: 5px 10px;
-    padding: 5px;
+	font-weight:normal;
+	list-style:decimal;
+	margin:5px 10px;
+	padding:5px;
+}
+/* #recipe-new{display: none;}*/
+textarea {
+    margin: 20px auto;
+	width:100%;
+	height:10em;
+	border:none;
+	resize: none;
 }
 
-/* #recipe-new{
-    display: none;
-} */
+#review-list{
+    width: 100%; 
+    height: 300px; 
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: auto;
+    background-color: blanchedalmond;
+}
+
+#add-review{
+    margin: 20px auto;
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px;
+    overflow: auto;
+    background-color:bisque;
+}
+
+#btn-add-review{
+    margin: 20px;
+    background-color: plum;
+    color: white;
+}
