@@ -5,3 +5,8 @@ $('.btn_menu').on('click', function(){
     $('.navigation').toggleClass('active');
 })
 })
+
+
+function logout(){
+    window.sessionStorage.setItem("login_check","bad")
+}

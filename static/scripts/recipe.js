@@ -1,3 +1,4 @@
+// var name = ""
 $(document).ready(() => {
     recipe()
 })
@@ -12,10 +13,12 @@ function recipe() {
             let recipes = response['recipes']
             let ing = recipes['ingredient']
             let name = recipes['name']
+            
             // let desc = recipes['desc']
             let making = recipes['making']
             let precook = recipes['precook']
             let title_html = `<img class="cook-img" src="../static/recipe-image/${name}.png" alt=""> ${name}</img>`
+            let btn_html = `<button class="btn-main" id="btn-add-review" onclick="add_review('${name}')">리뷰 추가</button>`
             let ingredient__html = `${ing}`
 
             for (let i = 0; i < precook.length; i++) {
@@ -32,7 +35,48 @@ function recipe() {
 
             $('.cook-name').append(title_html)
             $('.ing').append(ingredient__html)
-
+            $('#add-review').append(btn_html)
+            review_show(name)
         }
     })
 }
+
+
+function review_show(name){
+    $.ajax({
+        type: "POST",
+        url: "/review/show",
+        data: {name_give:name},
+        success: function (response) {
+            console.log(response)
+            let reviews = response['all_reviews']
+            for (let i = 0; i < reviews.length; i++) {
+                let comment = reviews[i]['comment']
+                let user_id = reviews[i]['user_id']
+                let review_html = `<li> ${comment} / ${user_id} </li>`
+                
+                $('#review-list').append(review_html)
+            }
+        }
+    })
+}
+
+function add_review(name){
+    let comment = $('#new-review').val();
+    $.ajax({
+        type: "POST",
+        url: "/review",
+        data: {recipe_give:name, comment_give:comment},
+        success: function (response) {
+            let user_id = response['user_id']
+            let review_html = `<li> ${comment} / ${user_id} </li>`
+            if (user_id == undefined) {
+                alert('로그인 후 이용해주세요.')
+            } else{
+                $('#review-list').append(review_html)
+                alert('추가 완료')
+            }
+        }
+    })
+}
+
