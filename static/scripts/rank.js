@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready(() => {   
     show_rank();
 })
 

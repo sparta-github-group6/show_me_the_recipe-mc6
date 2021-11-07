@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼미더레시피</title>
+        <link rel="stylesheet" href="/static/css/default.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/recommend.css">
+    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
+    <!-- navigation toggle -->
+    <script src="/static/scripts/toggle.js"></script>
+    <script src="/static/scripts/search_recipe.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+
+    <header>
+        <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
+        <button class="btn_menu">
+        </button>
+            <nav>
+                <div class="navigation">
+                    <ul id="nav_login">
+                        <li><a href="/rank">랭킹</a></li>
+                        {% if session['user_id'] %}
+                            <li><a href="/my">마이페이지</a></li>
+                            <li><a href="/logout">로그아웃</a></li>                            
+                        {% else %}
+                            <li><a href="/login">로그인</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main id="soo">
+
+            <section class="section-main" id="ingredients-main">
+                <h2>선택한 재료</h2>
+
+                <div class="selected-ingredients">
+                </div>
+            </section>
+
+            <div class="recipe-box" id="matched-dishes">
+            </div>
+
+        </main>
+
+        <footer>
+                copyright by 내일배움단 6조<br>
+                Thanks to 스파르타 코딩 클럽
+        </footer>
+    </div>
+</body>
+    <script src="../static/scripts/main.js"></script>
+    <script src="../static/scripts/recommend.js"></script>
+</html>
