@@ -41,13 +41,43 @@ function form_check() {
 }
 
 //DB에 동일한 id 있는지 확인
-function id_check(id) {
 
-  id =  $("#username").val()
+function id_check() {
 
-  console.log("중복 확인");
+  $('#username').change(function () {
+    $('#id_check_sucess').hide();
+    $('#id_check_button').show();
+    $('#username').attr("check_result", "fail");
+  })
 
-  // window.open("", "", "width=600, height=200, left=100, top=100");
+  id =  $("#username").val();
+  if(id.length>1){
+    $.ajax({
+      type: "POST",
+      url: "/register/id_check",
+      data: {userid_give: id},
+      success: function (response) {
+        console.log(response);
+        if(response['result'] == "fail"){
+          alert("이미 존재하는 아이디입니다.");
+          $('#username').focus();
+          return;
+        }else{
+          alert("사용 가능한 아이디입니다.");
+          $('.username_input').attr("check_result", "success");
+          $('#id_check_sucess').show();
+          $('#id_check_button').hide();
+        }
+      }
+    });
+  }else{
+    alert("아이디를 입력하세요!");
+  }
+
+
+
+  
+  
 }
 
 //이메일 입력

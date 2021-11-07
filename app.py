@@ -54,12 +54,19 @@ def recommend_page():
     return render_template("recommend.html")
 
 
-# 상세페이지
+# 요리 레시피 상세페이지
 @app.route("/recipe")
 def recipe_page():
     return render_template("recipe.html")
 
 
+# 요리 레시피 추가
+@app.route("/recipe/new")
+def recipe_add_page():
+    return render_template("add_recipe.html")
+
+
+# 마이페이지
 @app.route("/my")
 def my_page():
     return render_template("mypage.html")
@@ -232,6 +239,23 @@ def register():
     db.users.insert_one(doc)
 
     return jsonify({"msg": "가입완료"})
+
+
+# ID 중복 검사
+@app.route("/register/id_check", methods=["POST"])
+def id_check():
+    userid_receive = request.form["userid_give"]
+    try:
+        target = db.users.find_one({"user_id": userid_receive}, {"_id": False})
+    except Exception as e:
+        return {"message": "failed to find"}, 401
+
+    if target is None:
+        msg = "pass"
+    else:
+        msg = "fail"
+
+    return jsonify({"result": msg})
 
 
 # 즐겨찾기

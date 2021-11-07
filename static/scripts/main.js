@@ -15,7 +15,7 @@ function get_Favorite() {
                 let name = favorite_list[i]['name']
                 let like = favorite_list[i]['like']
 
-                let temp_html = `<a href="/recipe" onclick="index_search_recipe('${name}')">
+                let temp_html = `<a href="/recipe" onclick="search_recipe('${name}')">
                                     <div>
                                         <div class="favorite-card-cook">
                                             <div>
@@ -118,15 +118,15 @@ function to_recommend() {
     }
 }
 
-function index_search_recipe(name) {
-    $.ajax({
-        type: "POST",
-        url: "/recommend/search2",
-        data: {name_give: name},
-        success: function (response) {
-        }
-    })
-}
+// function index_search_recipe(name) {
+//     $.ajax({
+//         type: "POST",
+//         url: "/recommend/search2",
+//         data: {name_give: name},
+//         success: function (response) {
+//         }
+//     })
+// }
 
 
 

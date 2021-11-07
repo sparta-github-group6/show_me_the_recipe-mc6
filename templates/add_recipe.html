@@ -51,48 +51,43 @@
             </nav>
         </header>
 
-    <main id="jung">
+    <main id="woong">
 
-        <div id="recipe-db">
-            <div class="cook-name" id="jemok" style="border: 1px solid pink;">
+        <div id="recipe-new">
+            <div class="cook-name-add" id="jemok" style="border: 1px solid pink;">
+                <div>
+                    <!-- 이미지 클릭 시 파일 추가 -->
+                    <a onclick="add_image()"><img src="../static/images/logo.png" style="width: 200px;">요리 이미지 추가</a>
+                </div>
             </div>
             <div class="ingredient">
                 <h3>[ 필요한 재료 ]</h3>
 
-                <div class="ing">
+                <div class="ing-new">
+                    <textarea name="ing" id="add-ing" cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <div class="recipe" id="pre-recipe">
+            <div class="recipe-add" id="pre-recipe">
 
                 <div class="ready">
                     <h3>[ 준비하기 ]</h3>
-
-                    <ol class="ready_detail">
-                    </ol>
+                    <textarea name="ready" id="add-ready" cols="30" rows="10"></textarea>
+                    
                 </div>
                 <div class="making">
                     <h3>[ 만들기 ]</h3>
-                    <ol class="making_detail">
-                    </ol>
+                    <textarea name="making" id="add-making" cols="30" rows="10"></textarea>
                 </div>
 
             </div>
-        </div>
 
-        <div id="review-list">
-            <!-- 이 레시피에 대한 리뷰 -->
-            <h4>[리뷰 목록]</h4>
-        </div>
+            <div class="btn-container">
 
-        <div id="add-review" >
-            <!-- 새 리뷰 추가-->
-            <h4>[새 리뷰]</h4>
-            <textarea name="new-review" id="new-review" cols="30" rows="10" style="width: 90%; margin: 20px;"></textarea>
+                <div class="btn-item">
+                    <button  class="btn-main" id="btn-skip" onclick="askAddRecipe()">레시피 등록</button>
+                </div>
 
-            <button class="btn-main" id="btn-add-review" onclick="add_review()">
-                리뷰 추가
-            </button>
-
+            </div>
         </div>
 
     </main>

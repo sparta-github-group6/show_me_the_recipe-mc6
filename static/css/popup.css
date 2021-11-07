@@ -55,7 +55,7 @@ h1 {
   font-size: 28px;
 }
 
-#btn-idCheck {
+#id_check_button {
   cursor: pointer;
   background: 0;
   color: white;
@@ -100,4 +100,8 @@ h1 {
 
 .input-group {
   text-align: start;
+}
+
+#id_check_sucess{
+  display: none;
 }
