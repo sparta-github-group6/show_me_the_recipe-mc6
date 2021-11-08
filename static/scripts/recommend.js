@@ -8,8 +8,8 @@ function get_ingredients() {
   let item_list = $("#selected-ingredients-list");
   item_list.append("<li>" + ing_list + "</li>");
   
-  ingredients();
-  // favo_recommend();
+//   ingredients();
+  favo_recommend();
 }
 
 function favo_recommend() {
