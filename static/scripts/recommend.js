@@ -33,6 +33,10 @@ function recommend() {
       let recipes = response["recipes"];
       let favorite = sessionStorage.getItem("favorite").split(",");
 
+      if (recipes.length == 0) {
+        $(".recipe-box").append("재료에 해당하는 레시피가 없습니다.")
+      }
+
       for (let i = 0; i < recipes.length; i++) {
         let ing = recipes[i]["ingredients"];
         var name = recipes[i]["name"];
