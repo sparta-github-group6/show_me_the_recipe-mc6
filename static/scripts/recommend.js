@@ -93,7 +93,7 @@ function recommend() {
       }
     },
   });
-  // ingredients();
+  ingredients();
 }
 
 function ingredients() {
