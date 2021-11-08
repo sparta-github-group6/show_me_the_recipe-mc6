@@ -12,8 +12,13 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://test:test@localhost', 27017)
-# client = MongoClient("localhost", 27017)
+# 서버 열 때 활성화
+# client = MongoClient('mongodb://test:test@localhost', 27017)
+
+# 로컬에서 작업할 때 활성화
+client = MongoClient("localhost", 27017)
+
+
 db = client.dbmaking
 
 app.secret_key = "ABCDEFG"
@@ -28,6 +33,12 @@ def init():
 @app.route("/register")
 def sign_up():
     return render_template("register.html")
+
+
+# 레시피 추가 페이지
+@app.route("/addrecipe")
+def add_recipe():
+    return render_template("add_recipe.html")
 
 
 # 로그인 페이지
@@ -344,6 +355,32 @@ def read_reviews():
     name_receive = request.form["name_give"]
     reviews = list(db.reviews.find({"name": name_receive}, {"_id": False}))
     return jsonify({"all_reviews": reviews})
+
+
+# 레시피 추가 요청
+@app.route("/request", methods=["POST"])
+def add_request():
+    try:
+        request_receive = request.form["request_give"]
+        if session["user_id"] is None:
+            return jsonify({"msg": "로그인이 필요합니다."})
+        else:
+            doc = {
+                "user_id": session["user_id"],
+                "request": request_receive,
+            }
+
+            db.requests.insert_one(doc)
+    except Exception:
+        return jsonify({"msg": "로그인이 필요합니다."})
+
+    return jsonify({"user_id": session["user_id"]})
+
+
+@app.route("/request/show", methods=["GET"])
+def read_request():
+    requests = list(db.requests.find({}, {"_id": False}))
+    return jsonify({"all_requests": requests})
 
 
 # 추천 요리 표시

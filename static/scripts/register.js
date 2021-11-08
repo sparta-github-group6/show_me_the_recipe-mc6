@@ -1,4 +1,3 @@
-
 //init
 let id ="";
 let email = "";
@@ -8,6 +7,8 @@ function form_check() {
   var eid = document.getElementById("email_id");
   var pwd = document.getElementById("password");
   var rpw = document.getElementById("re_password");
+  var iok = window.sessionStorage.getItem("id_check");
+
 
   if (uid.value == "") {
     alert("아이디를 입력하세요!");
@@ -32,6 +33,13 @@ function form_check() {
     rpw.focus();
     return false;
   }
+
+  if (iok !== "ok") {
+    alert("아이디를 확인해주세요.");
+    uid.focus();
+    return false;
+  }
+
 
   console.log(uid.value, eid.value, pwd.value);
 
@@ -67,6 +75,7 @@ function id_check() {
           $('.username_input').attr("check_result", "success");
           $('#id_check_sucess').show();
           $('#id_check_button').hide();
+          window.sessionStorage.setItem("id_check","ok")
         }
       }
     });
@@ -74,7 +83,7 @@ function id_check() {
     alert("아이디를 입력하세요!");
   }
 
-
+  
 
   
   
@@ -126,4 +135,5 @@ function register() {
       window.location.href = "/login";
     },
   });
+  window.sessionStorage.removeItem("id_check")
 }
