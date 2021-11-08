@@ -1,7 +1,4 @@
 // var name = ""
-$(document).ready(() => {
-    recipe()
-})
 
 function recipe() {
     $.ajax({
@@ -48,7 +45,6 @@ function review_show(name){
         url: "/review/show",
         data: {name_give:name},
         success: function (response) {
-            console.log(response)
             let reviews = response['all_reviews']
             for (let i = 0; i < reviews.length; i++) {
                 let comment = reviews[i]['comment']
@@ -80,3 +76,42 @@ function add_review(name){
     })
 }
 
+function request_show(){
+    $.ajax({
+        type: "GET",
+        url: "/request/show",
+        data: {},
+        success: function (response) {
+            let requests = response['all_requests']
+            for (let i = 0; i < requests.length; i++) {
+                let uid = requests[i]['user_id']
+                let request = requests[i]['request']
+                let request_html = `<li> ${uid}:  ${request} </li>`
+                
+                $('.request_list').append(request_html)
+            }
+        }
+    })
+}
+
+
+
+
+function add_request(){
+    let comment = $('#new-request').val();
+    $.ajax({
+        type: "POST",
+        url: "/request",
+        data: {request_give:comment},
+        success: function (response) {
+            let user_id = response['user_id']
+            let req_html = `<li> ${user_id}:  ${comment} </li>`
+            if (user_id == undefined) {
+                alert('로그인 후 이용해주세요.')
+            } else{
+                $('.request_list').append(req_html)
+                alert('추가 완료')
+            }
+        }
+    })
+}

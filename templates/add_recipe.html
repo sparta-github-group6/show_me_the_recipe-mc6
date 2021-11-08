@@ -25,7 +25,12 @@
     <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
     <!-- navigation toggle -->
     <script src="/static/scripts/toggle.js"></script>
-    <script src="../static/scripts/recipe.js" defer></script>
+    <script src="../static/scripts/recipe.js"></script>
+    <script>
+        $(document).ready(() => {
+            request_show()
+        })
+    </script>
 
 </head>
 
@@ -53,42 +58,30 @@
 
     <main id="woong">
 
-        <div id="recipe-new">
-            <div class="cook-name-add" id="jemok" style="border: 1px solid pink;">
-                <div>
-                    <!-- 이미지 클릭 시 파일 추가 -->
-                    <a onclick="add_image()"><img src="../static/images/logo.png" style="width: 200px;">요리 이미지 추가</a>
-                </div>
-            </div>
-            <div class="ingredient">
-                <h3>[ 필요한 재료 ]</h3>
 
-                <div class="ing-new">
-                    <textarea name="ing" id="add-ing" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-            <div class="recipe-add" id="pre-recipe">
 
-                <div class="ready">
-                    <h3>[ 준비하기 ]</h3>
-                    <textarea name="ready" id="add-ready" cols="30" rows="10"></textarea>
-                    
-                </div>
-                <div class="making">
-                    <h3>[ 만들기 ]</h3>
-                    <textarea name="making" id="add-making" cols="30" rows="10"></textarea>
-                </div>
-
+        <div>
+            <div class="request_list" style="width: 100%; height: auto; margin:20px; background-color: antiquewhite;">
+                <h4>[요청 목록]</h4>
             </div>
+
+            <div class="add_request" style="width: 100%; height: auto; margin:20px; background-color: bisque;" >
+
+            <!-- 새 리뷰 추가-->
+            <h4>[레시피 요청]</h4>
+            <textarea name="new-request" id="new-request" cols="3" rows="2" style="width: 90%; margin: 20px;"></textarea>
 
             <div class="btn-container">
 
                 <div class="btn-item">
-                    <button  class="btn-main" id="btn-skip" onclick="askAddRecipe()">레시피 등록</button>
+                    <button  class="btn-main" id="btn-req" onclick="add_request()">레시피 등록</button>
                 </div>
 
             </div>
         </div>
+
+
+
 
     </main>
 
