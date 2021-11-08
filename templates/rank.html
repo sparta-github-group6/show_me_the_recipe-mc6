@@ -42,6 +42,9 @@
                         {% if session['user_id'] %}    
                             <li><a href="/logout" onclick="logout()">로그아웃</a></li>
                             <li><a href="/my">마이페이지</a></li>
+                            <script>
+                                window.sessionStorage.setItem("login_check","good")
+                            </script>
                         {% else %}
                             <li><a href="/login">로그인</a></li>
                         {% endif %}
