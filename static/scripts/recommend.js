@@ -148,13 +148,15 @@ function add_favorite(name) {
 }
 
 function toggle_star(num) {
-  let bs = "#blank_star" + String(num);
-  let gs = "#good_star" + String(num);
-    if ($(bs).css("display") == "none") {
-        $(bs).show();
-        $(gs).hide();
-    } else {
-        $(gs).show();
-        $(bs).hide();
-    }
+  if (window.sessionStorage.getItem("login_check") == "good") {
+    let bs = "#blank_star" + String(num);
+    let gs = "#good_star" + String(num);
+      if ($(bs).css("display") == "none") {
+          $(bs).show();
+          $(gs).hide();
+      } else {
+          $(gs).show();
+          $(bs).hide();
+      }
+  }
 }

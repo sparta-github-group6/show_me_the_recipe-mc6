@@ -9,3 +9,7 @@ $(function(){
 
 })
 
+function logout(){
+    window.sessionStorage.setItem("login_check","bad")
+}
+

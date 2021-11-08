@@ -12,8 +12,8 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient("localhost", 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient("localhost", 27017)
 db = client.dbmaking
 
 app.secret_key = "ABCDEFG"
@@ -128,9 +128,12 @@ def search():
 
 @app.route("/recommend/user", methods=["GET"])
 def user_favorite():
-    search = db.users.find_one({"user_id": session["user_id"]})
-    search = search["favorite"]
-
+    try:
+        search = db.users.find_one({"user_id": session["user_id"]})
+        search = search["favorite"]
+    except Exception:
+        fav = []
+        return jsonify({"favorite": fav})
     return jsonify({"favorite": search})
 
 
@@ -229,11 +232,13 @@ def register():
     userid_receive = request.form["userid_give"]
     userpw_receive = request.form["userpw_give"]
     usermail_receive = request.form["usermail_give"]
+    favorite = []
 
     doc = {
         "user_id": userid_receive,
         "user_pw": userpw_receive,
         "user_mail": usermail_receive,
+        "favorite": favorite,
     }
 
     db.users.insert_one(doc)
@@ -310,6 +315,35 @@ def call_user():
     # if target is not None:
     # session["user_id"] = target.get("user_id")
     return {"user_data": target}, 200
+
+
+# 리뷰 등록
+@app.route("/review", methods=["POST"])
+def add_review():
+    try:
+        recipe_receive = request.form["recipe_give"]
+        comment_receive = request.form["comment_give"]
+        if session["user_id"] is None:
+            return jsonify({"msg": "로그인이 필요합니다."})
+        else:
+            doc = {
+                "user_id": session["user_id"],
+                "name": recipe_receive,
+                "comment": comment_receive,
+            }
+
+            db.reviews.insert_one(doc)
+    except Exception:
+        return jsonify({"msg": "로그인이 필요합니다."})
+
+    return jsonify({"user_id": session["user_id"]})
+
+
+@app.route("/review/show", methods=["POST"])
+def read_reviews():
+    name_receive = request.form["name_give"]
+    reviews = list(db.reviews.find({"name": name_receive}, {"_id": False}))
+    return jsonify({"all_reviews": reviews})
 
 
 # 추천 요리 표시
