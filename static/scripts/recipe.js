@@ -1,5 +1,18 @@
 // var name = ""
 
+let today = new Date();
+let year = today.getFullYear();
+let month = ('0' + (today.getMonth() + 1)).slice(-2);
+let day = ('0' + today.getDate()).slice(-2);
+let hours = ('0' + today.getHours()).slice(-2); 
+let minutes = ('0' + today.getMinutes()).slice(-2);
+
+let date = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes
+
+
+
+
+
 function recipe() {
     $.ajax({
         type: "GET",
@@ -49,7 +62,8 @@ function review_show(name){
             for (let i = 0; i < reviews.length; i++) {
                 let comment = reviews[i]['comment']
                 let user_id = reviews[i]['user_id']
-                let review_html = `<li> ${comment} / ${user_id} </li>`
+                let datetime = reviews[i]['datetime']
+                let review_html = `<li> ${comment} / ${user_id} / ${datetime} </li>`
                 
                 $('#review-list').append(review_html)
             }
@@ -57,15 +71,19 @@ function review_show(name){
     })
 }
 
+
+
+
 function add_review(name){
     let comment = $('#new-review').val();
+
     $.ajax({
         type: "POST",
         url: "/review",
         data: {recipe_give:name, comment_give:comment},
         success: function (response) {
             let user_id = response['user_id']
-            let review_html = `<li> ${comment} / ${user_id} </li>`
+            let review_html = `<li> ${comment} / ${user_id} / ${date} </li>`
             if (user_id == undefined) {
                 alert('로그인 후 이용해주세요.')
             } else{
@@ -86,7 +104,8 @@ function request_show(){
             for (let i = 0; i < requests.length; i++) {
                 let uid = requests[i]['user_id']
                 let request = requests[i]['request']
-                let request_html = `<li> ${uid}:  ${request} </li>`
+                let datetime = requests[i]['datetime']
+                let request_html = `<li> ${uid}: ${request} / ${datetime} </li>`
                 
                 $('.request_list').append(request_html)
             }
@@ -105,7 +124,7 @@ function add_request(){
         data: {request_give:comment},
         success: function (response) {
             let user_id = response['user_id']
-            let req_html = `<li> ${user_id}:  ${comment} </li>`
+            let req_html = `<li> ${user_id}: ${comment} / ${date} </li>`
             if (user_id == undefined) {
                 alert('로그인 후 이용해주세요.')
             } else{
