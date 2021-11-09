@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   get_ingredients();
 });
 
@@ -6,11 +7,12 @@ $(document).ready(function () {
 function get_ingredients() {
   let item_list = $("#selected-ingredients-list");
   item_list.append("<li>" + ing_list + "</li>");
-
-  favo_recoomend();
+  
+//   ingredients();
+  favo_recommend();
 }
 
-function favo_recoomend() {
+function favo_recommend() {
   $.ajax({
     type: "GET",
     url: "/recommend/user",

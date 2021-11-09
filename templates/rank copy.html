@@ -42,9 +42,6 @@
                         <li><a href="/rank">랭킹</a></li>
                         {% if session['user_id'] %}    
                             <li><a href="/my">마이페이지</a></li>
-                            <script>
-                                window.sessionStorage.setItem("login_check","good")
-                            </script>
                             <li><a href="/logout">로그아웃</a></li>
                         {% else %}
                             <li><a href="/login">로그인</a></li>
