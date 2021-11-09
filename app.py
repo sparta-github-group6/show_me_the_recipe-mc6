@@ -9,6 +9,8 @@ from flask import (
     url_for,
 )
 from pymongo import MongoClient
+from datetime import datetime
+import time
 
 app = Flask(__name__)
 
@@ -341,6 +343,7 @@ def add_review():
                 "user_id": session["user_id"],
                 "name": recipe_receive,
                 "comment": comment_receive,
+                "datetime": time.strftime("%Y-%m-%d %H:%M"),
             }
 
             db.reviews.insert_one(doc)
@@ -368,6 +371,7 @@ def add_request():
             doc = {
                 "user_id": session["user_id"],
                 "request": request_receive,
+                "datetime": time.strftime("%Y-%m-%d %H:%M"),
             }
 
             db.requests.insert_one(doc)
