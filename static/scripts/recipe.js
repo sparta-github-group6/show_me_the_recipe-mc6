@@ -17,7 +17,7 @@ function recipe() {
       let making = recipes["making"];
       let precook = recipes["precook"];
       let img_html = `<img class="cook-img" src="../static/recipe-image/${name}.png" alt=""></img>`;
-      let title_html = `<h3>${name}</h3>`;
+      let title_html = `<h3 style="font-size:100px; font-family: 'Cafe24Dangdanghae';">${name}</h3>`;
       let btn_html = `<button class="btn-main" id="btn-add-review" onclick="add_review('${name}')">리뷰 추가</button>`;
       let ingredient__html = `${ing}`;
 

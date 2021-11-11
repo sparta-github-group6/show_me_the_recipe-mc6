@@ -1,11 +1,14 @@
 {% extends "base.html" %} {% block content %}
+<div class="title" style="text-align: center; margin: 20px; padding: 20px">
+  <h2 style="color: red; font-weight: bold; font-size:48px; font-family: Cafe24Danjunghae;">RANK</h2>
+</div>
 <div class="main" id="rank">
-  <div class="filter-menu">
-    <button class="btn-filter" id="btn-likes" onclick="show_rank()">
+  <div class="filter-menu" style="margin-left:15%;">
+    <button class="btn-filter" id="btn-likes" onclick="show_rank()" style="font-family: Cafe24Oneprettynight;">
       좋아요 순
     </button>
     /
-    <button class="btn-filter" id="btn-names" onclick="show_sort()">
+    <button class="btn-filter" id="btn-names" onclick="show_sort()" style="font-family: Cafe24Oneprettynight;">
       가나다 순
     </button>
   </div>
