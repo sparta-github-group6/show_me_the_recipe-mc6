@@ -5,9 +5,13 @@
   }
 </style>
 <div class="main">
-  <div id="left" style="width:50%;height:auto">
+  <div id="left" style="width: 50%;">
     <div class="main_title">
-      <h1 class="main_title_text">Show<br> Me<br> The Recipe</h1>
+      <h1 class="main_title_text">
+        Show<br />
+        Me<br />
+        The Recipe
+      </h1>
     </div>
 
     <div class="main_detail">
@@ -16,61 +20,66 @@
           <div class="input-group" id="select-item">
             <label>
               <input
-              type="text"
-              style="width: 60%; border:2px solid black;"
-              placeholder="재료를 입력해 주세요!"
-              id="ingredient"
+                type="text"
+                style="width: 60%; border: 2px solid black"
+                placeholder="재료를 입력해 주세요!"
+                id="ingredient"
               />
             </label>
             <button
-            type="button"
-            class="btn-main"
-            id="btn-select"
-            onclick="add_ingredient()"
+              type="button"
+              class="btn-main"
+              id="btn-select"
+              onclick="add_ingredient()"
             >
-            선택
+              선택
             </button>
 
             <button
-            type="button"
-            class="btn-main"
-            id="btn-reset"
-            onclick="delete_list()"
+              type="button"
+              class="btn-main"
+              id="btn-reset"
+              onclick="delete_list()"
             >
-            <i class="fas fa-redo"></i>
+              <i class="fas fa-redo"></i>
             </button>
+          </div>
+        </div>
+
+        <div class="section-main" id="selected-list">
+          <div id="selected_title">
+            <h3>선택한 재료 모음</h3>
+          </div>
+          <div id="selected">
+            <ul id="selected-item-list"></ul>
+          </div>
+        </div>
+
+          <div class="section-main" id="make-dishes">
+            <button
+              type="button"
+              class="btn-main"
+              id="btn-recommend"
+              onclick="to_recommend()"
+            >
+              요리 검색
+            </button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="section-main" id="selected-list">
-        <div id="selected">
-          <h3 class="selected_title">선택한 재료 모음</h3>
-          <ul id="selected-item-list"></ul>
-        </div>
-      </div>
-
-      <div class="section-main" id="make-dishes">
-        <button
-          type="button"
-          class="btn-main"
-          id="btn-recommend"
-          onclick="to_recommend()"
-        >
-          요리 검색
-        </button>
+    <div id="right" style="width: 50%">
+      {#
+      <div class="main_img">
+        #}
+        <img
+          src="/static/images/img11.png"
+          style="width: auto; height: 38vw; margin-left: 30%; margin-top: -6%"
+        />
       </div>
     </div>
   </div>
-  </div>
-  
-  <div id="right" style="width:50%;">  
-    {# <div class="main_img"> #}
-    <img src="/static/images/img11.png" style="width:auto;height:38vw;margin-left:30%;margin-top:-6%;">
-    </div>
-  </div>
-  
+
+  {% block javascript %} {% endblock %} {% endblock %}
 </div>
-
-{% block javascript %}
-    
-{% endblock %}  {% endblock %}

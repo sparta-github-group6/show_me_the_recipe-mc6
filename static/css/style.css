@@ -4,7 +4,7 @@
   font-weight: normal;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /* font-family: "Jua", monospace; */
 }
 
@@ -37,8 +37,9 @@ a {
 }
 
 #content {
-  padding-bottom: 100px;
+  padding-bottom: 80px;
   margin: 20px;
+  height: 100%;
 }
 
 .main {
@@ -67,7 +68,6 @@ a {
   font-size: 80px;
   margin-left: 64px;
   font-weight: bold;
-  
 }
 
 .header {
@@ -138,7 +138,7 @@ main {
   cursor: pointer;
 }
 
-.btn-main:hover{
+.btn-main:hover {
   color: white;
   background-color: orangered;
 }
@@ -149,8 +149,8 @@ main {
   clear: both;
   margin: 0 auto;
   text-align: center;
-  height: 100px;
-  position: absolute;
+  height: 80px;
+  /* position: absolute; */
   left: 0;
   bottom: 0;
 }
@@ -162,7 +162,7 @@ main {
 
 .cook-img {
   margin: 10px auto;
-  width: 300px
+  width: 300px;
 }
 
 .list-style {
@@ -247,6 +247,7 @@ main {
   padding: 10px;
 }
 
+#selected_title,
 #selected {
   display: none;
 }
@@ -265,14 +266,15 @@ main {
   padding: 0;
 }
 
-#btn-select, #btn-recommend {
+#btn-select,
+#btn-recommend {
   width: 80px;
   padding: 5px 0;
   margin: 10px;
 }
 
 #btn-recommend {
-  width:120px;
+  width: 120px;
 }
 
 #btn-reset {
@@ -313,7 +315,6 @@ main {
   border-radius: 5px;
   padding: 20px;
   border: 1px solid pink;
-
 }
 
 .popup {
@@ -352,7 +353,7 @@ main {
   color: black;
   font-size: 28px;
 }
-#btn-addUser:hover{
+#btn-addUser:hover {
   color: white;
   background-color: orangered;
 }
@@ -424,17 +425,16 @@ main {
   margin: 20px;
 }
 .rank-card-detail {
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
   justify-content: center;
-
 }
 .rank-card-cook-title {
   margin: 10px;
 }
-.rank-card-cook-title >h3 {
+.rank-card-cook-title > h3 {
   font-size: 30px;
   font-weight: normal;
 }
@@ -496,7 +496,7 @@ main {
 .member-image {
   width: 200px;
   height: 200px;
-  
+
   object-fit: cover;
 }
 
@@ -679,16 +679,17 @@ h3 {
   min-height: 200px;
   text-align: center;
 }
-.user_main{
-height: 400px;
-border: 1px solid black;
-width: 350px;
-padding: 30px;
-margin: 20px;
-text-align: center;
-align-items: center;}
+.user_main {
+  height: 400px;
+  border: 1px solid black;
+  width: 350px;
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+  align-items: center;
+}
 
-#btn-req{
+#btn-req {
   margin: 10px;
   width: 120px;
 }
@@ -700,36 +701,38 @@ align-items: center;}
   font-size: 20px;
   margin-left: 20px;
 }
-#id_check_sucess{
+#id_check_sucess {
   display: none;
   margin-left: 20px;
 }
 
-.recipe_detail{
-  border:1px solid orange; margin:10px; padding:10px; border-radius:15px; height:auto;
+.recipe_detail {
+  border: 1px solid orange;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  height: auto;
 }
 
-.recipe_detail li{
-  font-weight:normal;
-	list-style:decimal;
-	margin:10px 25px;
-	padding:10px;
-
+.recipe_detail li {
+  font-weight: normal;
+  list-style: decimal;
+  margin: 10px 25px;
+  padding: 10px;
 }
-#add-review{
-	margin: 20px auto;
-	width: 100%; 
-	height: auto; 
-	border-radius: 10px;
-	overflow: auto;
+#add-review {
+  margin: 20px auto;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: auto;
   text-align: center;
-  }
-#btn-add-review{
+}
+#btn-add-review {
   margin: 20px;
   color: black;
 }
-#btn-add-review:hover{
+#btn-add-review:hover {
   color: white;
   background-color: orangered;
 }
-

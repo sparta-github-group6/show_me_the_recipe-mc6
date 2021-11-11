@@ -2,14 +2,18 @@
   <ul>
     <li><a href="/rank">Rank</a></li>
     <li><a href="/about">About</a></li>
-    {% if session['user_id'] %}  
-      <li><a href="/my">MyPage</a></li>
-      <li><a href="/logout">Logout</a></li>
-      <script>
-        window.sessionStorage.setItem("login_check","good")
-      </script>
+    {% if session['user_id'] %}
+    <li><a href="/my">MyPage</a></li>
+    <li><a href="/logout" onclick="logout()">Logout</a></li>
+    <script>
+      window.sessionStorage.setItem("login_check", "good");
+
+      function logout() {
+        window.sessionStorage.setItem("login_check", "bad");
+      }
+    </script>
     {% else %}
-      <li><a href="/login">Login</a></li>
+    <li><a href="/login">Login</a></li>
     {% endif %}
   </ul>
 </nav>

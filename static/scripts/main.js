@@ -12,6 +12,9 @@ function add_ingredient() {
     console.log(item);
     ing_list.push(item);
 
+    let selected_title = $("#selected_title");
+    selected_title.show();
+
     let selected_box = $("#selected");
     selected_box.show();
 
