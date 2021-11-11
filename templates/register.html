@@ -5,94 +5,92 @@
     <img src="/static/images/img12.png" style="width:auto;height:35vw;margin-right:27.5%;margin-top:1%;">
   </div>
 
-  
-  <div class="register-layout">
+  <div class="register-wrap" style="width:50%; justify-content:center;text-align:center;margin-left:15vw;margin-right:8vw;">
+    <div class="register-layout">
+      <form name="join_form" id="join-form">
+        <div class="input-group" id="user-id">
+          <label>
+            <input
+              class="register-input"
+              type="text"
+              placeholder="아이디"
+              id="username"
+              style="width: 50%; border:2px solid black";
+            />
+          </label>
 
-    <form name="join_form" id="join-form">
-      <div class="input-group" id="user-id">
-        <label>
-          <input
-            class="register-input"
-            type="text"
-            placeholder="아이디"
-            id="username"
-            style="width: 50%; border:2px solid black";
-          />
-        </label>
+          <button type="button" id="id_check_button" onclick="id_check()">
+            중복 체크
+          </button>
+          <i id="id_check_sucess" class="fas fa-check"></i>
+        </div>
 
-        <button type="button" id="id_check_button" onclick="id_check()">
-          중복 체크
-        </button>
-        <i id="id_check_sucess" class="fas fa-check"></i>
-      </div>
+        <div class="input-group" id="user-email">
+          <label>
+            <input
+              class="register-input"
+              type="text"
+              placeholder="이메일"
+              id="email_id"
+              style="width: 25%; border:2px solid black"
+            />
+          </label>
+          @
+          <label>
+            <input
+              class="register-input"
+              type="text"
+              id="email_add"
+              style="width: 40%; border:2px solid black;"
+            />
+          </label>
 
-      <div class="input-group" id="user-email">
-        <label>
-          <input
-            class="register-input"
-            type="text"
-            placeholder="이메일"
-            id="email_id"
-            style="width: 25%; border:2px solid black"
-          />
-        </label>
-        @
-        <label>
-          <input
-            class="register-input"
-            type="text"
-            id="email_add"
-            style="width: 40%; border:2px solid black;"
-          />
-        </label>
+          <select name="email_sel" id="email_sel" onchange="change_email();">
+            <option value="">직접입력</option>
+            <option value="naver.com">naver</option>
+            <option value="gmail.com">gmail</option>
+          </select>
+        </div>
 
-        <select name="email_sel" id="email_sel" onchange="change_email();">
-          <option value="">직접입력</option>
-          <option value="naver.com">naver</option>
-          <option value="gmail.com">gmail</option>
-        </select>
-      </div>
+        <div class="input-group pw-input" id="user-pw">
+          <label>
+            <input
+              class="register-input"
+              type="password"
+              placeholder="비밀번호"
+              id="password"
+              style="border:2px solid black"
+            />
+          </label>
+        </div>
 
-      <div class="input-group pw-input" id="user-pw">
-        <label>
-          <input
-            class="register-input"
-            type="password"
-            placeholder="비밀번호"
-            id="password"
-            style="border:2px solid black"
-          />
-        </label>
-      </div>
+        <div class="input-group pw-input" id="user-pw">
+          <label>
+            <input
+              class="register-input"
+              type="password"
+              placeholder="비밀번호 확인"
+              id="re_password"
+              style="border:2px solid black"
+            />
+          </label>
+        </div>
+      </form>
 
-      <div class="input-group pw-input" id="user-pw">
-        <label>
-          <input
-            class="register-input"
-            type="password"
-            placeholder="비밀번호 확인"
-            id="re_password"
-            style="border:2px solid black"
-          />
-        </label>
-      </div>
-    </form>
-
-    <div class="btn-container">
-      <div class="btn-item">
-        <button
-          type="button"
-          class="btn-main"
-          id="btn-addUser"
-          onclick="form_check()"
-        >
-          회원가입
-        </button>
+      <div class="btn-container">
+        <div class="btn-item">
+          <button
+            type="button"
+            class="btn-main"
+            id="btn-addUser"
+            onclick="form_check()"
+          >
+            회원가입
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-
 </div>
 {% block javascript %}
   <script src="/static/scripts/register.js"></script>
