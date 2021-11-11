@@ -15,3 +15,7 @@ $(".user_menu").click(function() {
     $(this).children().css("display", "block");
   }
 })
+
+function logout(){
+  window.sessionStorage.setItem("login_check","bad")
+}
