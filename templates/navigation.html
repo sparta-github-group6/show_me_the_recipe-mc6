@@ -10,6 +10,9 @@
       </script>
     {% else %}
       <li><a href="/login">Login</a></li>
+      <script>
+        window.sessionStorage.setItem("login_check","bad")
+      </script>
     {% endif %}
   </ul>
 </nav>
