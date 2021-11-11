@@ -120,20 +120,17 @@ function register() {
 
   console.log(user_id, user_pw, user_mail);
 
-  $.ajax({
+$.ajax({
     type: "POST",
     url: "/register/add",
     data: {
-      userid_give: user_id,
-      userpw_give: user_pw,
-      usermail_give: user_mail,
+        userid_give: user_id,
+        userpw_give: user_pw,
+        usermail_give: user_mail,
     },
     success: function (response) {
-      // console.log(response);
-      // print(response);
-      // alert(response);
-      window.location.href = "/login";
+        window.location.href = "/login";
     },
-  });
+});
   window.sessionStorage.removeItem("id_check")
 }

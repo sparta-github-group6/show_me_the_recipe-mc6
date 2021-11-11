@@ -1,92 +1,74 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "base.html" %} {% block content %}
+<div class="main">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="login_img" style="width:60%; margin-left:50px;">
+      <img src="/static/images/img12.png" style="width:auto;height:35vw;margin-right:27.5%;margin-top:3%;">
+  </div>
 
-    <meta property="og:title" content="쇼미더레시피" />
-    <meta property="og:description" content="레시피봐" />
-    <meta property="og:image" content="{{ url_for('static', filename='images/ogimg.jpg') }}" />
-    <title>쇼미더레시피</title>
-    <!--    css 초기화 코드-->
-    <link rel="stylesheet" href="/static/css/default.css">
-    <!--    공용 css 코드-->
-    <link rel="stylesheet" href="/static/css/style.css">
-    <!--    main 에서만 쓰이는 css-->
-    <link rel="stylesheet" href="/static/css/popup.css">
-    <!--    모바일용 css-->
-    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
+  <div class="login-wrap" style="width:50%; justify-content:center;text-align:center;">
+    <div class="login-layout">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <div class="login-form">
+        <div class="input-group" id="user-id">
+        <label>
+          <input
+            class="login-input"
+            type="text"
+            placeholder="아이디"
+            id="user"
+          />
+        </label>
+        </div>
+        <div class="input-group" id="user-pw">
+        <label>
+          <input
+            class="login-input"
+            type="password"
+            placeholder="비밀번호"
+            id="password"
+          />
+        </label>
+        </div>
+      </div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+      <div class="btn-container">
+        <div class="btn-item">
+          <button type="button" class="btn-main" id="btn-login" onclick="login()">
+          로그인
+          </button>
+        </div>
 
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-    <!-- navigation toggle -->
-    <script src="/static/scripts/toggle.js"></script>
-    <!-- custom javascript-->
-    <script src="/static/scripts/login.js"></script>
+        <div class="btn-item">
+          아직 계정이 없으신가요?
+          <a id="btn-register" onclick="location.href='/register'">
+            회원가입
+          </a>
+        </div>
 
-</head>
-
-<body>
-    <div class="wrap">
-
-        <main id="woong" class="popup-container">
-
-            <div class="login-layout">
-
-                <div class="popup">
-                    <a href="/">
-                        <h1 class="logo"><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1>
-                    </a>
-
-                </div>
-
-                <div class="login-form">
-                    <div class="input-group" id="user-id">
-                        <label>
-                            <input class="login-input" type="text" placeholder="아이디" id="user">
-                        </label>
-
-                    </div>
-                    <div class="input-group" id="user-pw">
-                        <label>
-                            <input class="login-input" type="password" placeholder="비밀번호" id="password">
-                        </label>
-
-                    </div>
-                </div>
-
-                <div class="btn-container">
-
-                    <div class="btn-item">
-                        <a type="button" class="btn-main" id="btn-login" onclick="login()">로그인</a>
-                    </div>
-
-                    <div class="btn-item">
-                        아직 계정이 없으신가요? <a id="btn-register" onclick="location.href = '/register'">회원가입</a>
-
-                    </div>
-
-                    <div class="btn-item">
-                        <a id="btn-skip" onclick="skipToMain()">게스트 로그인</a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </main>
-
+      </div>
     </div>
-</body>
+  </div>
 
-</html>
+</div>
+{% block javascript %}
+<script>
+  function login() {
+    let user_id = $("#user").val();
+    let user_pw = $("#password").val();
+
+    $.ajax({
+      type: "POST",
+      url: "/login/check",
+      data: { userid_give: user_id, userpw_give: user_pw },
+      success: function (response) {
+        if (response["user_data"] == null) {
+          alert("아이디/비밀번호를 확인하세요");
+        } else {
+          window.location.href = "/";
+          window.sessionStorage.setItem("login_check","good")
+        }
+      },
+    });
+  }
+</script>
+{% endblock %} {% endblock %}

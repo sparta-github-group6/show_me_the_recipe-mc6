@@ -4,10 +4,11 @@
   font-weight: normal;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: "Jua", monospace; */
 }
 
 body {
-  margin: 0;
   height: 100%;
 }
 
@@ -31,45 +32,75 @@ a {
 /* main */
 .wrap {
   width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+#content {
+  padding-bottom: 100px;
+  margin: 20px;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+}
+
+.main_img,
+.main_text {
+  width: 50%;
+  height: auto;
+}
+
+.main_make,
+.main_title {
+  width: 100%;
+}
+
+.main_img {
+  background-image: url("/static/images/img1.png");
+  background-size: cover;
+  height: auto;
+}
+
+.main_title h1 {
+  font-size: 80px;
+  margin-left: 64px;
+  font-weight: bold;
+  
+}
+
+.header {
+  text-align: center;
+  align-items: center;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.header a {
+  margin: 25px;
+}
+
+.header h1 {
+  font-size: 40px;
   text-align: center;
 }
 
-main {
-  width: 60%;
-  margin: 0 auto;
-}
-
-header {
-  margin: 0 auto;
-  padding: 10px 0 0;
-  width: 60%;
-  display: flex;
-  /*flex-direction: row;*/
-  justify-content: space-between;
-}
-
-header nav {
+.nav {
   height: 50px;
   text-align: center;
-  /* margin: 0 auto; */
 }
 
-header nav ul {
+.nav ul {
   display: flex;
+  justify-content: center;
   float: right;
 }
-
-header nav ul li {
+.nav ul li {
   margin: 10px;
-  padding: 0 3rem 0 0;
   text-align: center;
-}
-
-h1 {
-  position: absolute;
-  top: 10px;
-  left: 20%;
-  font-size: 32px;
 }
 
 .logo {
@@ -80,7 +111,7 @@ h1 {
 
 .navigation {
   text-align: center;
-  font-family: "맑은 고딕", monospace;
+  font-family: "Jua", monospace;
 }
 
 main {
@@ -93,12 +124,11 @@ main {
 
 /*Button*/
 .btn-main {
-  font-family: "Jua", sans-serif;
   width: 120px;
-  background-color: #d8d8d8;
-  border: none;
+  background-color: transparent;
+  border: 1px solid orangered;
   border-radius: 10px;
-  color: #000000;
+  color: orangered;
   padding: 15px 0;
   text-align: center;
   text-decoration: none;
@@ -108,45 +138,21 @@ main {
   cursor: pointer;
 }
 
-footer {
+.btn-main:hover{
+  color: white;
+  background-color: orangered;
+}
+
+#footer {
   width: 100%;
   background: #ffffff;
   clear: both;
   margin: 0 auto;
   text-align: center;
-}
-
-.rtan {
-  width: 60%;
-  height: 200px;
-  margin: auto;
-  position: relative;
-  background-image: url("https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg");
-}
-
-.rtan::before {
-  content: "";
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100px;
   position: absolute;
-  opacity: 0.5;
-  top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
-  background-color: #fff;
-}
-
-.rtan-title {
-  font-family: "Black Han Sans", sans-serif;
-  width: 100%;
-  font-size: 3.5vw;
-  left: 0;
-  line-height: 200px;
-  margin: 10px 0;
-  text-align: center;
-  font-weight: normal;
-  position: relative;
 }
 
 .cook-name {
@@ -156,6 +162,7 @@ footer {
 
 .cook-img {
   margin: 10px auto;
+  width: 300px
 }
 
 .list-style {
@@ -176,9 +183,553 @@ footer {
   background: 0;
   font-size: 24px;
   padding: 0;
+  border: none;
 }
 
 .input-group {
   margin: 0 auto;
   text-align: center;
 }
+
+.section-main {
+  text-align: center;
+  align-items: center;
+  margin: 5px 0 5px 0;
+  display: block;
+}
+
+#favorite-main {
+  border: 1px solid hotpink;
+  border-radius: 5px;
+}
+
+#favorite-main h2 {
+  margin: 10px;
+  font-size: 32px;
+}
+
+.favorite {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.favorite-card-cook {
+  border: 1px solid palegoldenrod;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.favorite-card-cook h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.favorite-dishes {
+  background-image: url("../images/logo.png");
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  background-size: cover;
+}
+
+.favorite-card-cook-like {
+  display: flex;
+  justify-content: center;
+}
+
+#select-item {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#selected {
+  display: none;
+}
+
+.input_ingredients {
+  width: 500px;
+  height: 40px;
+  margin: 3px 0;
+  padding: 5px;
+  font-size: 24px;
+}
+
+#selected-item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#btn-select, #btn-recommend {
+  width: 80px;
+  padding: 5px 0;
+  margin: 10px;
+}
+
+#btn-recommend {
+  width:120px;
+}
+
+#btn-reset {
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.selected_title {
+  font-size: 36px;
+}
+
+.popup-container {
+  /* width: 100%; */
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-width: 50vw;
+  min-height: 95vh;
+}
+
+.login-layout {
+  width: 400px;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid orangered;
+}
+
+.register-layout {
+  margin: 25px;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid pink;
+
+}
+
+.popup {
+  display: block;
+  text-align: center;
+}
+
+.btn-container {
+  display: block;
+  text-align: center;
+}
+
+.btn-container a {
+  cursor: pointer;
+}
+
+.btn-item {
+  margin: 20px auto;
+}
+
+#btn-login {
+  background: transparent;
+  color: black;
+  font-size: 28px;
+}
+
+#btn-idCheck {
+  cursor: pointer;
+  background: 0;
+  color: black;
+  font-size: 20px;
+}
+
+#btn-addUser {
+  background: transparent;
+  color: black;
+  font-size: 28px;
+}
+#btn-addUser:hover{
+  color: white;
+  background-color: orangered;
+}
+.logo {
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+}
+
+.login-form {
+  justify-content: center;
+  width: 50%;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: center;
+}
+
+.login-input {
+  margin: 10px auto;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+#join-form {
+  text-align: start;
+}
+
+.register-input {
+  margin: 20px auto;
+  padding: 5px;
+}
+
+.pw-input {
+  width: 90%;
+  margin: 0;
+}
+
+.input-group {
+  text-align: start;
+}
+/*rank*/
+
+#rank {
+  display: block;
+}
+.rank-container-cook-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+.rank-card-cook {
+  width: 400px;
+  height: 200px;
+  border: 1px solid palegoldenrod;
+  margin: 20px 40px 20px 40px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+}
+
+.rank-card-cook-image {
+  background-image: url("../images/logo.png");
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+.rank-card-detail {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+
+}
+.rank-card-cook-title {
+  margin: 10px;
+}
+.rank-card-cook-title >h3 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.rank-card-cook-footer {
+  margin-top: 20px;
+}
+
+.to_top {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+.btn-up {
+  font-size: 32px;
+}
+
+.btn-filter {
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+/*filter*/
+.filter-menu {
+  text-align: left;
+  margin: 10px;
+  margin-left: 100px;
+}
+
+.to_recipe {
+  cursor: pointer;
+}
+
+.section-about {
+  text-align: center;
+  align-items: center;
+  margin: 11px 0 60px;
+  border: 3px solid #eed6ea;
+  display: block;
+  border-radius: 15px;
+}
+
+.members-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.members-about {
+  margin: 20px auto;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.member-image {
+  width: 200px;
+  height: 200px;
+  
+  object-fit: cover;
+}
+
+.section-thanks {
+  text-align: center;
+  align-items: center;
+  margin: 11px 0 60px;
+  display: block;
+  border: 3px solid #ffd0e0;
+  border-radius: 15px;
+}
+
+.thanks-image {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  background-size: cover;
+}
+
+.thanks-about {
+  text-align: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.fav-item {
+  margin: 15px;
+}
+
+.fav-image {
+  margin: 15px;
+}
+
+.fav-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  align-items: center;
+}
+
+.fav-delete {
+  align-items: center;
+  justify-content: center;
+}
+.i-delete {
+  font-size: 25px;
+}
+.star-list {
+  width: 70%;
+  height: auto;
+  margin: 20px;
+  border: 1px solid pink;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  /*justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto; */
+}
+
+.selected-ingredients ul {
+  list-style: none;
+}
+
+.card-footer {
+  background: 0;
+}
+
+#ingredients-main h2 {
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.selected-ingredients li {
+  font-size: 28px;
+}
+
+/* recommend */
+.selected-ingredients {
+  text-align: center;
+  align-items: center;
+  margin: 11px 0 30px;
+  display: block;
+}
+
+#ingredients-main {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.ingredients {
+  min-width: 150px;
+  min-height: 150px;
+  background-image: url("../images/default-image.jpg");
+  background-position: 50% 50%;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.recipes_all_about {
+  width: 80%;
+  display: flex;
+  margin: 10px auto;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.recipes_img {
+  width: 100%;
+  background-color: papayawhip;
+}
+
+.list-img-cook {
+  width: 100%;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.recipes_information {
+  width: 75%;
+  height: auto;
+  text-align: start;
+  justify-content: center;
+  padding-left: 5px;
+  vertical-align: center;
+}
+
+.recipes_information h3 {
+  margin: 0 0 0 15px;
+  font-size: 32px;
+}
+
+.recipes_title {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.recipes_desc {
+  height: 150px;
+  padding: 5px 30px;
+  overflow: auto;
+}
+
+.recipes_desc h4 {
+  font-size: 24px;
+  margin: 0 0 0 20px;
+  padding-top: 5px;
+}
+
+.recipes_like {
+  height: 30px;
+  width: 140px;
+  float: left;
+}
+
+#i_favorite.active {
+  color: pink;
+}
+
+.recipe-box {
+  width: 100%;
+  margin: 30px;
+  min-height: 200px;
+  text-align: center;
+}
+.user_main{
+height: 400px;
+border: 1px solid black;
+width: 350px;
+padding: 30px;
+margin: 20px;
+text-align: center;
+align-items: center;}
+
+#btn-req{
+  margin: 10px;
+  width: 120px;
+}
+
+#id_check_button {
+  cursor: pointer;
+  background: 0;
+  color: black;
+  font-size: 20px;
+  margin-left: 20px;
+}
+#id_check_sucess{
+  display: none;
+  margin-left: 20px;
+}
+
+.recipe_detail{
+  border:1px solid orange; margin:10px; padding:10px; border-radius:15px; height:auto;
+}
+
+.recipe_detail li{
+  font-weight:normal;
+	list-style:decimal;
+	margin:10px 25px;
+	padding:10px;
+
+}
+#add-review{
+	margin: 20px auto;
+	width: 100%; 
+	height: auto; 
+	border-radius: 10px;
+	overflow: auto;
+  text-align: center;
+  }
+#btn-add-review{
+  margin: 20px;
+  color: black;
+}
+#btn-add-review:hover{
+  color: white;
+  background-color: orangered;
+}
+

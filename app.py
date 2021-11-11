@@ -74,22 +74,15 @@ def recipe_page():
 
 
 # 요리 레시피 추가
-@app.route("/recipe/new")
+@app.route("/request")
 def recipe_add_page():
-    return render_template("add_recipe.html")
+    return render_template("request.html")
 
 
 # 마이페이지
 @app.route("/my")
 def my_page():
     return render_template("mypage.html")
-
-
-# 상위 레시피 표시 API
-@app.route("/rank/favorite", methods=["GET"])
-def show_favorite():
-    favorite_list = list(db.recipes.find({}, {"_id": False}).sort("like", -1).limit(4))
-    return jsonify({"favorite_Lists": favorite_list})
 
 
 # 랭크 페이지 좋아요순 정렬 API

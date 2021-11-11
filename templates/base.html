@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="/static/css/default.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      media="(min-width:0px) and (max-width:500px) "
+      href="/static/css/mobile.css"
+    />
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/15cc769352.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/static/scripts/toggle.js"></script>
+    <script src="/static/scripts/get_date.js"></script>
+    <script src="/static/scripts/main.js"></script>
+    {% endblock %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Roboto&display=swap" rel="stylesheet">
+    <title>쇼미더레시피</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="header">
+      <a href="/">
+        <h1><i class="fas fa-utensils logo"></i> Show Me the Recipe</h1>
+      </a>
+      <button class="btn_menu"></button>
+      <div class="nav">{% include "navigation.html" %}</div>
+    </div>
+    <div class="wrap">
+      <div id="content">{% block content %}{% endblock %}</div>
+      <div id="footer">
+        {% block footer %} copyright by 내일배움단 <br />
+        Thanks to <a href="https://spartacodingclub.kr/">스파르타 코딩 클럽</a
+        ><br />
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
