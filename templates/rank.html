@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<div class ="main" id="rank">
+<div class="main" id="rank">
   <div class="filter-menu">
     <button class="btn-filter" id="btn-likes" onclick="show_rank()">
       좋아요 순
-    </button> /
+    </button>
+    /
     <button class="btn-filter" id="btn-names" onclick="show_sort()">
       가나다 순
     </button>
@@ -74,22 +75,22 @@
           let like = recipeList[i]["like"];
           let temp_html = `<div class="rank-card-cook">
                                     <div>
-                                        <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook_image">
+                                        <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook image">
                                     </div>
-
-                                    <div class="rank-card-cook-title">
+                                    <div class="rank-card-detail">
+                                      <div class="rank-card-cook-title">
                                         <h3>${name}</h3>
-                                    </div>
-                                 
-                                    <div class="favorite-card-cook-like">
+                                      </div>
+                                      <div class="favorite-card-cook-like">
                                         <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
-                                    </div>
-                                    <div class="rank-card-cook-footer">
-                                        <a onclick="rank_search_recipe('${name}')">
-                                            레시피 보기
+                                      </div>
+                                      <div class="rank-card-cook-footer">
+                                        <a class="to_recipe" onclick="rank_search_recipe('${name}')">
+                                            <u>레시피 보기</u>
                                         </a>
-                                    </div>`;
-
+                                      </div>
+                                    </div>
+                                </div>`;
           $("#cook-list").append(temp_html);
         }
       },
