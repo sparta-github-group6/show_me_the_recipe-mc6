@@ -15,10 +15,10 @@ import time
 app = Flask(__name__)
 
 # 서버 열 때 활성화
-# client = MongoClient("mongodb://test:test@localhost", 27017)
+client = MongoClient("mongodb://test:test@localhost", 27017)
 
 # 로컬에서 작업할 때 활성화
-client = MongoClient("localhost", 27017)
+# client = MongoClient("localhost", 27017)
 
 
 db = client.dbmaking
