@@ -1,80 +1,178 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "base.html" %} {% block content %}
+<div style="width: 100%; display: block">
+  <div class="section-main" id="ingredients-main">
+    <h2 style="color: red; font-weight: bold; font-size:48px">RECIPE To You</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쇼미더레시피</title>
-        <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/recommend.css">
-    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
+    <div class="selected-ingredients"></div>
+  </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <div class="recipe-box" id="matched-dishes"></div>
+</div>
+{% block javascript %}
+<script>
+  $(document).ready(() => {
+    get_ingredients();
+  });
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-    <!-- navigation toggle -->
-    <script src="/static/scripts/toggle.js"></script>
-    <script src="/static/scripts/search_recipe.js"></script>
-</head>
+  // 재료 목록 가져오기
+  function get_ingredients() {
+    let item_list = $("#selected-ingredients-list");
+    item_list.append("<li>" + ing_list + "</li>");
+    favo_recommend();
+  }
 
-<body>
-    <div class="wrap">
+  function favo_recommend() {
+    $.ajax({
+      type: "GET",
+      url: "/recommend/user",
+      data: {},
+      success: function (response) {
+        sessionStorage.setItem("favorite", response["favorite"]);
+        recommend();
+      },
+    });
+  }
 
-    <header>
-        <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
-        <button class="btn_menu">
-        </button>
-            <nav>
-                <div class="navigation">
-                    <ul id="nav_login">
-                        <li><a href="/rank">랭킹</a></li>
-                        {% if session['user_id'] %}
-                            <li><a href="/my">마이페이지</a></li>
+  function recommend() {
+    $.ajax({
+      type: "GET",
+      url: "/recommend/read",
+      data: { ing_list },
+      success: function (response) {
+        let recipes = response["recipes"];
+        let favorite = sessionStorage.getItem("favorite").split(",");
 
-                            <script>
-                                window.sessionStorage.setItem("login_check","good")
-                            </script>
+        if (recipes.length == 0) {
+          $(".recipe-box").append("재료에 해당하는 레시피가 없습니다.");
+        }
 
-                            <li><a href="/logout">로그아웃</a></li>                            
+        for (let i = 0; i < recipes.length; i++) {
+          let ing = recipes[i]["ingredients"];
+          var name = recipes[i]["name"];
+          let like = recipes[i]["like"];
 
-                        {% else %}
-                            <li><a href="/login">로그인</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-        </header>
+          let temp_html = `<a href="/recipe" onclick="search_recipe('${name}')">
+                                    <div class="recipes_all_about">
+                                        <div class="recipes_img">
+                                            <img src="../static/recipe-image/${name}.png" class="list-img-cook" alt="요리 이미지">
+                                        </div>
+                
+                                        <div class="recipes_information">
+                                            <div class="recipes_title" id="index${i}">
+                                                <h3> ${name} </h3>
+                                            </div>
+                
+                                            <div class="recipes_desc">
+                                                <p>
+                                                    재료 : ${ing}
+                                                </p>
+                                            </div>
+                
+                                            <div class="recipes_like">
+                                            <footer class="card-footer">
+                                                    <a onclick="likeStar('${name}')" class="card-footer-item">
+                                                    ${like}
+                                                        <span class="icon">
+                                                            <i class="fas fa-thumbs-up"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a onclick="hateStar('${name}')" class="card-footer-item">
+                                                        <span class="icon">
+                                                            <i class="fas fa-thumbs-down"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a onclick="add_favorite('${name}'); toggle_star('${i}')" class="card-footer-item">
+                                                        <span class="icon" id="star_btn${i}">
+                                                        <i class="far fa-star" id="blank_star${i}"></i>
+                                                        <i class="fas fa-star" id="good_star${i}"></i>
+                                                        </span>
+                                                    </a>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                </a>`;
 
-        <main id="soo">
+          $(".recipe-box").append(temp_html);
+          var bs = "#blank_star" + String(i);
+          var gs = "#good_star" + String(i);
 
-            <section class="section-main" id="ingredients-main">
-                <h2>선택한 재료</h2>
+          if (favorite.indexOf(name) == -1) {
+            $(bs).show();
+            $(gs).hide();
+          } else {
+            $(gs).show();
+            $(bs).hide();
+          }
+        }
+      },
+    });
+    ingredients();
+  }
 
-                <div class="selected-ingredients">
-                </div>
-            </section>
+  function ingredients() {
+    $.ajax({
+      type: "GET",
+      url: "/recommend/ingredient",
+      data: {},
+      success: function (response) {
+        let ingredients = response["ing"]["index"];
+        for (let i = 0; i < ingredients.length; i++) {
+          let item = ingredients[i];
+          let temp_html = `<li class="list-style"> ${item} </li>`;
+          $(".selected-ingredients").append(temp_html);
+        }
+      },
+    });
+  }
 
-            <div class="recipe-box" id="matched-dishes">
-            </div>
+  function likeStar(name) {
+    $.ajax({
+      type: "POST",
+      url: "/recipe/like",
+      data: { name_give: name },
+      success: function (response) {
+        alert(response["msg"]);
+        window.location.reload();
+      },
+    });
+  }
 
-        </main>
+  function hateStar(name) {
+    $.ajax({
+      type: "POST",
+      url: "/recipe/hate",
+      data: { name_give: name },
+      success: function (response) {
+        alert(response["msg"]);
+        window.location.reload();
+      },
+    });
+  }
 
-        <footer>
-                copyright by 내일배움단 6조<br>
-                Thanks to 스파르타 코딩 클럽
-        </footer>
-    </div>
-</body>
-    <script src="../static/scripts/main.js"></script>
-    <script src="../static/scripts/recommend.js"></script>
-</html>
+  function add_favorite(name) {
+    $.ajax({
+      type: "POST",
+      url: "/favorite",
+      data: { recipe_give: name },
+      success: function (response) {
+        alert(response["msg"]);
+      },
+    });
+  }
+
+  function toggle_star(num) {
+    if (window.sessionStorage.getItem("login_check") == "good") {
+      let bs = "#blank_star" + String(num);
+      let gs = "#good_star" + String(num);
+      if ($(bs).css("display") == "none") {
+        $(bs).show();
+        $(gs).hide();
+      } else {
+        $(gs).show();
+        $(bs).hide();
+      }
+    }
+  }
+</script>
+<script src="/static/scripts/search_recipe.js"></script>
+{% endblock %} {% endblock %}

@@ -1,93 +1,109 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "base.html" %} {% block content %}
+<div class ="main" id="rank">
+  <div class="filter-menu">
+    <button class="btn-filter" id="btn-likes" onclick="show_rank()">
+      좋아요 순
+    </button> /
+    <button class="btn-filter" id="btn-names" onclick="show_sort()">
+      가나다 순
+    </button>
+  </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쇼미더레시피</title>
-    <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/rank.css">
-    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
+  <div class="rank-container-cook-card" id="cook-list"></div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <div class="to_top">
+    <a href="/rank">
+      <i class="fas fa-chevron-circle-up btn-up" title="위로"></i>
+    </a>
+  </div>
+</div>
+{% block javascript %}
+<script>
+  $(document).ready(() => {
+    show_rank();
+  });
+  function show_rank() {
+    $("#cook-list").empty();
+    $.ajax({
+      type: "GET",
+      url: "/rank/list?sample_give=샘플데이터", //레시피 가져올 url  필요
+      data: {},
+      success: function (response) {
+        let recipeList = response["recipe_Lists"];
+        for (let i = 0; i < recipeList.length; i++) {
+          let name = recipeList[i]["name"];
+          let like = recipeList[i]["like"];
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-    <!-- navigation toggle -->
-    <script src="/static/scripts/toggle.js"></script>
-    <script src="../static/scripts/rank.js"></script>
-    
-</head>
+          let temp_html = `<div class="rank-card-cook">
+                                    <div>
+                                        <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook image">
+                                    </div>
+                                    <div class="rank-card-detail">
+                                      <div class="rank-card-cook-title">
+                                        <h3>${name}</h3>
+                                      </div>
+                                      <div class="favorite-card-cook-like">
+                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
+                                      </div>
+                                      <div class="rank-card-cook-footer">
+                                        <a class="to_recipe" onclick="rank_search_recipe('${name}')">
+                                            <u>레시피 보기</u>
+                                        </a>
+                                      </div>
+                                    </div>
 
-<body>
-    <div class="wrap">
+                                </div>`;
+          $("#cook-list").append(temp_html);
+        }
+      },
+    });
+  }
 
-        <header>
-            <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
-            <button class="btn_menu">
-            </button>
+  function show_sort() {
+    console.log("가나다순 실행");
+    $("#cook-list").empty();
+    $.ajax({
+      type: "GET",
+      url: "/rank/sort?sample_give=샘플데이터", //레시피 가져올 url  필요
+      data: {},
+      success: function (response) {
+        console.log(response);
+        let recipeList = response["sort_lists"];
+        for (let i = 0; i < recipeList.length; i++) {
+          let name = recipeList[i]["name"];
+          let like = recipeList[i]["like"];
+          let temp_html = `<div class="rank-card-cook">
+                                    <div>
+                                        <img src="../static/recipe-image/${name}.png" class="rank-card-cook-image" alt="cook_image">
+                                    </div>
 
-            <nav>
-                <div class="navigation">
-                    {# <ul id="nav_login">
-                        <li><a href="/rank">랭킹</a></li>
-                        {% if session['user_id'] %}    
-                            <li><a href="/my">마이페이지</a></li>
-                            <script>
-                                window.sessionStorage.setItem("login_check","good")
-                            </script>
-                            <li><a href="/logout">로그아웃</a></li>
-                        {% else %}
-                            <li><a href="/login">로그인</a></li>
-                        {% endif %}
-                    </ul> #}
-                </div>
-            </nav>
-        </header>
+                                    <div class="rank-card-cook-title">
+                                        <h3>${name}</h3>
+                                    </div>
+                                 
+                                    <div class="favorite-card-cook-like">
+                                        <h3><i class="fas fa-thumbs-up"></i> ${like}</h3>
+                                    </div>
+                                    <div class="rank-card-cook-footer">
+                                        <a onclick="rank_search_recipe('${name}')">
+                                            레시피 보기
+                                        </a>
+                                    </div>`;
 
-        {# <div class="img" style="height: 200px;">
-            <div class="rtan">
-                <h1 class="rtan-title">레시피 랭킹</h1>
-            </div>
-        </div> #}
+          $("#cook-list").append(temp_html);
+        }
+      },
+    });
+  }
 
-        <main id="woong">
-
-            <div class="filter-menu">
-                <button class="btn-filter" id="btn-likes" onclick="show_rank()">
-                    좋아요 순
-                </button>
-                <button class="btn-filter" id="btn-names" onclick="show_sort()">
-                    가나다 순
-                </button>
-            </div>
-
-            <div class="rank-container-cook-card" id="cook-list">
-            </div>
-
-            <div class="to_top">
-                <a href="/rank">
-                    <i class="fas fa-chevron-circle-up btn-up" title="위로"></i>
-                </a>
-            </div>
-
-
-        </main>
-
-        <footer>
-            copyright by 내일배움단 6조<br>
-            Thanks to 스파르타 코딩 클럽
-        </footer>
-    </div>
-</body>
-
-</html>
+  function rank_search_recipe(name) {
+    $.ajax({
+      type: "POST",
+      url: "/recommend/search2",
+      data: { name_give: name },
+      success: function (response) {},
+    });
+    window.location.href = "/recipe";
+  }
+</script>
+{% endblock %} {% endblock %}

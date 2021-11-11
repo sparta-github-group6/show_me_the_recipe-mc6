@@ -1,114 +1,56 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쇼미더레시피</title>
-        <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/recipe.css">
-    <link rel="stylesheet" media="(min-width:0px) and (max-width:768px) " href="/static/css/mobile.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/15cc769352.js" crossorigin="anonymous"></script>
-    <!-- navigation toggle -->
-    <script src="/static/scripts/toggle.js"></script>
-    <script src="../static/scripts/recipe.js" defer></script>
-    <script>
-        $(document).ready(() => {
-            recipe()
-        })
-    </script>
-
-
-</head>
-
-<body>
-<div class="wrap">
-
-    <header>
-        <a href="/"><h1><i class="fas fa-utensils logo"></i> 쇼미더레시피</h1></a>
-        <button class="btn_menu">
-        </button>
-            <nav>
-                <div class="navigation">
-                    <ul id="nav_login">
-                        <li><a href="/rank">랭킹</a></li>
-                        {% if session['user_id'] %}
-                            <li><a href="/my">마이페이지</a></li>
-                            <li><a href="/logout">로그아웃</a></li>
-                        {% else %}
-                            <li><a href="/login">로그인</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-    <main id="jung">
-
-        <div id="recipe-db">
-            <div class="cook-name" id="jemok" style="border: 1px solid pink;">
-            </div>
-            <div class="ingredient">
-                <h3>[ 필요한 재료 ]</h3>
-
-                <div class="ing">
-                </div>
-            </div>
-            <div class="recipe" id="pre-recipe">
-
-                <div class="ready">
-                    <h3>[ 준비하기 ]</h3>
-
-                    <ol class="ready_detail">
-                    </ol>
-                </div>
-                <div class="making">
-                    <h3>[ 만들기 ]</h3>
-                    <ol class="making_detail">
-                    </ol>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="review-list">
-            <!-- 이 레시피에 대한 리뷰 -->
-            <h4>[리뷰 목록]</h4>
-        </div>
-
-        <div id="add-review" >
-            <!-- 새 리뷰 추가-->
-            <h4>[새 리뷰]</h4>
-            <textarea name="new-review" id="new-review" cols="30" rows="10" style="width: 90%; margin: 20px;"></textarea>
-
-            <!-- <button class="btn-main" id="btn-add-review" onclick="add_review()">
-                리뷰 추가
-            </button> -->
-
-        </div>
-
-    </main>
+{% extends "base.html" %} {% block content %}
+<div style="display:flex; flex-wrap:column; margin:50px;">
+  {# 요리이미지 #}
+  <div id="recipe_img" style="margin-left:10%;position:absolute;">
+  </div>
+  {# 요리 상세 내용 #}
+  <div style="width:60%;margin-left:30%;">
+    
+    {# 요리 이름 #}
+    <div id="recipe_name">
+    </div>
+    {# 요리 재료 #}
+    <div class="recipe_detail" id="recipe_ingredient">
+      <div id="ingredient">
+      <h3>[요리 재료]</h3>
+      </div>
+    
+    </div>
+    
+    {# 요리 준비 #}
+    <div class="recipe_detail" id="ready">
+      <h3>[준비하기]</h3>
+      <ol class="ready_detail"></ol>
+    </div>
+    
+    {# 요리 만들기 #}
+    <div class="recipe_detail" id="making">
+      <h3>[만들기]</h3>
+      <ol class="making_detail"></ol>
+    </div>
+    {# 요리 리뷰 #}
+    <div class="recipe_detail" id="review-wrap">
+    <!-- 이 레시피에 대한 리뷰 -->
+      <h4>[리뷰 목록]</h4>
+      <!-- 새 리뷰 추가-->
+      <div id="review-list">
+      </div>
 
 
-    <footer>
-            copyright by 내일배움단 6조<br>
-            Thanks to 스파르타 코딩 클럽
-    </footer>
+      <div id="add-review">
+    
+        <textarea name="new-review" id="new-review" cols="30" rows="10" style="width: 90%; margin: 20px"></textarea>
+
+      </div>
+    
+    </div>
+
+  
+
+  </div>
+
+
 </div>
-</body>
-
-</html>
+{% block javascript %}
+  <script src="/static/scripts/recipe.js"></script>
+{% endblock %} {% endblock %}
